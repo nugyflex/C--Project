@@ -65,19 +65,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="CollisionDetection.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameLevel.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="CollisionDetection.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameLevel.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Level1.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="rectangle.h" />
     <ClInclude Include="SpriteSheet.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
