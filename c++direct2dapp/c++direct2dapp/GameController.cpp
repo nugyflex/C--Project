@@ -1,7 +1,14 @@
 #include "GameController.h"
+#include <vector>
+
 
 GameLevel* GameController::currentlevel;
 bool GameController::Loading;
+bool GameController::keyW;
+bool GameController::keyA;
+bool GameController::keyS;
+bool GameController::keyD;
+
 
 void GameController::Init()
 {
@@ -27,14 +34,14 @@ void GameController::SwitchLevel(GameLevel* lev)
 	Loading = false;
 }
 
-void GameController::Render()
+void GameController::Render(vector<Ball> &_Balls)
 {
 	if (Loading) return;
-	currentlevel->Render();
+	currentlevel->Render(_Balls);
 }
 
-void GameController::Update()
+void GameController::Update(vector<Ball> &_Balls)
 {
 	if (Loading) return;
-	currentlevel->Update();
+	currentlevel->Update(_Balls);
 }

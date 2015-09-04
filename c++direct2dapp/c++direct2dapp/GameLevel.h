@@ -1,5 +1,11 @@
 #pragma once
-#include "Graphics.h"
+
+#include "Ball.h"
+#include "SpriteSheet.h"
+#include "rectangle.h"
+#include <vector>
+
+using namespace std;
 
 class GameLevel
 {
@@ -13,6 +19,6 @@ public:
 	}
 	virtual void Load() = 0;
 	virtual void Unload() = 0;
-	virtual void Render() = 0;
-	virtual void Update() = 0;
+	virtual void Render(vector<Ball> &_Balls) = 0;
+	virtual void Update(vector<Ball> &_Balls) = 0;
 };

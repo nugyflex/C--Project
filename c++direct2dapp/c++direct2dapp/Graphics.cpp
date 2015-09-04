@@ -1,5 +1,6 @@
 #include "Graphics.h"
 
+
 Graphics::Graphics()
 {
 	factory = NULL;
@@ -24,22 +25,39 @@ bool Graphics::Init(HWND windowHandle)
 	GetClientRect(windowHandle, &rect);
 
 	factory->CreateHwndRenderTarget(D2D1::RenderTargetProperties(), D2D1::HwndRenderTargetProperties(windowHandle, D2D1::SizeU(rect.right, rect.bottom)), &renderTarget);
+
 	if (res != S_OK) return false;
 	res = renderTarget->CreateSolidColorBrush(D2D1::ColorF(0, 0, 0, 0), &brush);
 	if (res != S_OK) return false;
+	brush->SetColor(D2D1::ColorF(0, 0, 0, 0));
 	return true;
 }
-void Graphics::ClearScreen(float r, float g, float b)
+void Graphics::ClearScreen(float _r, float _g, float _b)
 {
-	renderTarget->Clear(D2D1::ColorF(r, g, b));
+	renderTarget->Clear(D2D1::ColorF(_r, _g, _b));
 }
-void Graphics::DrawCircle(float x, float y, float radius, float r, float g, float b, float a)
+void Graphics::DrawCircle(Point _center, float _radius, float _r, float _g, float _b, float _a)
 {
+	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
 
-	brush->SetColor(D2D1::ColorF(r, g, b, a));
+	renderTarget->DrawEllipse(D2D1::Ellipse(D2D1::Point2F(_center.x, _center.y), _radius, _radius), brush, 2.0f);
+}
+void Graphics::DrawRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a)
+{
+	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
+	renderTarget->DrawRectangle(D2D1::Rect(_position.x, _position.y, _position.x + _width, _position.y + _height), brush, 2.0f);
 
+}
 
-	renderTarget->DrawEllipse(D2D1::Ellipse(D2D1::Point2F(x, y), radius, radius), brush, 2.0f);
+void Graphics::FillRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a)
+{
+	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
+	renderTarget->FillRectangle(D2D1::Rect(_position.x, _position.y, _position.x + _width, _position.y + _height), brush);
+}
 
+void Graphics::DrawLine(Point _position1, Point _position2, float _r, float _g, float _b, float _a)
+{
+	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
 
+	renderTarget->DrawLine(D2D1::Point2F(_position1.x, _position1.y), D2D1::Point2F(_position2.x, _position2.y), brush, 2.0f);
 }
