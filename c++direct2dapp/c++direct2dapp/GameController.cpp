@@ -8,6 +8,7 @@ bool GameController::keyW;
 bool GameController::keyA;
 bool GameController::keyS;
 bool GameController::keyD;
+float GameController::zoomLevel;
 
 
 void GameController::Init()
@@ -34,14 +35,14 @@ void GameController::SwitchLevel(GameLevel* lev)
 	Loading = false;
 }
 
-void GameController::Render(vector<Ball> &_Balls)
+void GameController::Render(vector<Rect> &_Rects)
 {
 	if (Loading) return;
-	currentlevel->Render(_Balls);
+	currentlevel->Render(_Rects);
 }
 
-void GameController::Update(vector<Ball> &_Balls)
+void GameController::Update(vector<Rect> &_Rects)
 {
 	if (Loading) return;
-	currentlevel->Update(_Balls);
+	currentlevel->Update(_Rects);
 }

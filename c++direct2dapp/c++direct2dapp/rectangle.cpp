@@ -1,6 +1,7 @@
 #include "Rectangle.h"
 
-Rect::Rect(Point _position, int _width, int _height, float _yVel, float _xVel, Graphics * gfxi)
+
+Rect::Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, Graphics * gfxi)
 {
 	position = _position;
 	width = _width;
@@ -8,6 +9,7 @@ Rect::Rect(Point _position, int _width, int _height, float _yVel, float _xVel, G
 	yVel = _yVel;
 	xVel = _xVel;
 	gfx = gfxi;
+	fixed = _fixed;
 #pragma once
 }
 
@@ -82,14 +84,21 @@ void Rect::setX(float _x){
 	position.x = _x;
 }
 void Rect::calcNewPos(){
+	if (!fixed)
+	{
 	setX(getX() + getxVel());
 	setY(getY() + getyVel());
+	}
+}
+bool Rect::getFixed()
+{
+	return fixed;
 }
 
 void Rect::draw()
 {
 
-	gfx->FillRect(position, width, height, 1.0f, 1.0f, 1.0f, 1.0f);
-
+	gfx->FillRect(position, width, height, 0.5f, 0.5f, 0.5f, 1.0f);
+	gfx->DrawRect(position, width, height, 1.0f, 1.0f, 1.0f, 0.5f);
 }
 

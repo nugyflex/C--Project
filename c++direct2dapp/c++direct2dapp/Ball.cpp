@@ -50,7 +50,7 @@ void Ball::setY(float _y){
 	center.y = _y;
 }
 void Ball::setX(float _x){
-	center.x = _x;
+	center.x= _x;
 }
 
 float Ball::getxVel(){
@@ -64,7 +64,7 @@ float Ball::getX(){
 
 void Ball::changeX(float _xChange)
 {
-	center.x += _xChange;
+	center.x+= _xChange;
 }
 
 void Ball::setxVel(float _xVel){

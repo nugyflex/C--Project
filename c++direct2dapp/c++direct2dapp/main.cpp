@@ -4,14 +4,14 @@
 
 #include "Level1.h"
 #include "GameController.h"
+#include "Camera.h"
 
-#include "Ball.h"
-#include "rectangle.h"
 
 using namespace std;
 
 
 Graphics* graphics;
+Camera* camera;
 
 
 
@@ -71,13 +71,15 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow)
 {
-	vector<Ball> Balls;
+	vector<Rect> Rects;
 	graphics = new Graphics();
-	int foo[5];
-	Point center = {50, 9 };
-	Balls.push_back(Ball(center, 50, 0, 0, graphics));
-	Balls.push_back(Ball(center, 50, 0, 0, graphics));
-	Rect Rect1(center, 20, 20, 20, 20, graphics);
+	Point randompoint = {50, 9 };
+	Rects.push_back(Rect(randompoint, 30, 30, 0, 0, false, graphics));
+	randompoint = { 50, 300 };
+	Rects.push_back(Rect(randompoint, 400, 50, 0, 0, true, graphics));
+	randompoint = { 50, 500 };
+	Rects.push_back(Rect(randompoint, 400, 50, 0, 0, true, graphics));
+	camera = new Camera(randompoint);
 
 	WNDCLASSEX windowclass;
 	ZeroMemory(&windowclass, sizeof(WNDCLASSEX));
@@ -94,7 +96,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	AdjustWindowRectEx(&rect, WS_OVERLAPPEDWINDOW, false, WS_EX_OVERLAPPEDWINDOW);
 
 	HWND windowhandle = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MainWindow", "c++ things", WS_OVERLAPPEDWINDOW, 100, 100, rect.right - rect.left , rect.bottom - rect.top, NULL, NULL, hInstance, 0);
-	
 
 
 
@@ -109,7 +110,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	ShowWindow(windowhandle, nCmdShow);
 
 	GameController::LoadInitialLevel(new Level1());
-
+	GameController::zoomLevel = 1;
 	MSG message;
 	message.message = WM_NULL;
 	while (message.message != WM_QUIT)
@@ -119,19 +120,17 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 		else
 		{
 
-			GameController::Update(Balls);
+			camera->calcNewPos(Rects[0].getPosition());
+			GameController::Update(Rects);
 			graphics->BeginDraw();
-			GameController::Render(Balls);
+
+			graphics->centerCamera(camera->getPosition());
+			//graphics->zoomCamera(GameController::zoomLevel);
+			GameController::Render(Rects);
 			graphics->EndDraw();
 		}
 	}
 
-	/*
-	MSG message;
-	while(GetMessage(&message, NULL, 0, 0))
-		{
-		DispatchMessage(&message);
-		}*/
 	delete graphics;
 	return 0;
 }

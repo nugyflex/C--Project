@@ -16,4 +16,6 @@ public:
 	static bool test6(Rect *player, Rect *platform);
 	static bool test7(Rect *player, Rect *platform);
 	static bool test8(Rect *player, Rect *platform);
+	static int getSide(Rect &player, Rect &platform);
+	static void correctPosition(Rect &player, Rect &platform);
 };

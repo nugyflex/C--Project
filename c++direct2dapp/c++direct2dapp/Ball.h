@@ -1,6 +1,5 @@
 #pragma once
 #include "Graphics.h"
-#include "GameLevel.h"
 #include "CollisionDetection.h"
 
 class Ball

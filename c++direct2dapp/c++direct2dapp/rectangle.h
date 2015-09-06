@@ -1,7 +1,6 @@
 #pragma once
 #include "Graphics.h"
-#include "GameLevel.h"
-#include "CollisionDetection.h"
+
 
 class Rect
 {
@@ -10,13 +9,14 @@ class Rect
 	int height;
 	float yVel;
 	float xVel;
+	bool fixed;
 protected:
 	Graphics *gfx;
 
 public:
 
 
-	Rect(Point _position, int _width, int _height, float _yVel, float _xVel, Graphics *gfx);
+	Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, Graphics *gfx);
 	~Rect();
 
 	int getWidth();
@@ -35,7 +35,7 @@ public:
 	void setY(float _y);
 	void setWidth(int _width);
 	void setHeight(int _height);
-
+	bool getFixed();
 	void calcNewPos();
 
 	void draw();

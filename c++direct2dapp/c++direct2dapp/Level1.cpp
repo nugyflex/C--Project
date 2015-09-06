@@ -4,7 +4,7 @@
 void Level1::Load()
 {
 
-	sprites = new SpriteSheet(L"test.png", gfx);
+	sprites = new SpriteSheet(L"gradient_sprite.png", 100, 100, 0, gfx);
 
 }
 
@@ -14,51 +14,74 @@ void Level1::Unload() {
 }
 ;
 
-void Level1::Update(vector<Ball> &_Balls)
+void Level1::Update(vector<Rect> &_Rects)
 {
 	if (GameController::keyW == true)
 	{
-		_Balls[0].setyVel(-6);
+		if (_Rects[0].getyVel() >= 0)
+		{
+			for (int j = 0; j < _Rects.size(); j++)
+			{
+				if (_Rects[j].getFixed() && CollisionDetection::getSide(_Rects[0], _Rects[j]) == 4)
+				{
+					_Rects[0].setyVel(-15);
+				}
+			}
+		}
 	}
 	if (GameController::keyA == true)
 	{
-		_Balls[0].setxVel(-6);
+
+		
+		_Rects[0].setxVel(-6);
+		gfx->setZoomLevel(gfx->getZoomLevel() + 0.01);
+		
 	}
 	if (GameController::keyS == true)
 	{
-		_Balls[0].setyVel(6);
+		_Rects[0].setyVel(6);
 	}
 	if (GameController::keyD == true)
 	{
-		_Balls[0].setxVel(6);
+		_Rects[0].setxVel(6);
+		gfx->setZoomLevel(gfx->getZoomLevel() - 0.01);
 	}
 	if (GameController::keyA == false && GameController::keyD == false)
 	{
-		_Balls[0].setxVel(0);
+		_Rects[0].setxVel(0);
 	}
-	/*
-	for (int i = 0; i < _Balls.size; i++)
+	for (int i = 0; i < _Rects.size(); i++)
 	{
 		//Gravity
-		_Balls[i].setyVel(_Balls[i].getyVel() + 0.5f);
+		_Rects[i].setyVel(_Rects[i].getyVel() + 0.5f);
 		//adding xvel x to x and yvel to y
-		_Balls[i].calcNewPos();
-		//making sure that the balls dont go through the floor
-		if (_Balls[i].getY() > 600 - _Balls[i].getRadius())
-
+		_Rects[i].calcNewPos();
+		if (!_Rects[i].getFixed())
 		{
-			_Balls[i].setY(600 - _Balls[i].getRadius());
-			_Balls[i].setyVel(_Balls[i].getyVel()*-0.8);
+			for (int j = 0; j < _Rects.size(); j++)
+			{
+				if (_Rects[j].getFixed())
+				{
+					CollisionDetection::correctPosition(_Rects[i], _Rects[j]);
+				}
+			}
 		}
-	}*/
+
+	}
+
+
+
 }
-void Level1::Render(vector<Ball> &_Balls)
+void Level1::Render(vector<Rect> &_Rects)
 {
-//sprites->Draw();
+
 	if (CollisionDetection::CheckRectangleIntersect(1, 1, 10, 10, 5, 5, 15, 15))
 	{
 		gfx->ClearScreen(0.0f, 0.0f, 0.0f);
-		_Balls[0].draw();
-		_Balls[1].draw();
+		sprites->Draw(0, 60, 60);
+		for (int i = 0; i < _Rects.size(); i++)
+		{
+			_Rects[i].draw();
+		}
 	}
 }

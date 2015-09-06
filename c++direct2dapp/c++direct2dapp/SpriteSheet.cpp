@@ -1,8 +1,12 @@
 #include "SpriteSheet.h"
 
-SpriteSheet::SpriteSheet(wchar_t* filename, Graphics* gfx)
+SpriteSheet::SpriteSheet(wchar_t* filename, int _frameWidth, int _frameHeight, int _frame, Graphics* gfx)
 {
+	frameWidth = _frameWidth;
+	frameHeight = _frameHeight;
+	frame = _frame;
 	this->gfx = gfx;
+	
 	bmp = NULL;
 	HRESULT hr;
 
@@ -55,15 +59,15 @@ SpriteSheet::~SpriteSheet()
 	if (bmp) bmp->Release();
 }
 
-void SpriteSheet::Draw()
+void SpriteSheet::Draw(int _frame, float _x, float _y)
 {
 	gfx->GetRenderTarget()->DrawBitmap(
 		bmp,
-		D2D1::RectF(0.0f, 0.0f,
-		bmp->GetSize().width, bmp->GetSize().height),
+		D2D1::RectF(_x, _y,
+		_x + frameWidth, _y + frameHeight),
 		1.0f,
 		D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
-		D2D1::RectF(0.0f, 0.0f,
-		bmp->GetSize().width, bmp->GetSize().height)
+		D2D1::RectF(frameWidth*_frame, 0,
+		frameWidth*_frame+frameWidth, 100)
 		);
 }

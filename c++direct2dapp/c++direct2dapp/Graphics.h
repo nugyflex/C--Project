@@ -9,6 +9,7 @@ class Graphics
 	ID2D1Factory* factory;
 	ID2D1HwndRenderTarget* renderTarget;
 	ID2D1SolidColorBrush* brush;
+	float zoomLevel;
 public:
 	Graphics();
 	~Graphics();
@@ -28,4 +29,7 @@ public:
 	void DrawRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a);
 	void FillRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a);
 	void DrawLine(Point _position1, Point _position2, float _r, float _g, float _b, float _a);
+	void centerCamera(Point _position);
+	void setZoomLevel(float _zoom);
+	float getZoomLevel();
 };

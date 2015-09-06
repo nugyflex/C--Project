@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Ball.h"
 #include "SpriteSheet.h"
 #include "rectangle.h"
 #include <vector>
@@ -19,6 +18,6 @@ public:
 	}
 	virtual void Load() = 0;
 	virtual void Unload() = 0;
-	virtual void Render(vector<Ball> &_Balls) = 0;
-	virtual void Update(vector<Ball> &_Balls) = 0;
+	virtual void Render(vector<Rect> &_Rects) = 0;
+	virtual void Update(vector<Rect> &_Rects) = 0;
 };
