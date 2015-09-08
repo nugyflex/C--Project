@@ -92,6 +92,13 @@
     <Image Include="gradient_sprite.png" />
     <Image Include="test.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Randomize12.bfxrsound" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Laserwav.wav" />
+    <Media Include="Randomize12.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

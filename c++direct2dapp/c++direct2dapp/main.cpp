@@ -5,6 +5,8 @@
 #include "Level1.h"
 #include "GameController.h"
 #include "Camera.h"
+#include <mmsystem.h>
+#pragma comment (lib, "winmm.lib")
 
 
 using namespace std;

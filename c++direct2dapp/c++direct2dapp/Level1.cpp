@@ -5,6 +5,7 @@ void Level1::Load()
 {
 
 	sprites = new SpriteSheet(L"gradient_sprite.png", 100, 100, 0, gfx);
+	soundLatch = 0;
 
 }
 
@@ -18,6 +19,7 @@ void Level1::Update(vector<Rect> &_Rects)
 {
 	if (GameController::keyW == true)
 	{
+		//gfx->setZoomLevel(gfx->getZoomLevel() + 0.01);
 		if (_Rects[0].getyVel() >= 0)
 		{
 			for (int j = 0; j < _Rects.size(); j++)
@@ -34,17 +36,30 @@ void Level1::Update(vector<Rect> &_Rects)
 
 		
 		_Rects[0].setxVel(-6);
-		gfx->setZoomLevel(gfx->getZoomLevel() + 0.01);
+		if (soundLatch == 0)
+		{
+			PlaySound(TEXT("teleport.wav"), NULL, SND_ASYNC);
+			//PlaySound(TEXT("Randomize12.wav"), NULL, SND_ASYNC);
+		}
+			soundLatch = 1;
 		
+		
+	}
+	else
+	{
+		soundLatch = 0;
 	}
 	if (GameController::keyS == true)
 	{
 		_Rects[0].setyVel(6);
+		//gfx->setZoomLevel(gfx->getZoomLevel() - 0.01);
 	}
 	if (GameController::keyD == true)
 	{
 		_Rects[0].setxVel(6);
-		gfx->setZoomLevel(gfx->getZoomLevel() - 0.01);
+		
+		//PlaySound(TEXT("Randomize12.wav"), NULL, SND_ASYNC);
+
 	}
 	if (GameController::keyA == false && GameController::keyD == false)
 	{

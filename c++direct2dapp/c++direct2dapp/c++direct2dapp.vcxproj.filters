@@ -86,4 +86,17 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Randomize12.bfxrsound">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Laserwav.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Randomize12.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+  </ItemGroup>
 </Project>

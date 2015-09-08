@@ -13,6 +13,7 @@ class Level1 : public GameLevel
 {
 	float y;
 	float yVel;
+	int soundLatch;
 
 	SpriteSheet* sprites;
 
