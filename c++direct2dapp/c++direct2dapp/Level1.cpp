@@ -6,6 +6,8 @@ void Level1::Load()
 
 	sprites = new SpriteSheet(L"gradient_sprite.png", 100, 100, 0, gfx);
 	soundLatch = 0;
+	testvar = 0;
+	fc = 0;
 
 }
 
@@ -19,7 +21,7 @@ void Level1::Update(vector<Rect> &_Rects)
 {
 	if (GameController::keyW == true)
 	{
-		//gfx->setZoomLevel(gfx->getZoomLevel() + 0.01);
+		gfx->setZoomLevel(gfx->getZoomLevel() + 0.01);
 		if (_Rects[0].getyVel() >= 0)
 		{
 			for (int j = 0; j < _Rects.size(); j++)
@@ -52,7 +54,7 @@ void Level1::Update(vector<Rect> &_Rects)
 	if (GameController::keyS == true)
 	{
 		_Rects[0].setyVel(6);
-		//gfx->setZoomLevel(gfx->getZoomLevel() - 0.01);
+		gfx->setZoomLevel(gfx->getZoomLevel() - 0.01);
 	}
 	if (GameController::keyD == true)
 	{
@@ -93,10 +95,23 @@ void Level1::Render(vector<Rect> &_Rects)
 	if (CollisionDetection::CheckRectangleIntersect(1, 1, 10, 10, 5, 5, 15, 15))
 	{
 		gfx->ClearScreen(0.0f, 0.0f, 0.0f);
-		sprites->Draw(0, 60, 60);
+		sprites->Draw(testvar, 60, 60);
 		for (int i = 0; i < _Rects.size(); i++)
 		{
 			_Rects[i].draw();
+		}
+		if (fc == 1)
+		{
+			testvar++;
+		}
+		if (testvar == 4)
+		{
+			testvar = 0;
+		}
+		fc++;
+		if (fc == 10)
+		{
+			fc = 0;
 		}
 	}
 }
