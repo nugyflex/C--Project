@@ -73,6 +73,7 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
   </ItemGroup>
@@ -85,12 +86,14 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="SpriteSheet.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="gradient_sprite.png" />
     <Image Include="test.png" />
+    <Image Include="testsprite.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Randomize12.bfxrsound" />

@@ -17,6 +17,7 @@ public:
 	static bool keyA;
 	static bool keyS;
 	static bool keyD;
+	static int fps;
 	static float zoomLevel;
 		 
 	static void Init();

@@ -1,10 +1,13 @@
 #include "SpriteSheet.h"
 
-SpriteSheet::SpriteSheet(wchar_t* filename, int _frameWidth, int _frameHeight, int _frame, Graphics* gfx)
+SpriteSheet::SpriteSheet(wchar_t* filename, int _frameWidth, int _frameHeight, int _frame, int _frames, Graphics* gfx)
 {
 	frameWidth = _frameWidth;
 	frameHeight = _frameHeight;
 	frame = _frame;
+	fc = 0;
+	frames = _frames;
+	speed = 0;
 	this->gfx = gfx;
 	
 	bmp = NULL;
@@ -67,7 +70,32 @@ void SpriteSheet::Draw(int _frame, float _x, float _y)
 		_x + frameWidth, _y + frameHeight),
 		1.0f,
 		D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
-		D2D1::RectF(frameWidth*_frame, 0,
-		frameWidth*_frame+frameWidth, 100)
+		D2D1::RectF(frameWidth*frame, 0,
+		frameWidth*frame+frameWidth, 100)
 		);
+}
+void SpriteSheet::autoSwitchFrame(int _speed)
+{
+	speed = _speed;
+	if (fc == 1)
+	{
+		nextFrame();
+	}
+	if (frame == frames)
+	{
+		frame = 0;
+	}
+	fc++;
+	if (fc >= 60 / speed)
+	{
+		fc = 0;
+	}
+}
+void SpriteSheet::setFrame(int _frame)
+{
+	frame = _frame;
+}
+void SpriteSheet::nextFrame()
+{
+	frame++;
 }

@@ -9,6 +9,7 @@ bool GameController::keyA;
 bool GameController::keyS;
 bool GameController::keyD;
 float GameController::zoomLevel;
+int GameController::fps;
 
 
 void GameController::Init()
