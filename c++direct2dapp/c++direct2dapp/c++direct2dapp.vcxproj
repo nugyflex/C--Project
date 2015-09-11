@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="gradient_sprite.png" />
+    <Image Include="sandfloor1.png" />
     <Image Include="test.png" />
     <Image Include="testsprite.png" />
   </ItemGroup>

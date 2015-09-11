@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SpriteSheet.h"
-#include "rectangle.h"
+#include "Player.h"
 #include <vector>
 
 using namespace std;

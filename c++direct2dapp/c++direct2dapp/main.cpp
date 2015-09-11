@@ -91,7 +91,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	randompoint = { 50, 300 };
 	Rects.push_back(Rect(randompoint, 400, 50, 0, 0, true, graphics));
 	randompoint = { 50, 500 };
-	Rects.push_back(Rect(randompoint, 400, 50, 0, 0, true, graphics));
+	Rects.push_back(Player(randompoint, 400, 50, 0, 0, true, graphics));
 	/*for (int i = 1; i < 2500; i++)
 	{
 		Rects.push_back(Rect(randompoint, 400, 50, 0, 0, true, graphics));

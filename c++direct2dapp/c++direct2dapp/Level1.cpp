@@ -5,6 +5,7 @@ void Level1::Load()
 {
 
 	sprites = new SpriteSheet(L"testsprite.png", 32, 54, 0, 4, gfx);
+	sprites1 = new SpriteSheet(L"sandfloor1.png", 1632, 8, 0, 0, gfx);
 	soundLatch = 0;
 	testvar = 0;
 	fc = 0;
@@ -87,10 +88,12 @@ void Level1::Render(vector<Rect> &_Rects)
 		gfx->ClearScreen(0.0f, 0.0f, 0.0f);
 		sprites->autoSwitchFrame(7);
 		sprites->Draw(testvar, 60, 60);
+
 		for (int i = 0; i < _Rects.size(); i++)
 		{
 			_Rects[i].draw();
 		}
+		sprites1->Draw(0, 50, 298);
 
 	}
 }

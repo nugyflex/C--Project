@@ -18,6 +18,7 @@ class Level1 : public GameLevel
 	int fc;
 
 	SpriteSheet* sprites;
+	SpriteSheet* sprites1;
 
 public:
 

@@ -12,6 +12,7 @@ Rect::Rect(Point _position, int _width, int _height, float _yVel, float _xVel, b
 	fixed = _fixed;
 #pragma once
 }
+Rect::Rect(){}
 
 
 Rect::~Rect()
