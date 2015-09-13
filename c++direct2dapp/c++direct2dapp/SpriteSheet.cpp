@@ -56,7 +56,7 @@ if (wicDecoder) wicDecoder->Release();
 if (wicConverter) wicConverter->Release();
 if (wicFrame) wicFrame->Release();
 }
-
+SpriteSheet::SpriteSheet(){}
 SpriteSheet::~SpriteSheet()
 {
 	if (bmp) bmp->Release();

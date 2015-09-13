@@ -10,13 +10,14 @@ class Rect
 	float yVel;
 	float xVel;
 	bool fixed;
+
 protected:
+
 	Graphics *gfx;
 
 public:
-
 	Rect();
-	Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, Graphics *gfx);
+	Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, Graphics * gfxi);
 	~Rect();
 
 	int getWidth();

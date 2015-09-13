@@ -4,7 +4,7 @@
 void Level1::Load()
 {
 
-	sprites = new SpriteSheet(L"testsprite.png", 32, 54, 0, 4, gfx);
+	sprites = new SpriteSheet(L"walkingleftwithbags.png", 32, 54, 0, 4, gfx);
 	sprites1 = new SpriteSheet(L"sandfloor1.png", 1632, 8, 0, 0, gfx);
 	soundLatch = 0;
 	testvar = 0;

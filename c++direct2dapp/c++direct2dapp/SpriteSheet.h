@@ -15,7 +15,7 @@ class SpriteSheet
 	int speed;//Frame changes per second
 public:
 	SpriteSheet(wchar_t* filename, int _frameWidth, int _frameHeight, int _frame, int _frames, Graphics* gfx);
-
+	SpriteSheet();
 	~SpriteSheet();
 
 	void Draw(int _frame, float _x, float _y);

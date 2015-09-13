@@ -87,8 +87,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	vector<Rect> Rects;
 	graphics = new Graphics();
 	Point randompoint = { 50, 9 };
-	Rects.push_back(Player(randompoint, 32, 54, 0, 0, graphics));
-	randompoint = { 50, 300 };
+
 	Rects.push_back(Platform(randompoint, 400, 50, 0, 0, graphics));
 	randompoint = { 50, 500 };
 	Rects.push_back(Platform(randompoint, 400, 50, 0, 0, graphics));
@@ -123,7 +122,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	}
 
 	GameLevel::Init(graphics);
-
+	Rects.push_back(Player(randompoint, 32, 54, 0, 0, graphics));
+	randompoint = { 50, 300 };
 	GameController::fps = 60;
 	ShowWindow(windowhandle, nCmdShow);
 
