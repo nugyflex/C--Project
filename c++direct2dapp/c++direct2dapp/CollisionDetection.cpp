@@ -96,32 +96,32 @@ bool CollisionDetection::test8(Rect *_player, Rect *_platform) {
 	return false;
 }
 
-int CollisionDetection::getSide(Rect &_player, Rect &_platform) {
+int CollisionDetection::getSide(Rect *_player, Rect *_platform) {
 	int result = -1;
 	int testvar = 0;
-	if (test1(&_player, &_platform))
+	if (test1(_player, _platform))
 	{
 		testvar = testvar + 1;
 	}
-	if (test2(&_player, &_platform)) {
+	if (test2(_player, _platform)) {
 		testvar = testvar + 2;
 	}
-	if (test3(&_player, &_platform)) {
+	if (test3(_player, _platform)) {
 		testvar = testvar + 4;
 	}
-	if (test4(&_player, &_platform)) {
+	if (test4(_player, _platform)) {
 		testvar = testvar + 8;
 	}
-	if (test5(&_player, &_platform)) {
+	if (test5(_player, _platform)) {
 		testvar = testvar + 16;
 	}
-	if (test6(&_player, &_platform)) {
+	if (test6(_player, _platform)) {
 		testvar = testvar + 32;
 	}
-	if (test7(&_player, &_platform)) {
+	if (test7(_player, _platform)) {
 		testvar = testvar + 64;
 	}
-	if (test8(&_player, &_platform)) {
+	if (test8(_player, _platform)) {
 		testvar = testvar + 128;
 	}
 	switch (testvar)
@@ -162,7 +162,7 @@ int CollisionDetection::getSide(Rect &_player, Rect &_platform) {
 		//top left corner
 		//0,0,1,0,0,0,0,1
 	case 33:
-		if ((_player.getX() + _player.getWidth()) - _platform.getX() > (_player.getY() + _player.getHeight()) - _platform.getY()) {
+		if ((_player->getX() + _player->getWidth()) - _platform->getX() > (_player->getY() + _player->getHeight()) - _platform->getY()) {
 			result = 4;
 		}
 		else {
@@ -173,7 +173,7 @@ int CollisionDetection::getSide(Rect &_player, Rect &_platform) {
 		//top right corner
 		//0,0,1,0,1,0,1,1 = 43
 	case 43:
-		if (_platform.getX() + _platform.getWidth() - _player.getX() > (_player.getY() + _player.getHeight()) - _platform.getY()) {
+		if (_platform->getX() + _platform->getWidth() - _player->getX() > (_player->getY() + _player->getHeight()) - _platform->getY()) {
 			result = 4;
 
 		}
@@ -186,7 +186,7 @@ int CollisionDetection::getSide(Rect &_player, Rect &_platform) {
 		//bottom left corner
 		//0,1,1,1,0,0,0,1 = 113
 	case 113:
-		if (_player.getX() + _player.getWidth() - _platform.getX() > _platform.getY() + _platform.getHeight() - _player.getY()) {
+		if (_player->getX() + _player->getWidth() - _platform->getX() > _platform->getY() + _platform->getHeight() - _player->getY()) {
 
 			result = 2;
 		}
@@ -199,7 +199,7 @@ int CollisionDetection::getSide(Rect &_player, Rect &_platform) {
 		//bottom right corner
 		//0,1,1,1,1,0,1,1 = 123
 	case 123:
-		if (_platform.getX() + _platform.getWidth() - _player.getX() > _platform.getY() + _platform.getHeight() - _player.getY()) {
+		if (_platform->getX() + _platform->getWidth() - _player->getX() > _platform->getY() + _platform->getHeight() - _player->getY()) {
 			result = 2;
 		}
 		else {
@@ -211,34 +211,34 @@ int CollisionDetection::getSide(Rect &_player, Rect &_platform) {
 
 	return result;
 }
-void CollisionDetection::correctPosition(Rect &_player, Rect &_platform) {
-	if (!_player.getFixed())
+void CollisionDetection::correctPosition(Rect* _player, Rect* _platform) {
+	if (!_player->getFixed())
 	{
 		switch (getSide(_player, _platform))
 		{
 		case 1:
-			if (_player.getxVel() > 0) {
-				_player.setxVel(0);
+			if (_player->getxVel() > 0) {
+				_player->setxVel(0);
 			}
-			_player.setX(_platform.getX() - _player.getWidth() + 1);
+			_player->setX(_platform->getX() - _player->getWidth() + 1);
 			break;
 		case 3:
-			if (_player.getxVel() < 0) {
-				_player.setxVel(0);
+			if (_player->getxVel() < 0) {
+				_player->setxVel(0);
 			}
-			_player.setX(_platform.getX() + _platform.getWidth() - 1);
+			_player->setX(_platform->getX() + _platform->getWidth() - 1);
 			break;
 		case 2:
-			if (_player.getyVel() < 0) {
-				_player.setyVel(0);
+			if (_player->getyVel() < 0) {
+				_player->setyVel(0);
 			}
-			_player.setY(_platform.getY() + _platform.getHeight() - 1);
+			_player->setY(_platform->getY() + _platform->getHeight() - 1);
 			break;
 		case 4:
-			if (_player.getyVel() > 0) {
-				_player.setyVel(0);
+			if (_player->getyVel() > 0) {
+				_player->setyVel(0);
 			}
-			_player.setY(_platform.getY() - _player.getHeight() + 1);
+			_player->setY(_platform->getY() - _player->getHeight() + 1);
 			break;
 		}
 	}

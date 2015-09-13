@@ -9,6 +9,7 @@ void Level1::Load()
 	soundLatch = 0;
 	testvar = 0;
 	fc = 0;
+	
 
 }
 
@@ -18,17 +19,17 @@ void Level1::Unload() {
 }
 ;
 
-void Level1::Update(vector<Rect> &_Rects)
+void Level1::Update(vector<Rect*> _Rects)
 {
 	if (GameController::keyW == true)
 	{
-		if (_Rects[0].getyVel() >= 0)
+		if (_Rects[0]->getyVel() >= 0)
 		{
 			for (int j = 0; j < _Rects.size(); j++)
 			{
-				if (_Rects[j].getFixed() && CollisionDetection::getSide(_Rects[0], _Rects[j]) == 4)
+				if (_Rects[j]->getFixed() && CollisionDetection::getSide(_Rects[0], _Rects[j]) == 4)
 				{
-					_Rects[0].setyVel(-15);
+					_Rects[0]->setyVel(-15);
 				}
 			}
 		}
@@ -37,7 +38,7 @@ void Level1::Update(vector<Rect> &_Rects)
 	{
 
 		
-		_Rects[0].setxVel(-6);
+		_Rects[0]->setxVel(-6);
 		
 		
 	}
@@ -47,28 +48,28 @@ void Level1::Update(vector<Rect> &_Rects)
 	}
 	if (GameController::keyS == true)
 	{
-		_Rects[0].setyVel(6);
+		_Rects[0]->setyVel(6);
 	}
 	if (GameController::keyD == true)
 	{
-		_Rects[0].setxVel(6);
+		_Rects[0]->setxVel(6);
 
 	}
 	if (GameController::keyA == false && GameController::keyD == false)
 	{
-		_Rects[0].setxVel(0);
+		_Rects[0]->setxVel(0);
 	}
 	for (int i = 0; i < _Rects.size(); i++)
 	{
 		//Gravity
-		_Rects[i].setyVel(_Rects[i].getyVel() + 0.5f);
+		_Rects[i]->setyVel(_Rects[i]->getyVel() + 0.5f);
 		//adding xvel x to x and yvel to y
-		_Rects[i].calcNewPos();
-		if (!_Rects[i].getFixed())
+		_Rects[i]->calcNewPos();
+		if (!_Rects[i]->getFixed())
 		{
 			for (int j = 0; j < _Rects.size(); j++)
 			{
-				if (_Rects[j].getFixed())
+				if (_Rects[j]->getFixed())
 				{
 					CollisionDetection::correctPosition(_Rects[i], _Rects[j]);
 				}
@@ -80,7 +81,7 @@ void Level1::Update(vector<Rect> &_Rects)
 
 
 }
-void Level1::Render(vector<Rect> &_Rects)
+void Level1::Render(vector<Rect*> _Rects)
 {
 
 	if (CollisionDetection::CheckRectangleIntersect(1, 1, 10, 10, 5, 5, 15, 15))
@@ -91,7 +92,7 @@ void Level1::Render(vector<Rect> &_Rects)
 
 		for (int i = 0; i < _Rects.size(); i++)
 		{
-			_Rects[i].draw();
+			_Rects[i]->draw();
 		}
 		sprites1->Draw(0, 50, 298);
 

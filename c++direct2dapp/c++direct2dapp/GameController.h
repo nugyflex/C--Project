@@ -25,8 +25,8 @@ public:
 	static void LoadInitialLevel(GameLevel* lev);
 	static void  SwitchLevel(GameLevel* lev);
 
-	static void Render(vector<Rect> &_Rects);
-	static void Update(vector<Rect> &_Rects);
+	static void Render(vector<Rect*> _Rects);
+	static void Update(vector<Rect*> _Rects);
 
 
 };

@@ -84,14 +84,18 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow)
 {
-	vector<Rect> Rects;
+	vector<Rect*> Rects;
 	graphics = new Graphics();
 	Point randompoint = { 50, 9 };
-	Rects.push_back(Player(randompoint, 32, 54, 0, 0, graphics));
+	Rect* tempobject = new Player(randompoint, 32, 54, 0, 0, graphics);
+	Rects.push_back(tempobject);
 	randompoint = { 50, 300 };
-	Rects.push_back(Platform(randompoint, 400, 50, 0, 0, graphics));
+	tempobject = new Platform(randompoint, 400, 50, 0, 0, graphics);
+	Rects.push_back(tempobject);
 	randompoint = { 50, 500 };
-	Rects.push_back(Platform(randompoint, 400, 50, 0, 0, graphics));
+	tempobject = new Platform(randompoint, 400, 50, 0, 0, graphics);
+	Rects.push_back(tempobject);
+
 	/*for (int i = 1; i < 2500; i++)
 	{
 		Rects.push_back(Rect(randompoint, 400, 50, 0, 0, true, graphics));
@@ -126,7 +130,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 
 	GameController::fps = 60;
 	ShowWindow(windowhandle, nCmdShow);
-
 	GameController::LoadInitialLevel(new Level1());
 	GameController::zoomLevel = 1;
 	MSG message;
@@ -134,7 +137,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	int starttime = 0;
 	int endtime = 0;
 	float endminusstart = 0;
-
+	Rects[0]->load();
 	while (message.message != WM_QUIT)
 	{
 		if (PeekMessage(&message, NULL, 0, 0, PM_REMOVE))
@@ -142,7 +145,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 		else
 		{
 			starttime = clock();
-			camera->calcNewPos(Rects[0].getPosition());
+			camera->calcNewPos(Rects[0]->getPosition());
 			GameController::Update(Rects);
 			graphics->BeginDraw();
 			graphics->centerCamera(camera->getPosition());

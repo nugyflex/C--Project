@@ -4,15 +4,15 @@
 
 class Rect
 {
+
+
+protected:
 	Point position;
 	int width;
 	int height;
 	float yVel;
 	float xVel;
 	bool fixed;
-
-protected:
-
 	Graphics *gfx;
 
 public:
@@ -39,9 +39,9 @@ public:
 	bool getFixed();
 	void calcNewPos();
 
-	void draw();
+	virtual void draw();
 
-
+	virtual void load();
 
 };
 

@@ -36,13 +36,13 @@ void GameController::SwitchLevel(GameLevel* lev)
 	Loading = false;
 }
 
-void GameController::Render(vector<Rect> &_Rects)
+void GameController::Render(vector<Rect*> _Rects)
 {
 	if (Loading) return;
 	currentlevel->Render(_Rects);
 }
 
-void GameController::Update(vector<Rect> &_Rects)
+void GameController::Update(vector<Rect*> _Rects)
 {
 	if (Loading) return;
 	currentlevel->Update(_Rects);

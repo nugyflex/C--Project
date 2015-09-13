@@ -3,10 +3,12 @@
 #include "SpriteSheet.h"
 
 class Player: public Rect {
-	SpriteSheet* sprite;
+	SpriteSheet* spritewalkingleft;
+	SpriteSheet* spritewalkingright;
 public:
 	Player();
 	Player(Point _position, int _width, int _height, float _yVel, float _xVel, Graphics * gfxi);
 	~Player();
-	//void draw();
+	void load() override;
+	void draw() override;
  };

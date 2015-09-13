@@ -102,3 +102,7 @@ void Rect::draw()
 	gfx->DrawRect(position, width, height, 1.0f, 1.0f, 1.0f, 0.5f);
 }
 
+void Rect::load()
+{
+
+}
