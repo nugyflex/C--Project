@@ -29,7 +29,7 @@ void Level1::Update(vector<Rect*> _Rects)
 			{
 				if (_Rects[j]->getFixed() && CollisionDetection::getSide(_Rects[0], _Rects[j]) == 4)
 				{
-					_Rects[0]->setyVel(-15);
+					_Rects[0]->setyVel(-8);
 				}
 			}
 		}
@@ -48,7 +48,7 @@ void Level1::Update(vector<Rect*> _Rects)
 	}
 	if (GameController::keyS == true)
 	{
-		_Rects[0]->setyVel(6);
+		//_Rects[0]->setyVel(6);
 	}
 	if (GameController::keyD == true)
 	{
@@ -62,7 +62,7 @@ void Level1::Update(vector<Rect*> _Rects)
 	for (int i = 0; i < _Rects.size(); i++)
 	{
 		//Gravity
-		_Rects[i]->setyVel(_Rects[i]->getyVel() + 0.5f);
+		_Rects[i]->setyVel(_Rects[i]->getyVel() + 0.51f);
 		//adding xvel x to x and yvel to y
 		_Rects[i]->calcNewPos();
 		if (!_Rects[i]->getFixed())
@@ -88,13 +88,13 @@ void Level1::Render(vector<Rect*> _Rects)
 	{
 		gfx->ClearScreen(0.0f, 0.0f, 0.0f);
 		sprites->autoSwitchFrame(7);
-		sprites->Draw(testvar, 60, 60);
+		sprites->Draw(-1, 60, 60);
 
 		for (int i = 0; i < _Rects.size(); i++)
 		{
 			_Rects[i]->draw();
 		}
-		sprites1->Draw(0, 50, 298);
+		sprites1->Draw(-1, 50, 298);
 
 	}
 }

@@ -58,4 +58,5 @@ void Camera::calcNewPos(Point _position){
 	}
 	setX(getX() + getxVel());
 	setY(getY() + getyVel());
+	position = _position;
 }

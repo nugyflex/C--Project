@@ -41,7 +41,7 @@ int CollisionDetection::finddistance(float x1, float y1, float x2, float y2)
 	}
 }
 bool CollisionDetection::test1(Rect *_player, Rect *_platform) {
-	if (_player->getX() + _player->getWidth() > _platform->getX()) {
+	if (_player->getX() + _player->getWidth() >= _platform->getX()) {
 		return true;
 
 	}
@@ -49,48 +49,48 @@ bool CollisionDetection::test1(Rect *_player, Rect *_platform) {
 }
 
 bool CollisionDetection::test2(Rect *_player, Rect *_platform) {
-	if (_player->getX() > _platform->getX()) {
+	if (_player->getX() >= _platform->getX()) {
 		return true;
 	}
 	return false;
 }
 
 bool CollisionDetection::test3(Rect *_player, Rect *_platform) {
-	if (_player->getX() > _platform->getX() + _platform->getWidth()) {
+	if (_player->getX() >= _platform->getX() + _platform->getWidth()) {
 		return true;
 	}
 	return false;
 }
 
 bool CollisionDetection::test4(Rect *_player, Rect *_platform) {
-	if (_player->getX() + _player->getWidth() > _platform->getX() + _platform->getWidth()) {
+	if (_player->getX() + _player->getWidth() >= _platform->getX() + _platform->getWidth()) {
 		return true;
 	}
 	return false;
 }
 
 bool CollisionDetection::test5(Rect *_player, Rect *_platform) {
-	if (_player->getY() > _platform->getY()) {
+	if (_player->getY() >= _platform->getY()) {
 		return true;
 	}
 	return false;
 }
 
 bool CollisionDetection::test6(Rect *_player, Rect *_platform) {
-	if (_player->getY() + _player->getHeight() > _platform->getY()) {
+	if (_player->getY() + _player->getHeight() >= _platform->getY()) {
 		return true;
 	}
 	return false;
 }
 
 bool CollisionDetection::test7(Rect *_player, Rect *_platform) {
-	if (_player->getY() + _player->getHeight() > _platform->getY() + _platform->getHeight()) {
+	if (_player->getY() + _player->getHeight() >= _platform->getY() + _platform->getHeight()) {
 		return true;
 	}
 	return false;
 }
 bool CollisionDetection::test8(Rect *_player, Rect *_platform) {
-	if (_player->getY() > _platform->getY() + _platform->getHeight()) {
+	if (_player->getY() >= _platform->getY() + _platform->getHeight()) {
 		return true;
 	}
 	return false;
@@ -220,25 +220,25 @@ void CollisionDetection::correctPosition(Rect* _player, Rect* _platform) {
 			if (_player->getxVel() > 0) {
 				_player->setxVel(0);
 			}
-			_player->setX(_platform->getX() - _player->getWidth() + 1);
+			_player->setX(_platform->getX() - _player->getWidth() /*+ 1*/);
 			break;
 		case 3:
 			if (_player->getxVel() < 0) {
 				_player->setxVel(0);
 			}
-			_player->setX(_platform->getX() + _platform->getWidth() - 1);
+			_player->setX(_platform->getX() + _platform->getWidth() /*- 1*/);
 			break;
 		case 2:
 			if (_player->getyVel() < 0) {
 				_player->setyVel(0);
 			}
-			_player->setY(_platform->getY() + _platform->getHeight() - 1);
+			_player->setY(_platform->getY() + _platform->getHeight() /*- 1*/);
 			break;
 		case 4:
 			if (_player->getyVel() > 0) {
 				_player->setyVel(0);
 			}
-			_player->setY(_platform->getY() - _player->getHeight() + 1);
+			_player->setY(_platform->getY() - _player->getHeight() /*+ 1*/);
 			break;
 		}
 	}

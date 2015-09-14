@@ -89,11 +89,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	Point randompoint = { 50, 9 };
 	Rect* tempobject = new Player(randompoint, 32, 54, 0, 0, graphics);
 	Rects.push_back(tempobject);
-	randompoint = { 50, 300 };
-	tempobject = new Platform(randompoint, 400, 50, 0, 0, graphics);
+	randompoint = { 50, 298 };
+	tempobject = new Platform(randompoint, 1200, 50, 0, 0, graphics);
 	Rects.push_back(tempobject);
 	randompoint = { 50, 500 };
-	tempobject = new Platform(randompoint, 400, 50, 0, 0, graphics);
+	tempobject = new Platform(randompoint, 1600, 50, 0, 0, graphics);
 	Rects.push_back(tempobject);
 
 	/*for (int i = 1; i < 2500; i++)

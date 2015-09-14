@@ -64,15 +64,30 @@ SpriteSheet::~SpriteSheet()
 
 void SpriteSheet::Draw(int _frame, float _x, float _y)
 {
-	gfx->GetRenderTarget()->DrawBitmap(
-		bmp,
-		D2D1::RectF(_x, _y,
-		_x + frameWidth, _y + frameHeight),
-		1.0f,
-		D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
-		D2D1::RectF(frameWidth*frame, 0,
-		frameWidth*frame+frameWidth, 100)
-		);
+	if (_frame > -1)
+	{
+		gfx->GetRenderTarget()->DrawBitmap(
+			bmp,
+			D2D1::RectF(_x, _y,
+				_x + frameWidth, _y + frameHeight),
+			1.0f,
+			D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
+			D2D1::RectF(frameWidth*_frame, 0,
+				frameWidth*_frame + frameWidth, 100)
+			);
+	}
+	else
+	{
+		gfx->GetRenderTarget()->DrawBitmap(
+			bmp,
+			D2D1::RectF(_x, _y,
+				_x + frameWidth, _y + frameHeight),
+			1.0f,
+			D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
+			D2D1::RectF(frameWidth*frame, 0,
+				frameWidth*frame + frameWidth, 100)
+			);
+	}
 }
 void SpriteSheet::autoSwitchFrame(int _speed)
 {

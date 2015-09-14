@@ -1,12 +1,17 @@
-﻿Build started 23/08/2015 2:48:15 PM.
+﻿Build started 14/09/2015 8:31:21 AM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
      1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.lib" /MACHINE:X86 /SAFESEH Release\Ball.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.lib" /MACHINE:X86 /SAFESEH Release\Ball.obj
+         Release\Camera.obj
+         Release\CollisionDetection.obj
          Release\GameController.obj
          Release\GameLevel.obj
          Release\Graphics.obj
          Release\Level1.obj
          Release\main.obj
+         Release\Platform.obj
+         Release\player.obj
+         Release\rectangle.obj
          Release\SpriteSheet.obj
      1>Graphics.obj : error LNK2001: unresolved external symbol _D2D1CreateFactory@16
      1>SpriteSheet.obj : error LNK2001: unresolved external symbol _IID_IWICImagingFactory
@@ -15,4 +20,4 @@
 
 Build FAILED.
 
-Time Elapsed 00:00:00.08
+Time Elapsed 00:00:00.12
