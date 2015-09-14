@@ -39,7 +39,7 @@ void Graphics::centerCamera(Point _position)
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = zoomLevel; translation._12 = 0.0;
 	translation._21 = 0.0; translation._22 = zoomLevel;
-	translation._31 = -_position.x + 400; translation._32 = -_position.y + 300;
+	translation._31 = -_position.x + 640; translation._32 = -_position.y + 360;
 	renderTarget->SetTransform(translation/*D2D1::Matrix3x2F::Translation(-_position.x + 400, -_position.y + 300)*/);
 
 }

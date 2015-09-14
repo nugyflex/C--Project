@@ -25,13 +25,13 @@ void Player::draw()
 	{
 		if (xVel < 0)
 		{
-			spritewalkingleft->autoSwitchFrame(9);
+			spritewalkingleft->autoSwitchFrame(10);
 			spritewalkingleft->Draw(-1, position.x, position.y);
 			lastdirection = 0;
 		}
 		if (xVel > 0)
 		{
-			spritewalkingright->autoSwitchFrame(9);
+			spritewalkingright->autoSwitchFrame(10);
 			spritewalkingright->Draw(-1, position.x, position.y);
 			lastdirection = 1;
 		}
@@ -49,14 +49,28 @@ void Player::draw()
 	}
 	else
 	{
-		if (xVel >= 0)
+		if (xVel > 0)
 		{
 			spritewalkingright->Draw(0, position.x, position.y);
+			lastdirection = 1;
 		}
 		if (xVel < 0)
 		{
 			spritewalkingleft->Draw(0, position.x, position.y);
+			lastdirection = 0;
 		}
+		if (xVel == 0)
+		{
+			if (lastdirection == 0)
+			{
+				spritewalkingleft->Draw(0, position.x, position.y);
+			}
+			if (lastdirection == 1)
+			{
+				spritewalkingright->Draw(0, position.x, position.y);
+			}
+		}
+
 	}
 	
 }
@@ -69,5 +83,5 @@ void Player::load()
 	spritestandingleft = new SpriteSheet(L"standingleft.png", 32, 54, 0, 1, gfx);
 	spritestandingright = new SpriteSheet(L"standingright.png", 32, 54, 0, 1, gfx);
 	spritejumpingleft = new SpriteSheet(L"jumpingleft.png", 32, 54, 0, 1, gfx);
-	spritejumpingright = new SpriteSheet(L"jumpingright.png", 32, 54, 0, 1, gfx);
+	spritejumpingright = new SpriteSheet(L"sanddunes.png", 1280, 720, 0, 1, gfx);
 }

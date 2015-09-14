@@ -38,7 +38,7 @@ void Level1::Update(vector<Rect*> _Rects)
 	{
 
 		
-		_Rects[0]->setxVel(-6);
+		_Rects[0]->setxVel(-3);
 		
 		
 	}
@@ -52,7 +52,7 @@ void Level1::Update(vector<Rect*> _Rects)
 	}
 	if (GameController::keyD == true)
 	{
-		_Rects[0]->setxVel(6);
+		_Rects[0]->setxVel(3);
 
 	}
 	if (GameController::keyA == false && GameController::keyD == false)
@@ -86,7 +86,7 @@ void Level1::Render(vector<Rect*> _Rects)
 
 	if (CollisionDetection::CheckRectangleIntersect(1, 1, 10, 10, 5, 5, 15, 15))
 	{
-		gfx->ClearScreen(0.0f, 0.0f, 0.0f);
+		//gfx->ClearScreen(0.0f, 0.0f, 0.0f);
 		sprites->autoSwitchFrame(7);
 		sprites->Draw(-1, 60, 60);
 
@@ -94,7 +94,7 @@ void Level1::Render(vector<Rect*> _Rects)
 		{
 			_Rects[i]->draw();
 		}
-		sprites1->Draw(-1, 50, 298);
+		sprites1->Draw(-1, 50, 296);
 
 	}
 }

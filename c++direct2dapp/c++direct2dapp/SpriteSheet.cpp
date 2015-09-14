@@ -73,7 +73,7 @@ void SpriteSheet::Draw(int _frame, float _x, float _y)
 			1.0f,
 			D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
 			D2D1::RectF(frameWidth*_frame, 0,
-				frameWidth*_frame + frameWidth, 100)
+				frameWidth*_frame + frameWidth, frameHeight)
 			);
 	}
 	else
@@ -85,7 +85,7 @@ void SpriteSheet::Draw(int _frame, float _x, float _y)
 			1.0f,
 			D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
 			D2D1::RectF(frameWidth*frame, 0,
-				frameWidth*frame + frameWidth, 100)
+				frameWidth*frame + frameWidth, frameHeight)
 			);
 	}
 }
