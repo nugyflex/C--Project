@@ -94,9 +94,12 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	Rects.push_back(tempobject);
 	randompoint = { 50, 500 };
 	tempobject = new Platform(randompoint, 1600, 50, 0, 0, graphics);
-	randompoint = { 500, 450 };
 	Rects.push_back(tempobject);
+	randompoint = { 500, 450 };
 	tempobject = new Platform(randompoint, 50, 50, 0, 0, graphics);
+	Rects.push_back(tempobject);
+	randompoint = { 200, 200 };
+	tempobject = new FireBall(randompoint, 0, 0, graphics);
 	Rects.push_back(tempobject);
 
 	/*for (int i = 1; i < 2500; i++)
@@ -141,6 +144,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	int endtime = 0;
 	float endminusstart = 0;
 	Rects[0]->load();
+	Rects[4]->load();
 	SpriteSheet background = SpriteSheet(L"sanddunes2.png", 1280, 720, 0, 0, graphics);
 	while (message.message != WM_QUIT)
 	{

@@ -1,5 +1,5 @@
 #include "Level1.h"
-
+#include <stdio.h>
 
 void Level1::Load()
 {
@@ -77,7 +77,23 @@ void Level1::Update(vector<Rect*> _Rects)
 		}
 
 	}
+	char s[200];
+	sprintf_s(s, " Number of elements at start: %d.", _Rects.size());
+	OutputDebugString(s);
+	for (int i = 0; i < _Rects.size(); i++)
+	{
+		//deleting fireballs
+		if (_Rects[i]->getType() == fireball)
+		{
+			sprintf_s(s, " About to delete: %d.", i);
+			OutputDebugString(s);
 
+			_Rects.erase(_Rects.begin() + i);
+			i--;
+		}
+	}
+	sprintf_s(s, " Number of elements at end: %d.", _Rects.size());
+	OutputDebugString(s);
 
 
 }

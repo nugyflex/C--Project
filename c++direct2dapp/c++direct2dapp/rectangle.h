@@ -1,6 +1,9 @@
 #pragma once
 #include "Graphics.h"
+#include <string.h>
+using namespace std;
 
+enum rectType { platform, player, fireball };
 
 class Rect
 {
@@ -13,11 +16,12 @@ protected:
 	float yVel;
 	float xVel;
 	bool fixed;
+	rectType type;
 	Graphics *gfx;
 
 public:
 	Rect();
-	Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, Graphics * gfxi);
+	Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, rectType _type, Graphics * gfxi);
 	~Rect();
 
 	int getWidth();
@@ -38,10 +42,10 @@ public:
 	void setHeight(int _height);
 	bool getFixed();
 	void calcNewPos();
+	rectType getType();
 
 	virtual void draw();
 
 	virtual void load();
 
 };
-

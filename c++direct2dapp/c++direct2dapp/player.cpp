@@ -4,7 +4,7 @@
 Player::Player() {}
 
 Player::Player(Point _position, int _width, int _height, float _yVel, float _xVel, Graphics * gfxi):
-Rect(_position, _width, _height, _yVel, _xVel, false, gfxi)
+Rect(_position, _width, _height, _yVel, _xVel, false, player, gfxi)
 {
 
 }
@@ -78,7 +78,7 @@ void Player::draw()
 void Player::load()
 {
 	lastdirection = 1;
-	spritewalkingleft = new SpriteSheet(L"walkingleftwithbags.png", 32, 54, 0, 4, gfx);
+	spritewalkingleft = new SpriteSheet(L"walkingleftnobags.png", 32, 54, 0, 4, gfx);
 	spritewalkingright = new SpriteSheet(L"walkingrightwithbags.png", 32, 54, 0, 4, gfx);
 	spritestandingleft = new SpriteSheet(L"standingleft.png", 32, 54, 0, 1, gfx);
 	spritestandingright = new SpriteSheet(L"standingright.png", 32, 54, 0, 1, gfx);

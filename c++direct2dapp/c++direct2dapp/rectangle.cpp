@@ -1,7 +1,7 @@
 #include "Rectangle.h"
+using namespace std;
 
-
-Rect::Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, Graphics * gfxi)
+Rect::Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, rectType _type, Graphics * gfxi)
 {
 	position = _position;
 	width = _width;
@@ -10,6 +10,7 @@ Rect::Rect(Point _position, int _width, int _height, float _yVel, float _xVel, b
 	xVel = _xVel;
 	gfx = gfxi;
 	fixed = _fixed;
+	type = _type;
 }
 Rect::Rect(){}
 
@@ -105,4 +106,9 @@ void Rect::draw()
 void Rect::load()
 {
 
+}
+
+rectType Rect::getType()
+{
+	return type;
 }

@@ -3,6 +3,7 @@
 
 #include "Player.h"
 #include "Platform.h"
+#include "fireball.h"
 #include <vector>
 
 using namespace std;

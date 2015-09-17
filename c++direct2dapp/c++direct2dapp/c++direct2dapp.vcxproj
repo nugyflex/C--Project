@@ -71,6 +71,7 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
+    <ClCompile Include="fireball.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameLevel.cpp" />
     <ClCompile Include="Graphics.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CollisionDetection.h" />
+    <ClInclude Include="fireball.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameLevel.h" />
     <ClInclude Include="Graphics.h" />
