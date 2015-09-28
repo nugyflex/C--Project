@@ -10,6 +10,8 @@ bool GameController::keyS;
 bool GameController::keyD;
 float GameController::zoomLevel;
 int GameController::fps;
+Point GameController::mouse;
+bool GameController::mouseMoved;
 
 
 void GameController::Init()
@@ -42,8 +44,20 @@ void GameController::Render(vector<Rect*> _Rects)
 	currentlevel->Render(_Rects);
 }
 
-void GameController::Update(vector<Rect*> _Rects)
+void GameController::Update(vector<Rect*> &_Rects)
 {
 	if (Loading) return;
 	currentlevel->Update(_Rects);
+}
+void GameController::setMouseX(int _x)
+{
+	mouse.x = _x;
+}
+void GameController::setMouseY(int _y)
+{
+	mouse.y = _y;
+}
+Point GameController::getMousePos()
+{
+	return mouse;
 }

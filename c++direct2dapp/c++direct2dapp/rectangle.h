@@ -42,6 +42,7 @@ public:
 	void setHeight(int _height);
 	bool getFixed();
 	void calcNewPos();
+	void gravity(float _g);
 	rectType getType();
 
 	virtual void draw();

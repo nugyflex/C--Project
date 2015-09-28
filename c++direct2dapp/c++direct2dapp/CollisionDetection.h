@@ -1,12 +1,12 @@
 #pragma once
 #include "rectangle.h"
 #include "Math.h"
-
+#include <vector>
 class CollisionDetection
 {
 	CollisionDetection() {}
 public:
-	static bool CheckRectangleIntersect(float x1, float x2, float y1, float y2, float x3, float x4, float y3, float y4);
+	static bool CheckRectangleIntersect(Rect *_ob1, Rect *_ob2);
 	static int finddistance(float x1, float y1, float x2, float y2);
 	static bool test1(Rect *player, Rect *platform);
 	static bool test2(Rect *player, Rect *platform);
@@ -18,4 +18,10 @@ public:
 	static bool test8(Rect *player, Rect *platform);
 	static int getSide(Rect *player, Rect *platform);
 	static void correctPosition(Rect* player, Rect* platform);
+	static Point getLineIntersect(Point _p1, Point _p2, Point _p3, Point _p4);
+	static bool checkLineIntersect(Point _p1, Point _p2, Point _p3, Point _p4);
+	static bool isBetween(float _1, float _2, float _3);
+	static bool checkRectLineIntersect(Point _rp, float _width, float _height, Point _p1, Point _p2);
+	static Point getClosestRectLineIntersect(Point _rp, float _width, float _height, Point _p1, Point _p2);
+	static Point getClosestPoint(Point _p,  vector<Point> _Points);
 };

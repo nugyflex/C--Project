@@ -112,3 +112,8 @@ rectType Rect::getType()
 {
 	return type;
 }
+
+void Rect::gravity(float _g)
+{
+	yVel = +_g;
+}

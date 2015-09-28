@@ -44,6 +44,8 @@ void Camera::setX(float _x){
 	position.x = _x;
 }
 void Camera::calcNewPos(Point _position){
+	/*xVel = position.x - _position.x;
+	yVel = position.y - _position.y;*/
 	if (position.x < _position.x) {
 		setxVel(floor((_position.x - position.x) / 25));
 	}
@@ -58,5 +60,5 @@ void Camera::calcNewPos(Point _position){
 	}
 	setX(getX() + getxVel());
 	setY(getY() + getyVel());
-	position = _position;
+	//position = _position;
 }

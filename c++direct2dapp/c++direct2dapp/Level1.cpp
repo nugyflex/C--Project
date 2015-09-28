@@ -19,7 +19,7 @@ void Level1::Unload() {
 }
 ;
 
-void Level1::Update(vector<Rect*> _Rects)
+void Level1::Update(vector<Rect*> &_Rects)
 {
 	if (GameController::keyW == true)
 	{
@@ -65,7 +65,7 @@ void Level1::Update(vector<Rect*> _Rects)
 		_Rects[i]->setyVel(_Rects[i]->getyVel() + 0.51f);
 		//adding xvel x to x and yvel to y
 		_Rects[i]->calcNewPos();
-		if (!_Rects[i]->getFixed())
+		if (!_Rects[i]->getFixed() && _Rects[i]->getType() != fireball)
 		{
 			for (int j = 0; j < _Rects.size(); j++)
 			{
@@ -77,31 +77,36 @@ void Level1::Update(vector<Rect*> _Rects)
 		}
 
 	}
-	char s[200];
-	sprintf_s(s, " Number of elements at start: %d.", _Rects.size());
-	OutputDebugString(s);
+
 	for (int i = 0; i < _Rects.size(); i++)
 	{
 		//deleting fireballs
 		if (_Rects[i]->getType() == fireball)
 		{
-			sprintf_s(s, " About to delete: %d.", i);
-			OutputDebugString(s);
 
-			_Rects.erase(_Rects.begin() + i);
-			i--;
+			for (int j = 0; j < _Rects.size(); j++)
+			{
+				if (_Rects[j]->getType() == platform)
+				{
+					if (CollisionDetection::CheckRectangleIntersect(_Rects[i], _Rects[j]))
+					{
+						_Rects.erase(_Rects.begin() + i);
+						i--;
+						break;
+					}
+				}
+			}
+
 		}
 	}
-	sprintf_s(s, " Number of elements at end: %d.", _Rects.size());
-	OutputDebugString(s);
-
 
 }
 void Level1::Render(vector<Rect*> _Rects)
 {
-
-	if (CollisionDetection::CheckRectangleIntersect(1, 1, 10, 10, 5, 5, 15, 15))
-	{
+	Point temppoint1 = { 1,1 };
+	Point temppoint2 = { 10,10 };
+	Point temppoint3 = { 1,10 };
+	Point temppoint4 = { 10,1 };
 		//gfx->ClearScreen(0.0f, 0.0f, 0.0f);
 		sprites->autoSwitchFrame(7);
 		sprites->Draw(-1, 60, 60);
@@ -111,6 +116,4 @@ void Level1::Render(vector<Rect*> _Rects)
 			_Rects[i]->draw();
 		}
 		sprites1->Draw(-1, 50, 296);
-
-	}
 }
