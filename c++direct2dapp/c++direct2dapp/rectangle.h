@@ -11,8 +11,8 @@ class Rect
 
 protected:
 	Point position;
-	int width;
-	int height;
+	float width;
+	float height;
 	float yVel;
 	float xVel;
 	bool fixed;
@@ -21,11 +21,11 @@ protected:
 
 public:
 	Rect();
-	Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, rectType _type, Graphics * gfxi);
+	Rect(Point _position, float _width, float _height, float _yVel, float _xVel, bool _fixed, rectType _type, Graphics * gfxi);
 	~Rect();
 
-	int getWidth();
-	int getHeight();
+	float getWidth();
+	float getHeight();
 	float getY();
 	float getX();
 	Point getPosition();
@@ -38,8 +38,8 @@ public:
 	void setPosition(Point _position);
 	void setX(float _x);
 	void setY(float _y);
-	void setWidth(int _width);
-	void setHeight(int _height);
+	void setWidth(float _width);
+	void setHeight(float _height);
 	bool getFixed();
 	void calcNewPos();
 	void gravity(float _g);

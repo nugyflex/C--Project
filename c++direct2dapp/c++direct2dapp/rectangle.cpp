@@ -1,7 +1,7 @@
 #include "Rectangle.h"
 using namespace std;
 
-Rect::Rect(Point _position, int _width, int _height, float _yVel, float _xVel, bool _fixed, rectType _type, Graphics * gfxi)
+Rect::Rect(Point _position, float _width, float _height, float _yVel, float _xVel, bool _fixed, rectType _type, Graphics * gfxi)
 {
 	position = _position;
 	width = _width;
@@ -19,12 +19,12 @@ Rect::~Rect()
 {
 }
 
-int Rect::getWidth(){
+float Rect::getWidth(){
 
 	return width;
 }
 
-int Rect::getHeight(){
+float Rect::getHeight(){
 
 	return height;
 }
@@ -47,11 +47,11 @@ void Rect::changeY(float _yChange)
 	position.y += _yChange;
 }
 
-void Rect::setWidth(int _width){
+void Rect::setWidth(float _width){
 	width = _width;
 }
 
-void Rect::setHeight(int _height){
+void Rect::setHeight(float _height){
 	height = _height;
 }
 

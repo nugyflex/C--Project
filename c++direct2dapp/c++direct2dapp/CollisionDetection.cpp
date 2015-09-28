@@ -29,7 +29,7 @@ bool CollisionDetection::CheckRectangleIntersect(Rect *_ob1, Rect *_ob2)
 	
 }
 
-int CollisionDetection::finddistance(float x1, float y1, float x2, float y2)
+float CollisionDetection::finddistance(float x1, float y1, float x2, float y2)
 {
 	float ob1ymob2y = pow((y1 - y2), 2);
 	float ob2ymob1y = pow((y2 - y1), 2);
@@ -259,8 +259,14 @@ void CollisionDetection::correctPosition(Rect* _player, Rect* _platform) {
 		}
 	}
 }
-bool CollisionDetection::isBetween(float _1, float _2, float _3)
+bool CollisionDetection::isBetween(int _1, int _2, int _3)
 {
+	//tollerance
+	/*
+	_1 = floor(_1 * 10) / 10;
+	_2 = floor(_2 * 10) / 10;
+	_3 = floor(_3 * 10) / 10;
+	*/
 	if (_3 == _2 || _3 == _1)
 	{
 		return true;
@@ -293,19 +299,42 @@ bool CollisionDetection::isBetween(float _1, float _2, float _3)
 }
 bool CollisionDetection::checkLineIntersect(Point _p1, Point _p2, Point _p3, Point _p4)
 {
-	if ((_p1.x - _p2.x)*(_p3.y - _p4.y) - (_p1.y - _p2.y)*(_p3.x - _p4.x)!=0)
+	if ((_p1.x - _p2.x)*(_p3.y - _p4.y) - (_p1.y - _p2.y)*(_p3.x - _p4.x) != 0)
 	{
-		if (isBetween(_p1.x, _p2.x, getLineIntersect(_p1, _p2, _p3, _p4).x) && isBetween(_p3.x, _p4.x, getLineIntersect(_p1, _p2, _p3, _p4).x) && isBetween(_p1.y, _p2.y, getLineIntersect(_p1, _p2, _p3, _p4).y) && isBetween(_p3.y, _p4.y, getLineIntersect(_p1, _p2, _p3, _p4).y))
-		{
-			return true;
+		if (isBetween(_p1.x, _p2.x, getLineIntersect(_p1, _p2, _p3, _p4).x)) {
+			if (isBetween(_p3.x, _p4.x, getLineIntersect(_p1, _p2, _p3, _p4).x)) {
+				if (isBetween(_p1.y, _p2.y, getLineIntersect(_p1, _p2, _p3, _p4).y)) {
+					if (isBetween(_p3.y, _p4.y, getLineIntersect(_p1, _p2, _p3, _p4).y)) {
+						return true;
+					}
+				}
+			}
 		}
 	}
 	return false;
 }
 Point CollisionDetection::getLineIntersect(Point _p1, Point _p2, Point _p3, Point _p4)
 {
+
 	float tempx = ((_p1.x*_p2.y - _p1.y*_p2.x)*(_p3.x - _p4.x) - (_p1.x - _p2.x)*(_p3.x*_p4.y - _p3.y*_p4.x)) / ((_p1.x - _p2.x)*(_p3.y - _p4.y) - (_p1.y - _p2.y)*(_p3.x - _p4.x));
 	float tempy = ((_p1.x*_p2.y - _p1.y*_p2.x)*(_p3.y - _p4.y) - (_p1.y - _p2.y)*(_p3.x*_p4.y - _p3.y*_p4.x)) / ((_p1.x - _p2.x)*(_p3.y - _p4.y) - (_p1.y - _p2.y)*(_p3.x - _p4.x));
+	if (_p1.y == _p2.y)
+	{
+		tempy = _p1.y;
+	}
+	if (_p3.y == _p4.y)
+	{
+		tempy == _p3.y;
+	}
+	if (_p1.x == _p2.x)
+	{
+		tempx = _p1.x;
+	}
+	if (_p3.x == _p4.x)
+	{
+		tempx = _p3.x;
+	}
+
 	Point tempPoint = { tempx, tempy};
 	return tempPoint;
 }
@@ -337,32 +366,28 @@ bool CollisionDetection::checkRectLineIntersect(Point _rp, float _width, float _
 Point CollisionDetection::getClosestPoint(Point _p, vector<Point> _Points)
 {
 	vector< vector<int> > array(2, vector<int>(_Points.size()));
-
+	float test = 0;
 	for (int i = 0; i < _Points.size(); i++)
 	{
 		array[0][i] = finddistance(_p.x,_p.y,_Points[i].x,_Points[i].y);
+		test = array[0][i];
 		array[1][i] = i;
+		test = array[1][i];
 	}
 
-	int currentmin;
-	int currentmini;
-	for (int i = 0; i < 4; i++) {
-
-		currentmin = 1000000000;
-		currentmini = -1;
-
+		int currentmin = 1000000000;
+		int currentmini = -1;
+		//finding the index of the minimum
 		for (int j = 0; j < _Points.size(); j++) {
+			test = array[0][j];
+			test = array[1][j];
 			if (array[0][j] < currentmin) {
 				currentmin = array[0][j];
 				currentmini = j;
-
 			}
-
-
 		}
-	}
 
-	return _Points[array[1][0]];
+	return _Points[array[1][currentmini]];
 
 }
 

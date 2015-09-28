@@ -11,6 +11,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include "stdio.h"
 using namespace std;
 
 
@@ -167,14 +168,53 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			background.Draw(0, camera->getPosition().x - 640, camera->getPosition().y - 360);
 			//drawing objects
 			GameController::Render(Rects);
-
-			if (CollisionDetection::checkRectLineIntersect(Rects[1]->getPosition(), Rects[1]->getWidth(), Rects[1]->getHeight(), GameController::mouse, Rects[0]->getPosition()))
+			graphics->DrawLine(Rects[0]->getPosition(), GameController::mouse, 0, 1, 0, 1);
+			//looping through rectangles, it checks each one if it is a platform
+			for (int i = 0; i < Rects.size(); i++)
 			{
-				graphics->DrawLine(Rects[0]->getPosition(), GameController::mouse, 1, 0, 0, 1);
-			}
-			else
-			{
-				graphics->DrawLine(Rects[0]->getPosition(), GameController::mouse, 0, 1, 0, 1);
+				if (Rects[i]->getType() == platform) // is the rectangle a platform
+				{
+					if (CollisionDetection::checkRectLineIntersect(Rects[i]->getPosition(), Rects[i]->getWidth(), Rects[i]->getHeight(), GameController::mouse, Rects[0]->getPosition()))  // is the line between the player and the mouse entersection the platform
+					{
+						graphics->DrawLine(Rects[0]->getPosition(), GameController::mouse, 1, 0, 0, 1);// if it is intersection, draw a red line
+					}
+					else
+					{
+						if (i == 1)
+						{
+							int x = 1;
+							//dont forget you will need header file #include "stdio.h"
+							char s[200];
+							x = 0;
+							sprintf_s(s, "////////////////////////////////////////////////////////////////////////////////////////////////->>>>>>> %d.", x);
+							OutputDebugString(s);
+							x = Rects[i]->getPosition().x;
+							sprintf_s(s, ", x: %d.", x);
+							OutputDebugString(s);
+							x = Rects[i]->getPosition().y;
+							sprintf_s(s, ", y: %d.", x);
+							OutputDebugString(s);
+							x = Rects[i]->getWidth();
+							sprintf_s(s, ", width: %d.", x);
+							OutputDebugString(s);
+							x = Rects[i]->getHeight();
+							sprintf_s(s, ", height: %d.", x);
+							OutputDebugString(s);
+							x = Rects[0]->getPosition().x;
+							sprintf_s(s, ", player x: %d.", x);
+							OutputDebugString(s);
+							x = Rects[0]->getPosition().y;
+							sprintf_s(s, ", player y: %d.", x);
+							OutputDebugString(s);
+							x = GameController::mouse.x;
+							sprintf_s(s, ", mouse x: %d.", x);
+							OutputDebugString(s);
+							x = GameController::mouse.y;
+							sprintf_s(s, ", mouse y: %d.", x);
+							OutputDebugString(s);
+						}
+					}
+				}
 			}
 
 			for (int i = 0; i < Rects.size(); i++)

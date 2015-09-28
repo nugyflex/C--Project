@@ -30,7 +30,7 @@ public:
 
 	static void Render(vector<Rect*> _Rects);
 	static void Update(vector<Rect*> &_Rects);
-	static void setMouseX(int _x);
-	static void setMouseY(int _y);
+	static void setMouseX(float _x);
+	static void setMouseY(float _y);
 	static Point  getMousePos();
 };

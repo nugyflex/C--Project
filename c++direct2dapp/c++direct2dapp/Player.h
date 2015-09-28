@@ -11,7 +11,7 @@ class Player: public Rect {
 	SpriteSheet* spritejumpingright;
 public:
 	Player();
-	Player(Point _position, int _width, int _height, float _yVel, float _xVel, Graphics * gfxi);
+	Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
 	~Player();
 	void load() override;
 	void draw() override;

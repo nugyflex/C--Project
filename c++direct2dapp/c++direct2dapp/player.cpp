@@ -3,7 +3,7 @@
 
 Player::Player() {}
 
-Player::Player(Point _position, int _width, int _height, float _yVel, float _xVel, Graphics * gfxi):
+Player::Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi):
 Rect(_position, _width, _height, _yVel, _xVel, false, player, gfxi)
 {
 
@@ -15,11 +15,7 @@ Player::~Player()
 
 void Player::draw()
 {
-	//dont forget you will need header file #include "stdio.h"
-	//char s[200];
-	//int x = 4;
-	//sprintf_s(s, "this is my variable: %d.", x);
-	//OutputDebugString(s);
+
 
 	if (yVel == 0)
 	{

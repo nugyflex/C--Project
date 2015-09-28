@@ -49,11 +49,11 @@ void GameController::Update(vector<Rect*> &_Rects)
 	if (Loading) return;
 	currentlevel->Update(_Rects);
 }
-void GameController::setMouseX(int _x)
+void GameController::setMouseX(float _x)
 {
 	mouse.x = _x;
 }
-void GameController::setMouseY(int _y)
+void GameController::setMouseY(float _y)
 {
 	mouse.y = _y;
 }
