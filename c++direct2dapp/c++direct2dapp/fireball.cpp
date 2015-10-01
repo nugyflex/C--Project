@@ -4,7 +4,7 @@
 FireBall::FireBall() {}
 
 FireBall::FireBall(Point _position, float _yVel, float _xVel, Graphics * gfxi) :
-	Rect(_position, 20, 20, _yVel, _xVel, false, fireball, gfxi)
+	Rect(_position, 20, 20, _yVel, _xVel, false, fireball, false, gfxi)
 {
 
 }

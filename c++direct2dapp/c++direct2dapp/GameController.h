@@ -22,6 +22,7 @@ public:
 	static int fps;
 	static float zoomLevel;
 	static bool mouseMoved;
+	static bool mouseLeft;
 		 
 	static void Init();
 

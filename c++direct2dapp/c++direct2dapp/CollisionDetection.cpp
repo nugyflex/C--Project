@@ -322,15 +322,15 @@ Point CollisionDetection::getLineIntersect(Point _p1, Point _p2, Point _p3, Poin
 	{
 		tempy = _p1.y;
 	}
+	else if (_p1.x == _p2.x)
+	{
+		tempx = _p1.x;
+	}
 	if (_p3.y == _p4.y)
 	{
 		tempy == _p3.y;
 	}
-	if (_p1.x == _p2.x)
-	{
-		tempx = _p1.x;
-	}
-	if (_p3.x == _p4.x)
+	else if (_p3.x == _p4.x)
 	{
 		tempx = _p3.x;
 	}

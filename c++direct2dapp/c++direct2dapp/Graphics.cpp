@@ -1,6 +1,7 @@
 #include "Graphics.h"
 
 
+
 Graphics::Graphics()
 {
 	factory = NULL;
@@ -37,11 +38,25 @@ void Graphics::centerCamera(Point _position)
 {
 	//creating my own matrix for translation
 	D2D_MATRIX_3X2_F translation;
-	translation._11 = zoomLevel; translation._12 = 0.0;
-	translation._21 = 0.0; translation._22 = zoomLevel;
+	translation._11 = 1; translation._12 = 0.0;
+	translation._21 = 0.0; translation._22 = 1;
 	translation._31 = -_position.x + 640; translation._32 = -_position.y + 360;
-	renderTarget->SetTransform(translation/*D2D1::Matrix3x2F::Translation(-_position.x + 400, -_position.y + 300)*/);
+	renderTarget->SetTransform(translation);
+}
 
+void Graphics::rotate(Point _position, float _theta)
+{
+	D2D_MATRIX_3X2_F translation;
+	translation._11 = cos(_theta); translation._12 = sin(_theta);
+	translation._21 = -1* sin(_theta); translation._22 = cos(_theta);
+	translation._31 = -camera.x + 640 + _position.x; translation._32 = -camera.y + 360 + _position.y;
+	renderTarget->SetTransform(translation);
+}
+
+void Graphics::rotateBack(Point _position, float _theta)
+{
+	centerCamera(camera);
+	//renderTarget->SetTransform(D2D1::Matrix3x2F::Rotation(-_theta, D2D1::Point2F(-_position.x - camera.x, -_position.y - camera.y)));
 }
 
 void Graphics::ClearScreen(float _r, float _g, float _b)
@@ -82,4 +97,8 @@ void Graphics::setZoomLevel(float _zoom)
 float Graphics::getZoomLevel()
 {
 	return zoomLevel;
+}
+void Graphics::setCamera(Point _p)
+{
+	camera = _p;
 }

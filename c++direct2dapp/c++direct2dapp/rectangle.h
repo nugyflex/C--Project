@@ -1,9 +1,10 @@
 #pragma once
 #include "Graphics.h"
 #include <string.h>
+#include "gun.h"
 using namespace std;
 
-enum rectType { platform, player, fireball };
+enum rectType { platform, player, fireball, spy };
 
 class Rect
 {
@@ -16,12 +17,13 @@ protected:
 	float yVel;
 	float xVel;
 	bool fixed;
+	bool gravity;
 	rectType type;
 	Graphics *gfx;
 
 public:
 	Rect();
-	Rect(Point _position, float _width, float _height, float _yVel, float _xVel, bool _fixed, rectType _type, Graphics * gfxi);
+	Rect(Point _position, float _width, float _height, float _yVel, float _xVel, bool _fixed, rectType _type, bool gravity, Graphics * gfxi);
 	~Rect();
 
 	float getWidth();
@@ -41,12 +43,16 @@ public:
 	void setWidth(float _width);
 	void setHeight(float _height);
 	bool getFixed();
-	void calcNewPos();
-	void gravity(float _g);
+	virtual void calcNewPos();
+	virtual void calcNewPos(Point _p);
+	void ggravity(float _g);
 	rectType getType();
+	bool getGravity();
 
 	virtual void draw();
 
 	virtual void load();
-
+	virtual int getWeaponOffsetX();
+	virtual int getWeaponOffsetY();
+	virtual void addWeapon(Gun* _gun);
 };

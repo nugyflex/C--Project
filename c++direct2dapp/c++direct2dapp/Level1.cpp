@@ -21,6 +21,7 @@ void Level1::Unload() {
 
 void Level1::Update(vector<Rect*> &_Rects)
 {
+	//VARIABLE JUMP
 	if (GameController::keyW == true)
 	{
 		if (_Rects[0]->getyVel() >= 0)
@@ -32,6 +33,13 @@ void Level1::Update(vector<Rect*> &_Rects)
 					_Rects[0]->setyVel(-8);
 				}
 			}
+		}
+	}
+	else
+	{
+		if (_Rects[0]->getyVel() < -3)
+		{
+			_Rects[0]->setyVel(-3);
 		}
 	}
 	if (GameController::keyA == true)
@@ -62,9 +70,17 @@ void Level1::Update(vector<Rect*> &_Rects)
 	for (int i = 0; i < _Rects.size(); i++)
 	{
 		//Gravity
-		_Rects[i]->setyVel(_Rects[i]->getyVel() + 0.51f);
+		if (_Rects[i]->getGravity() == true)
+		{
+			_Rects[i]->setyVel(_Rects[i]->getyVel() + 0.51f);
+		}
 		//adding xvel x to x and yvel to y
 		_Rects[i]->calcNewPos();
+		if (_Rects[i]->getType() == spy)
+		{
+			_Rects[i]->calcNewPos(_Rects[0]->getPosition());
+		}
+
 		if (!_Rects[i]->getFixed() && _Rects[i]->getType() != fireball)
 		{
 			for (int j = 0; j < _Rects.size(); j++)
@@ -110,7 +126,6 @@ void Level1::Render(vector<Rect*> _Rects)
 		//gfx->ClearScreen(0.0f, 0.0f, 0.0f);
 		sprites->autoSwitchFrame(7);
 		sprites->Draw(-1, 60, 60);
-
 		for (int i = 0; i < _Rects.size(); i++)
 		{
 			_Rects[i]->draw();

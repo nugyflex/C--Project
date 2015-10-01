@@ -4,7 +4,7 @@
 Player::Player() {}
 
 Player::Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi):
-Rect(_position, _width, _height, _yVel, _xVel, false, player, gfxi)
+Rect(_position, _width, _height, _yVel, _xVel, false, player, true, gfxi)
 {
 
 }
@@ -68,6 +68,12 @@ void Player::draw()
 		}
 
 	}
+	if (weapons.size()>0)
+	{
+		Point temppoint = { 200, 200 };
+		weapons[0]->drawOnParent(position, 0, -50);
+
+	}
 	
 }
 
@@ -80,4 +86,17 @@ void Player::load()
 	spritestandingright = new SpriteSheet(L"standingright.png", 32, 54, 0, 1, gfx);
 	spritejumpingleft = new SpriteSheet(L"jumpingleft.png", 32, 54, 0, 1, gfx);
 	spritejumpingright = new SpriteSheet(L"sanddunes.png", 1280, 720, 0, 1, gfx);
+}
+
+int Player::getWeaponOffsetY()
+{
+	return 1;
+}
+int Player::getWeaponOffsetX()
+{
+	return 1;
+}
+void Player::addWeapon(Gun* _gun)
+{
+	weapons.push_back(_gun);
 }

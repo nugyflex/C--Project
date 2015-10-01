@@ -1,7 +1,7 @@
 #include "Rectangle.h"
 using namespace std;
 
-Rect::Rect(Point _position, float _width, float _height, float _yVel, float _xVel, bool _fixed, rectType _type, Graphics * gfxi)
+Rect::Rect(Point _position, float _width, float _height, float _yVel, float _xVel, bool _fixed, rectType _type, bool _gravity, Graphics * gfxi)
 {
 	position = _position;
 	width = _width;
@@ -11,6 +11,7 @@ Rect::Rect(Point _position, float _width, float _height, float _yVel, float _xVe
 	gfx = gfxi;
 	fixed = _fixed;
 	type = _type;
+	gravity = _gravity;
 }
 Rect::Rect(){}
 
@@ -91,9 +92,17 @@ void Rect::calcNewPos(){
 	setY(getY() + getyVel());
 	}
 }
+void Rect::calcNewPos(Point _p) {
+
+}
 bool Rect::getFixed()
 {
 	return fixed;
+}
+
+void Rect::setPosition(Point _p)
+{
+	position = _p;
 }
 
 void Rect::draw()
@@ -107,13 +116,22 @@ void Rect::load()
 {
 
 }
+int Rect::getWeaponOffsetX() { return 0; }
+int Rect::getWeaponOffsetY() { return 0; }
 
 rectType Rect::getType()
 {
 	return type;
 }
 
-void Rect::gravity(float _g)
+void Rect::ggravity(float _g)
 {
 	yVel = +_g;
 }
+
+bool Rect::getGravity()
+{
+	return gravity;
+}
+
+void Rect::addWeapon(Gun* _gun) {}

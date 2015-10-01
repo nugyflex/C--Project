@@ -83,6 +83,12 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		GameController::setMouseY(HIWORD(lParam));
 GameController::mouse.x += camera->getPosition().x - 1280 / 2;
 GameController::mouse.y += camera->getPosition().y - 360;
+	case WM_LBUTTONDOWN:
+		GameController::mouseLeft = true;
+		break;
+	case WM_LBUTTONUP:
+		GameController::mouseLeft = false;
+		break;
 	}
 
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
@@ -92,9 +98,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 {
 	vector<Point> temppoints;
 	vector<Rect*> Rects;
+	vector<Gun*> weapons;
 	graphics = new Graphics();
 	Point randompoint = { 640, 9 };
 	Rect* tempobject = new Player(randompoint, 32, 54, 0, 0, graphics);
+
 	Rects.push_back(tempobject);
 	randompoint = { 50, 298 };
 	tempobject = new Platform(randompoint, 1200, 50, 0, 0, graphics);
@@ -108,7 +116,15 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	randompoint = { 200, 200 };
 	tempobject = new FireBall(randompoint, 0, 0, graphics);
 	Rects.push_back(tempobject);
+	randompoint = { 200, 200 };
+	tempobject = new Spy(randompoint, 10, 10, 0, 0, graphics);
+	Rects.push_back(tempobject);
 	camera = new Camera(randompoint);
+
+	Gun* newgun = new Gun(300, 300, graphics);
+
+	weapons.push_back(newgun);
+	Rects[0]->addWeapon(weapons[0]);
 
 	WNDCLASSEX windowclass;
 	ZeroMemory(&windowclass, sizeof(WNDCLASSEX));
@@ -146,6 +162,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	float endminusstart = 0;
 	Rects[0]->load();
 	Rects[4]->load();
+	Rects[5]->load();
+	newgun->load();
+	newgun->setParent(true);
 	GameController::mouse = randompoint;
 
 	SpriteSheet background = SpriteSheet(L"sanddunes2.png", 1280, 720, 0, 0, graphics);
@@ -158,9 +177,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			//makes the mouse movie with the camera
 			GameController::mouse.x += camera->getxVel();
 			GameController::mouse.y += camera->getyVel();
+			mousePos = GameController::mouse;
 
 			starttime = clock();
 			camera->calcNewPos(Rects[0]->getPosition());
+			graphics->setCamera(camera->getPosition());
 			//updating everything
 			GameController::Update(Rects);
 			graphics->BeginDraw();
@@ -168,6 +189,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			background.Draw(0, camera->getPosition().x - 640, camera->getPosition().y - 360);
 			//drawing objects
 			GameController::Render(Rects);
+			newgun->calcNewPos();
+			newgun->draw();
+			graphics->centerCamera(camera->getPosition());
 			graphics->DrawLine(Rects[0]->getPosition(), GameController::mouse, 0, 1, 0, 1);
 			//looping through rectangles, it checks each one if it is a platform
 			for (int i = 0; i < Rects.size(); i++)
@@ -180,6 +204,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 					}
 					else
 					{
+						/*
 						if (i == 1)
 						{
 							int x = 1;
@@ -212,7 +237,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 							x = GameController::mouse.y;
 							sprintf_s(s, ", mouse y: %d.", x);
 							OutputDebugString(s);
-						}
+						}*/
+					
 					}
 				}
 			}

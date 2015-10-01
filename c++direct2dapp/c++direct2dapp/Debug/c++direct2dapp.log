@@ -1,43 +1,9 @@
-﻿Build started 28/09/2015 2:56:12 PM.
+﻿Build started 1/10/2015 4:59:31 PM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt CollisionDetection.cpp
-         CollisionDetection.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(304): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(305): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(306): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(307): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(327): warning C4553: '==': operator has no effect; did you intend '='?
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(370): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(372): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(373): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(375): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(381): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(382): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(383): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(414): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(419): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(424): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(429): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(56): warning C4715: 'CollisionDetection::finddistance': not all control paths return a value
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(464): warning C4715: 'CollisionDetection::getClosestRectLineIntersect': not all control paths return a value
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.exe" /INCREMENTAL /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.lib" /MACHINE:X86 Debug\Ball.obj
-         Debug\Camera.obj
-         Debug\CollisionDetection.obj
-         Debug\fireball.obj
-         Debug\GameController.obj
-         Debug\GameLevel.obj
-         Debug\Graphics.obj
-         Debug\Level1.obj
-         Debug\main.obj
-         Debug\Platform.obj
-         Debug\player.obj
-         Debug\rectangle.obj
-         Debug\SpriteSheet.obj
+     1>Link:
          c++direct2dapp.vcxproj -> C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.exe
      1>Done Building Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.99
+Time Elapsed 00:00:00.04

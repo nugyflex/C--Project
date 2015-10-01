@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <d2d1.h>
 #include "Common.h"
+#include <math.h>
 
 class Graphics
 {
@@ -10,6 +11,7 @@ class Graphics
 	ID2D1HwndRenderTarget* renderTarget;
 	ID2D1SolidColorBrush* brush;
 	float zoomLevel;
+	Point camera;
 public:
 	Graphics();
 	~Graphics();
@@ -32,4 +34,7 @@ public:
 	void centerCamera(Point _position);
 	void setZoomLevel(float _zoom);
 	float getZoomLevel();
+	void rotate(Point _position, float _theta);
+	void setCamera(Point _p);
+	void rotateBack(Point _position, float _theta);
 };

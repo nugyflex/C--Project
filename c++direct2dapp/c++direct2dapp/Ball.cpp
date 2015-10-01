@@ -11,7 +11,6 @@ Ball::Ball(Point _center, int _radius, float _yVel, float xv, Graphics * gfxi)
 	yVel = _yVel;
 	xVel = xv;
 	gfx = gfxi;
-#pragma once
 }
 
 

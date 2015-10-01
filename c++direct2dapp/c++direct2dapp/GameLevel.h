@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "Platform.h"
 #include "fireball.h"
+#include "spy.h"
+#include "gun.h"
 #include <vector>
 
 using namespace std;

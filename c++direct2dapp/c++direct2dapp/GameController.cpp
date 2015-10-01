@@ -12,6 +12,7 @@ float GameController::zoomLevel;
 int GameController::fps;
 Point GameController::mouse;
 bool GameController::mouseMoved;
+bool GameController::mouseLeft;
 
 
 void GameController::Init()

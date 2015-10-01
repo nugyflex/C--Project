@@ -75,12 +75,14 @@
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameLevel.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="gun.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
+    <ClCompile Include="Spy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -90,12 +92,14 @@
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameLevel.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="gun.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="SpriteSheet.h" />
+    <ClInclude Include="spy.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="gradient_sprite.png" />
