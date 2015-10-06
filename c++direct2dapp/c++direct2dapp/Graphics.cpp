@@ -52,6 +52,14 @@ void Graphics::rotate(Point _position, float _theta)
 	translation._31 = -camera.x + 640 + _position.x; translation._32 = -camera.y + 360 + _position.y;
 	renderTarget->SetTransform(translation);
 }
+void Graphics::flip(Point _position, float _theta)
+{
+	D2D_MATRIX_3X2_F translation;
+	translation._11 = -1 * cos(_theta); translation._12 = sin(_theta);
+	translation._21 = sin(_theta); translation._22 = cos(_theta);
+	translation._31 = -camera.x + 640 + _position.x; translation._32 = -camera.y + 360 + _position.y;
+	renderTarget->SetTransform(translation);
+}
 
 void Graphics::rotateBack(Point _position, float _theta)
 {

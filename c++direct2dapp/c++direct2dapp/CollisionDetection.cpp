@@ -462,3 +462,90 @@ Point CollisionDetection::getClosestRectLineIntersect(Point _rp, float _width, f
 			break;
 		}
 }
+Point CollisionDetection::getClosestTarget(vector<Rect*> &_Rects, Point _p1, Point _p2)
+{
+	vector<Point> temppoints;
+	for (int i = 0; i < _Rects.size(); i++)
+	{
+		if (_Rects[i]->getType() == platform)
+		{
+			if (checkRectLineIntersect(_Rects[i]->getPosition(), _Rects[i]->getWidth(), _Rects[i]->getHeight(), _p2, _p1))
+			{
+				Point test = getClosestRectLineIntersect(_Rects[i]->getPosition(), _Rects[i]->getWidth(), _Rects[i]->getHeight(), _p2, _p1);
+				temppoints.push_back(test);
+			}
+		}
+	}
+
+	for (int i = 0; i < _Rects.size(); i++)
+	{
+		if (_Rects[i]->getType() == platform)
+		{
+			if (checkRectLineIntersect(_p1, _Rects[i]->getWidth(), _Rects[i]->getHeight(), _p2, _p1))
+			{
+				if (temppoints.size() > 0)
+				{
+					return getClosestPoint(_p1, temppoints);
+				}
+				else
+				{
+					return _p1;
+				}
+			}
+		}
+	}
+}
+
+Point CollisionDetection::projectLineToEdge(Point _c, int _Width, int _Height, Point _p1, Point _p2)
+{
+	float boundaryMinX = _c.x - _Width / 2;
+	float boundaryMaxX = _c.x + _Width / 2;
+	float boundaryMinY = _c.y - _Height / 2;
+	float boundaryMaxY = _c.y + _Height / 2;
+	Point temp1;
+	Point temp2;
+	temp1 = { boundaryMinX, boundaryMinY };
+	temp2 = { boundaryMaxX, boundaryMinY };
+	Point p1 = getLineIntersect(_p1, _p2, temp1, temp2);
+	temp1 = { boundaryMaxX, boundaryMinY };
+	temp2 = { boundaryMaxX, boundaryMaxY };
+	Point p2 = getLineIntersect(_p1, _p2, temp1, temp2);
+	temp1 = { boundaryMaxX, boundaryMaxY };
+	temp2 = { boundaryMinX, boundaryMaxY };
+	Point p3 = getLineIntersect(_p1, _p2, temp1, temp2);
+	temp1 = { boundaryMinX, boundaryMinY };
+	temp2 = { boundaryMinX, boundaryMaxY };
+	Point p4 = getLineIntersect(_p1, _p2, temp1, temp2);
+	vector<Point> temppoints;
+
+	if (_p2.x >= _p1.x)
+	{
+		if (_p2.y >= _p1.y)
+		{
+			temppoints.push_back(p2);
+			temppoints.push_back(p3);
+			return getClosestPoint(_p1, temppoints);
+		}
+		if (_p2.y < _p1.y)
+		{
+			temppoints.push_back(p1);
+			temppoints.push_back(p2);
+			return getClosestPoint(_p1, temppoints);
+		}
+	}
+	if (_p2.x < _p1.x)
+	{
+		if (_p2.y >= _p1.y)
+		{
+			temppoints.push_back(p3);
+			temppoints.push_back(p4);
+			return getClosestPoint(_p1, temppoints);
+		}
+		if (_p2.y < _p1.y)
+		{
+			temppoints.push_back(p4);
+			temppoints.push_back(p1);
+			return getClosestPoint(_p1, temppoints);
+		}
+	}
+}

@@ -173,19 +173,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	newgun->load();
 	newgun->setParent(true);
 	GameController::mouse = randompoint;
-	/////////////TODO////////////////
-	//1. make guns work as intended//
-	//by making all the code they  //
-	//use inside the gun function  //
-	//and make them acutally make  //
-	//particle effects where they  //
-	//fire.                        //
-	/////////////////////////////////
-	//2. art for guns, enemies,    //
-	// and particles needs to be   //
-	//finished.                    //
-	/////////////////////////////////
-	//3. 
+
 	SpriteSheet background = SpriteSheet(L"sanddunes2.png", 1280, 720, 0, 0, graphics);
 	while (message.message != WM_QUIT)
 	{

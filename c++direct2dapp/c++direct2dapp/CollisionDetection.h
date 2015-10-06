@@ -24,4 +24,6 @@ public:
 	static bool checkRectLineIntersect(Point _rp, float _width, float _height, Point _p1, Point _p2);
 	static Point getClosestRectLineIntersect(Point _rp, float _width, float _height, Point _p1, Point _p2);
 	static Point getClosestPoint(Point _p,  vector<Point> _Points);
+	static Point getClosestTarget(vector<Rect*> &_Rects, Point _p1, Point _p2);
+	static Point projectLineToEdge(Point _c, int Width, int Height, Point _p1, Point _p2);
 };

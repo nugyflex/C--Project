@@ -114,3 +114,11 @@ void SpriteSheet::nextFrame()
 {
 	frame++;
 }
+int SpriteSheet::getFrameWidth()
+{
+	return frameWidth;
+}
+int SpriteSheet::getFrameHeight()
+{
+	return frameHeight;
+}

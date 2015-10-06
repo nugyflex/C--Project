@@ -2,6 +2,7 @@
 #include "Graphics.h"
 #include "SpriteSheet.h"
 
+
 class Gun
 {
 	Point position;

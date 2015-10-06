@@ -1,4 +1,5 @@
 #include "gun.h"
+#include "CollisionDetection.h"
 Point mousePos;
 
 
@@ -29,8 +30,22 @@ void Gun::calcNewPos()
 }
 void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 {
-	gfx->rotate(_position, (atan((mousePos.y - (position.y+10)) / (mousePos.x - position.x))));
-	image->Draw(0, 0, 0);
+	if (_position.x <= mousePos.x)
+	{
+		gfx->rotate(_position, (atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))));
+	}
+	else
+	{
+		if (_position.y > mousePos.y)
+		{
+			gfx->flip(_position, (atan((mousePos.y+(2*(_position.y-mousePos.y)) - (_position.y)) / (mousePos.x - _position.x))));
+		}
+		else
+		{
+			gfx->flip(_position, (atan((mousePos.y - (2 * (mousePos.y - _position.y)) - (_position.y)) / (mousePos.x - _position.x))));
+		}
+	}
+	image->Draw(0, 0, -1*image->getFrameHeight()/2);
 	gfx->rotateBack(position, 0);
 }
 void Gun::setParent(bool _bool)

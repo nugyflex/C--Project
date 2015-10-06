@@ -22,4 +22,6 @@ public:
 	void autoSwitchFrame(int _speed);
 	void nextFrame();
 	void setFrame(int _frame);
+	int getFrameWidth();
+	int getFrameHeight();
 };

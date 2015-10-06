@@ -37,4 +37,5 @@ public:
 	void rotate(Point _position, float _theta);
 	void setCamera(Point _p);
 	void rotateBack(Point _position, float _theta);
+	void flip(Point _position, float _theta);
 };

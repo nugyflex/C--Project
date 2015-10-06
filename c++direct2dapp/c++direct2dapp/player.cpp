@@ -70,8 +70,8 @@ void Player::draw()
 	}
 	if (weapons.size()>0)
 	{
-		Point temppoint = { 200, 200 };
-		weapons[0]->drawOnParent(position, 0, -50);
+		Point temppoint = { position.x, position.y };
+		weapons[0]->drawOnParent(temppoint, 0, -50);
 
 	}
 	
