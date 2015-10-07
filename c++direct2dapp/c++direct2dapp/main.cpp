@@ -208,8 +208,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			background.Draw(0, camera->getPosition().x - 640, camera->getPosition().y - 360);
 			//drawing objects
 			GameController::Render(Rects);
-			newgun->calcNewPos();
-			newgun->draw();
+			//newgun->calcNewPos();
+			//newgun->draw();
 			graphics->centerCamera(camera->getPosition());
 			//graphics->DrawLine(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(camera->getPosition(), 1280, 720, Rects[0]->getPosition(), mousePos), 0, 1, 0, 1);
 			//looping through rectangles, it checks each one if it is a platform
@@ -223,9 +223,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 					}
 				}
 			}*/
+			
 			if (GameController::mouseLeft == true)
 			{
-				graphics->DrawRect(CollisionDetection::getClosestTarget(Rects, Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(camera->getPosition(), 1280, 720, Rects[0]->getPosition(), mousePos)), 10, 10, 1, 1, 1, 1);
+					graphics->DrawRect(CollisionDetection::getClosestTarget(Rects, Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(camera->getPosition(), 1280, 720, Rects[0]->getPosition(), mousePos)), 10, 10, 1, 1, 1, 1);	
 			}
 			temppoints.clear();
 			endtime = clock();

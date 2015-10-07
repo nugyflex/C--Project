@@ -467,7 +467,7 @@ Point CollisionDetection::getClosestTarget(vector<Rect*> &_Rects, Point _p1, Poi
 	vector<Point> temppoints;
 	for (int i = 0; i < _Rects.size(); i++)
 	{
-		if (_Rects[i]->getType() == platform)
+		if (_Rects[i]->getType() != player)
 		{
 			if (checkRectLineIntersect(_Rects[i]->getPosition(), _Rects[i]->getWidth(), _Rects[i]->getHeight(), _p2, _p1))
 			{
@@ -479,7 +479,7 @@ Point CollisionDetection::getClosestTarget(vector<Rect*> &_Rects, Point _p1, Poi
 
 	for (int i = 0; i < _Rects.size(); i++)
 	{
-		if (_Rects[i]->getType() == platform)
+		if (_Rects[i]->getType() != player)
 		{
 			if (checkRectLineIntersect(_p1, _Rects[i]->getWidth(), _Rects[i]->getHeight(), _p2, _p1))
 			{
@@ -489,7 +489,7 @@ Point CollisionDetection::getClosestTarget(vector<Rect*> &_Rects, Point _p1, Poi
 				}
 				else
 				{
-					return _p1;
+					return Point{1000, 1000};
 				}
 			}
 		}
