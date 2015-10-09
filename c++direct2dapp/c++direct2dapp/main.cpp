@@ -3,6 +3,7 @@
 #include "Graphics.h"
 
 #include "Level1.h"
+#include "menu.h"
 #include "GameController.h"
 #include "Camera.h"
 #include <mmsystem.h>
@@ -104,7 +105,7 @@ GameController::mouse.y += 0.1 + camera->getPosition().y - 360;
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow)
 {
 	vector<Point> temppoints;
-	vector<Rect*> Rects;
+
 	vector<Gun*> weapons;
 	graphics = new Graphics();
 	Point randompoint = { 640, 9 };
@@ -131,7 +132,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	Gun* newgun = new Gun(300, 300, graphics);
 
 	weapons.push_back(newgun);
-	Rects[0]->addWeapon(weapons[0]);
+
+	((Player*)Rects[0])->addWeapon(weapons[0]);
 
 	WNDCLASSEX windowclass;
 	ZeroMemory(&windowclass, sizeof(WNDCLASSEX));
@@ -160,7 +162,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	GameLevel::Init(graphics);
 	GameController::fps = 60;
 	ShowWindow(windowhandle, nCmdShow);
-	GameController::LoadInitialLevel(new Level1());
+	GameController::LoadInitialLevel(new Menu());
 	GameController::zoomLevel = 1;
 	MSG message;
 	message.message = WM_NULL;
@@ -173,19 +175,24 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	newgun->load();
 	newgun->setParent(true);
 	GameController::mouse = randompoint;
-	/////////////TODO////////////////
-	//1. make guns work as intended//
-	//by making all the code they  //
-	//use inside the gun function  //
-	//and make them acutally make  //
-	//particle effects where they  //
-	//fire.                        //
-	/////////////////////////////////
-	//2. art for guns, enemies,    //
-	// and particles needs to be   //
-	//finished.                    //
-	/////////////////////////////////
+	//===========||TODO||===============//
+	//1. Particle effects, the object   ||
+	//   itself with a wrapper object   ||
+	//   and vector, and function like  ||
+	//   add(how many, for how long)    ||
+	//   etc.                           ||
+	//   and the art for it             ||
+	//   time: 2 hours                  ||
+	//==================================//
+	//2. menu, a main menu as well as   ||
+	//   pause screen with [back to mm] ||
+	//   and [quit] and maybe a save    ||
+	//   feature?                       ||
+	//	 time: 2 hours                  ||
+	//==================================//
 	//3. 
+
+
 	SpriteSheet background = SpriteSheet(L"sanddunes2.png", 1280, 720, 0, 0, graphics);
 	while (message.message != WM_QUIT)
 	{
@@ -197,37 +204,22 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			GameController::mouse.x += camera->getxVel();
 			GameController::mouse.y += camera->getyVel();
 			mousePos = GameController::mouse;
+			mouseLeft = GameController::mouseLeft;
 
 			starttime = clock();
 			camera->calcNewPos(Rects[0]->getPosition());
+			cameraPos = camera->getPosition();
 			graphics->setCamera(camera->getPosition());
 			//updating everything
-			GameController::Update(Rects);
+			GameController::Update();
 			graphics->BeginDraw();
 			graphics->centerCamera(camera->getPosition());
 			background.Draw(0, camera->getPosition().x - 640, camera->getPosition().y - 360);
 			//drawing objects
-			GameController::Render(Rects);
+			GameController::Render();
 			//newgun->calcNewPos();
 			//newgun->draw();
 			graphics->centerCamera(camera->getPosition());
-			//graphics->DrawLine(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(camera->getPosition(), 1280, 720, Rects[0]->getPosition(), mousePos), 0, 1, 0, 1);
-			//looping through rectangles, it checks each one if it is a platform
-			/*for (int i = 0; i < Rects.size(); i++)
-			{
-				if (Rects[i]->getType() == platform) // is the rectangle a platform
-				{
-					if (CollisionDetection::checkRectLineIntersect(Rects[i]->getPosition(), Rects[i]->getWidth(), Rects[i]->getHeight(), CollisionDetection::projectLineToEdge(camera->getPosition(), 1280, 720, Rects[0]->getPosition(), mousePos), Rects[0]->getPosition()))  // is the line between the player and the mouse entersection the platform
-					{
-						graphics->DrawLine(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(camera->getPosition(), 1280, 720, Rects[0]->getPosition(), mousePos), 1, 0, 0, 1);// if it is intersection, draw a red line
-					}
-				}
-			}*/
-			
-			if (GameController::mouseLeft == true)
-			{
-					graphics->DrawRect(CollisionDetection::getClosestTarget(Rects, Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(camera->getPosition(), 1280, 720, Rects[0]->getPosition(), mousePos)), 10, 10, 1, 1, 1, 1);	
-			}
 			temppoints.clear();
 			endtime = clock();
 			endminusstart = endtime - starttime;

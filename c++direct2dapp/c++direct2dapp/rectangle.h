@@ -1,7 +1,8 @@
 #pragma once
 #include "Graphics.h"
 #include <string.h>
-#include "gun.h"
+#include <vector>
+
 using namespace std;
 
 enum rectType { platform, player, fireball, spy };
@@ -54,5 +55,6 @@ public:
 	virtual void load();
 	virtual int getWeaponOffsetX();
 	virtual int getWeaponOffsetY();
-	virtual void addWeapon(Gun* _gun);
+
 };
+extern vector<Rect*> Rects;

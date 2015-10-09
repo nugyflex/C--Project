@@ -19,34 +19,34 @@ void Level1::Unload() {
 }
 ;
 
-void Level1::Update(vector<Rect*> &_Rects)
+void Level1::Update()
 {
 	//VARIABLE JUMP
 	if (GameController::keyW == true)
 	{
-		if (_Rects[0]->getyVel() >= 0)
+		if (Rects[0]->getyVel() >= 0)
 		{
-			for (int j = 0; j < _Rects.size(); j++)
+			for (int j = 0; j < Rects.size(); j++)
 			{
-				if (_Rects[j]->getFixed() && CollisionDetection::getSide(_Rects[0], _Rects[j]) == 4)
+				if (Rects[j]->getFixed() && CollisionDetection::getSide(Rects[0], Rects[j]) == 4)
 				{
-					_Rects[0]->setyVel(-8);
+					Rects[0]->setyVel(-8);
 				}
 			}
 		}
 	}
 	else
 	{
-		if (_Rects[0]->getyVel() < -3)
+		if (Rects[0]->getyVel() < -3)
 		{
-			_Rects[0]->setyVel(-3);
+			Rects[0]->setyVel(-3);
 		}
 	}
 	if (GameController::keyA == true)
 	{
 
 		
-		_Rects[0]->setxVel(-3);
+		Rects[0]->setxVel(-3);
 		
 		
 	}
@@ -56,57 +56,57 @@ void Level1::Update(vector<Rect*> &_Rects)
 	}
 	if (GameController::keyS == true)
 	{
-		//_Rects[0]->setyVel(6);
+		//Rects[0]->setyVel(6);
 	}
 	if (GameController::keyD == true)
 	{
-		_Rects[0]->setxVel(3);
+		Rects[0]->setxVel(3);
 
 	}
 	if (GameController::keyA == false && GameController::keyD == false)
 	{
-		_Rects[0]->setxVel(0);
+		Rects[0]->setxVel(0);
 	}
-	for (int i = 0; i < _Rects.size(); i++)
+	for (int i = 0; i < Rects.size(); i++)
 	{
 		//Gravity
-		if (_Rects[i]->getGravity() == true)
+		if (Rects[i]->getGravity() == true)
 		{
-			_Rects[i]->setyVel(_Rects[i]->getyVel() + 0.51f);
+			Rects[i]->setyVel(Rects[i]->getyVel() + 0.51f);
 		}
 		//adding xvel x to x and yvel to y
-		_Rects[i]->calcNewPos();
-		if (_Rects[i]->getType() == spy)
+		Rects[i]->calcNewPos();
+		if (Rects[i]->getType() == spy)
 		{
-			_Rects[i]->calcNewPos(_Rects[0]->getPosition());
+			Rects[i]->calcNewPos(Rects[0]->getPosition());
 		}
 
-		if (!_Rects[i]->getFixed() && _Rects[i]->getType() != fireball)
+		if (!Rects[i]->getFixed() && Rects[i]->getType() != fireball)
 		{
-			for (int j = 0; j < _Rects.size(); j++)
+			for (int j = 0; j < Rects.size(); j++)
 			{
-				if (_Rects[j]->getFixed())
+				if (Rects[j]->getFixed())
 				{
-					CollisionDetection::correctPosition(_Rects[i], _Rects[j]);
+					CollisionDetection::correctPosition(Rects[i], Rects[j]);
 				}
 			}
 		}
 
 	}
 
-	for (int i = 0; i < _Rects.size(); i++)
+	for (int i = 0; i < Rects.size(); i++)
 	{
 		//deleting fireballs
-		if (_Rects[i]->getType() == fireball)
+		if (Rects[i]->getType() == fireball)
 		{
 
-			for (int j = 0; j < _Rects.size(); j++)
+			for (int j = 0; j < Rects.size(); j++)
 			{
-				if (_Rects[j]->getType() == platform)
+				if (Rects[j]->getType() == platform)
 				{
-					if (CollisionDetection::CheckRectangleIntersect(_Rects[i], _Rects[j]))
+					if (CollisionDetection::CheckRectangleIntersect(Rects[i], Rects[j]))
 					{
-						_Rects.erase(_Rects.begin() + i);
+						Rects.erase(Rects.begin() + i);
 						i--;
 						break;
 					}
@@ -117,7 +117,7 @@ void Level1::Update(vector<Rect*> &_Rects)
 	}
 
 }
-void Level1::Render(vector<Rect*> _Rects)
+void Level1::Render()
 {
 	Point temppoint1 = { 1,1 };
 	Point temppoint2 = { 10,10 };
@@ -126,9 +126,9 @@ void Level1::Render(vector<Rect*> _Rects)
 		//gfx->ClearScreen(0.0f, 0.0f, 0.0f);
 		sprites->autoSwitchFrame(7);
 		sprites->Draw(-1, 60, 60);
-		for (int i = 0; i < _Rects.size(); i++)
+		for (int i = 0; i < Rects.size(); i++)
 		{
-			_Rects[i]->draw();
+			Rects[i]->draw();
 		}
 		sprites1->Draw(-1, 50, 296);
 }

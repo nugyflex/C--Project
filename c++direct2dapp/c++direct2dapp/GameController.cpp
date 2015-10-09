@@ -39,16 +39,16 @@ void GameController::SwitchLevel(GameLevel* lev)
 	Loading = false;
 }
 
-void GameController::Render(vector<Rect*> _Rects)
+void GameController::Render()
 {
 	if (Loading) return;
-	currentlevel->Render(_Rects);
+	currentlevel->Render();
 }
 
-void GameController::Update(vector<Rect*> &_Rects)
+void GameController::Update()
 {
 	if (Loading) return;
-	currentlevel->Update(_Rects);
+	currentlevel->Update();
 }
 void GameController::setMouseX(float _x)
 {

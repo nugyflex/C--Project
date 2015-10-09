@@ -29,8 +29,8 @@ public:
 	static void LoadInitialLevel(GameLevel* lev);
 	static void  SwitchLevel(GameLevel* lev);
 
-	static void Render(vector<Rect*> _Rects);
-	static void Update(vector<Rect*> &_Rects);
+	static void Render();
+	static void Update();
 	static void setMouseX(float _x);
 	static void setMouseY(float _y);
 	static Point  getMousePos();

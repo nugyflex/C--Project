@@ -134,4 +134,4 @@ bool Rect::getGravity()
 	return gravity;
 }
 
-void Rect::addWeapon(Gun* _gun) {}
+vector<Rect*> Rects;

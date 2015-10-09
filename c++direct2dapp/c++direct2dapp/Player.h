@@ -1,7 +1,8 @@
 #pragma once
-#include "rectangle.h"
+
 #include "SpriteSheet.h"
 #include <vector>
+#include "gun.h"
 
 class Player: public Rect {
 	SpriteSheet* spritewalkingleft;
@@ -20,5 +21,5 @@ public:
 	int getWeaponOffsetY() override;
 	int getWeaponOffsetX() override;
 	vector<Gun*> weapons;
-	void addWeapon(Gun* _gun) override;
+	void addWeapon(Gun* _gun);
 };

@@ -462,26 +462,26 @@ Point CollisionDetection::getClosestRectLineIntersect(Point _rp, float _width, f
 			break;
 		}
 }
-Point CollisionDetection::getClosestTarget(vector<Rect*> &_Rects, Point _p1, Point _p2)
+Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
 {
 	vector<Point> temppoints;
-	for (int i = 0; i < _Rects.size(); i++)
+	for (int i = 0; i < Rects.size(); i++)
 	{
-		if (_Rects[i]->getType() != player)
+		if (Rects[i]->getType() != player)
 		{
-			if (checkRectLineIntersect(_Rects[i]->getPosition(), _Rects[i]->getWidth(), _Rects[i]->getHeight(), _p2, _p1))
+			if (checkRectLineIntersect(Rects[i]->getPosition(), Rects[i]->getWidth(), Rects[i]->getHeight(), _p2, _p1))
 			{
-				Point test = getClosestRectLineIntersect(_Rects[i]->getPosition(), _Rects[i]->getWidth(), _Rects[i]->getHeight(), _p2, _p1);
+				Point test = getClosestRectLineIntersect(Rects[i]->getPosition(), Rects[i]->getWidth(), Rects[i]->getHeight(), _p2, _p1);
 				temppoints.push_back(test);
 			}
 		}
 	}
 
-	for (int i = 0; i < _Rects.size(); i++)
+	for (int i = 0; i < Rects.size(); i++)
 	{
-		if (_Rects[i]->getType() != player)
+		if (Rects[i]->getType() != player)
 		{
-			if (checkRectLineIntersect(_p1, _Rects[i]->getWidth(), _Rects[i]->getHeight(), _p2, _p1))
+			if (checkRectLineIntersect(_p1, Rects[i]->getWidth(), Rects[i]->getHeight(), _p2, _p1))
 			{
 				if (temppoints.size() > 0)
 				{

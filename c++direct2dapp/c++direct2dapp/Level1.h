@@ -24,6 +24,6 @@ public:
 
 	void Load() override;
 	void Unload() override;
-	void Render(vector<Rect*> _Rects);
-	void Update(vector<Rect*> &_Rects);
+	void Render();
+	void Update();
 };
