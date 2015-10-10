@@ -6,3 +6,5 @@ Button::Button()
 Button::~Button(){}
 
 void Button::action(){}
+
+void Button::draw(){}

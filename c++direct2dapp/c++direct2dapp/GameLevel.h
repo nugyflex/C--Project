@@ -6,6 +6,7 @@
 #include "fireball.h"
 #include "spy.h"
 #include "gun.h"
+#include "Camera.h"
 #include <vector>
 
 using namespace std;

@@ -16,9 +16,8 @@ class Level1 : public GameLevel
 	int soundLatch;
 	int testvar;
 	int fc;
-
-	SpriteSheet* sprites;
-	SpriteSheet* sprites1;
+	Camera* camera;
+	SpriteSheet* backGround;
 
 public:
 
