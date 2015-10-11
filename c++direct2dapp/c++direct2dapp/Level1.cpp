@@ -37,6 +37,7 @@ void Level1::Load()
 	weapons[0]->load();
 	weapons[0]->setParent(true);
 	((Player*)Rects[0])->addWeapon(weapons[0]);
+	paused = false;
 
 }
 
@@ -155,11 +156,14 @@ void Level1::Update()
 
 		}
 	}
-	for (int i = 0; i < buttons.size(); i++)
+	if (paused)
 	{
-		if (mouseLeft && CollisionDetection::checkPointRectIntersect(mousePos, buttons[i]->getPosition(), 100, 50))
+		for (int i = 0; i < buttons.size(); i++)
 		{
-			buttons[i]->action();
+			if (mouseLeft && CollisionDetection::checkPointRectIntersect(mousePos, buttons[i]->getPosition(), 100, 50))
+			{
+				buttons[i]->action();
+			}
 		}
 	}
 
@@ -177,9 +181,11 @@ void Level1::Render()
 		{
 			Rects[i]->draw();
 		}
-
-		for (int i = 0; i < buttons.size(); i++)
+		if (paused)
 		{
-			buttons[i]->draw();
+			for (int i = 0; i < buttons.size(); i++)
+			{
+				buttons[i]->draw();
+			}
 		}
 }

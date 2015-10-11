@@ -78,6 +78,9 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case 0x44:
 			GameController::keyD = false;
 			break;
+		case 0x1B:
+			exit(0);
+			break;
 		}
 		break;
 	case WM_MOUSEMOVE: //this sets the cursor when the mouse is moved.
