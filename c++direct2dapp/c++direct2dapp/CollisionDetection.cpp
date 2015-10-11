@@ -483,13 +483,17 @@ Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
 		{
 			if (checkRectLineIntersect(_p1, Rects[i]->getWidth(), Rects[i]->getHeight(), _p2, _p1))
 			{
-				if (temppoints.size() > 0)
+				if (temppoints.size() > 0 && getClosestPoint(_p1, temppoints).x != 0 && getClosestPoint(_p1, temppoints).y != 0)
 				{
+					if (getClosestPoint(_p1, temppoints).x < 30 && getClosestPoint(_p1, temppoints).y < 30)
+					{
+						return getClosestPoint(_p1, temppoints);
+					}
 					return getClosestPoint(_p1, temppoints);
 				}
 				else
 				{
-					return Point{1000, 1000};
+					return projectLineToEdge(Point{ cameraPos.x - 10, cameraPos.y - 10 }, 1280+30, 720+30, _p1, _p2);
 				}
 			}
 		}
@@ -548,4 +552,13 @@ Point CollisionDetection::projectLineToEdge(Point _c, int _Width, int _Height, P
 			return getClosestPoint(_p1, temppoints);
 		}
 	}
+}
+
+bool CollisionDetection::checkPointRectIntersect(Point _p1, Point _r, int _width, int _height)
+{
+	if (_p1.x >= _r.x&&_p1.x <= _r.x + _width&&_p1.y >= _r.y&&_p1.y < _r.y + _height)
+	{
+		return true;
+	}
+	else{return false;}
 }

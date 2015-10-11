@@ -16,8 +16,11 @@ class Level1 : public GameLevel
 	int soundLatch;
 	int testvar;
 	int fc;
+	bool paused;
 	Camera* camera;
 	SpriteSheet* backGround;
+	vector<Button*> buttons;
+	vector<Gun*> weapons;
 
 public:
 
@@ -25,4 +28,5 @@ public:
 	void Unload() override;
 	void Render();
 	void Update();
+
 };

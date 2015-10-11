@@ -72,14 +72,17 @@
     <ClCompile Include="button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
+    <ClCompile Include="ExitButton.cpp" />
     <ClCompile Include="fireball.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameLevel.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="gun.cpp" />
     <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="Level1Button.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="rectangle.cpp" />
@@ -91,6 +94,7 @@
     <ClInclude Include="button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CollisionDetection.h" />
+    <ClInclude Include="ExitButton.h" />
     <ClInclude Include="fireball.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameLevel.h" />
@@ -98,7 +102,9 @@
     <ClInclude Include="gun.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="Level1Button.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="rectangle.h" />

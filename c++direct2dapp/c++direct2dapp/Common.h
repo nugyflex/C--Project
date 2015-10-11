@@ -6,4 +6,6 @@ extern Point cameraPos;
 
 extern bool mouseLeft;
 
+extern bool lastMouseLeft;
+
 //extern 	vector<Rect*> zRects;

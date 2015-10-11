@@ -8,8 +8,12 @@ void Level1::Load()
 	soundLatch = 0;
 	testvar = 0;
 	fc = 0;
+	Button* temp = new MenuButton(600, 0, gfx);
+	buttons.push_back(temp);
+	temp = new ExitButton(600, 100, gfx);
+	buttons.push_back(temp);
 
-	vector<Gun*> weapons;
+
 	camera = new Camera(Point{ 0,0 });
 	backGround  = new SpriteSheet(L"sanddunes2.png", 1280, 720, 0, 0, gfx);
 
@@ -38,7 +42,15 @@ void Level1::Load()
 
 void Level1::Unload() {
 	delete backGround;
-
+	delete camera;
+	for (int i = 0; i < buttons.size(); i++)
+	{
+		delete buttons[i];
+	}
+	for (auto it = Rects.begin(); it != Rects.end(); ++it) {
+		delete *it;
+	}
+	Rects.clear();
 }
 
 void Level1::Update()
@@ -143,6 +155,13 @@ void Level1::Update()
 
 		}
 	}
+	for (int i = 0; i < buttons.size(); i++)
+	{
+		if (mouseLeft && CollisionDetection::checkPointRectIntersect(mousePos, buttons[i]->getPosition(), 100, 50))
+		{
+			buttons[i]->action();
+		}
+	}
 
 }
 void Level1::Render()
@@ -159,4 +178,8 @@ void Level1::Render()
 			Rects[i]->draw();
 		}
 
+		for (int i = 0; i < buttons.size(); i++)
+		{
+			buttons[i]->draw();
+		}
 }

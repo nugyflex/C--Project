@@ -26,4 +26,5 @@ public:
 	static Point getClosestPoint(Point _p,  vector<Point> _Points);
 	static Point getClosestTarget( Point _p1, Point _p2);
 	static Point projectLineToEdge(Point _c, int Width, int Height, Point _p1, Point _p2);
+	static bool checkPointRectIntersect(Point _p1, Point _r, int width, int height);
 };

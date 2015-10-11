@@ -19,4 +19,5 @@ public:
 	void Unload() override;
 	void Render();
 	void Update();
+	vector<Button*> buttons;
 };

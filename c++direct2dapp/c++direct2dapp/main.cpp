@@ -13,6 +13,7 @@
 #include <string>
 #include <sstream>
 #include "stdio.h"
+#include <stdlib.h>
 using namespace std;
 
 
@@ -106,13 +107,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 {
 	vector<Point> temppoints;
 
-
 	graphics = new Graphics();
-
 	
-
-
-
 	WNDCLASSEX windowclass;
 	ZeroMemory(&windowclass, sizeof(WNDCLASSEX));
 	windowclass.cbSize = sizeof(WNDCLASSEX);
@@ -183,6 +179,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			graphics->setCamera(cameraPos);
 			//updating everything
 			GameController::Update();
+			lastMouseLeft = mouseLeft;
 			graphics->BeginDraw();
 			graphics->centerCamera(cameraPos);
 
@@ -219,7 +216,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			}
 		}
 	}
-
+	exit(0);
 	delete graphics;
 	return 0;
 }
