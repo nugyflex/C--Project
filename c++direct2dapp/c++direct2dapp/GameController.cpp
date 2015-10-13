@@ -31,6 +31,7 @@ void GameController::LoadInitialLevel(GameLevel* lev)
 
 void GameController::SwitchLevel(GameLevel* lev)
 {
+	paused = false;
 	Loading = true;
 	currentlevel->Unload();
 	lev->Load();

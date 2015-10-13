@@ -8,4 +8,4 @@ extern bool mouseLeft;
 
 extern bool lastMouseLeft;
 
-//extern 	vector<Rect*> zRects;
+extern bool paused;

@@ -79,7 +79,14 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			GameController::keyD = false;
 			break;
 		case 0x1B:
-			exit(0);
+			if (paused)
+			{
+				paused = false;
+			}
+			else
+			{
+				paused = true;
+			}
 			break;
 		}
 		break;

@@ -1,16 +1,16 @@
 #include "Level1.h"
 #include <stdio.h>
-
+#include <math.h>
 void Level1::Load()
 {
 
-
+	particles = new particleCollection(gfx);
 	soundLatch = 0;
 	testvar = 0;
 	fc = 0;
-	Button* temp = new MenuButton(600, 0, gfx);
+	Button* temp = new MenuButton(0, 0, gfx);
 	buttons.push_back(temp);
-	temp = new ExitButton(600, 100, gfx);
+	temp = new ExitButton(0, 100, gfx);
 	buttons.push_back(temp);
 
 
@@ -37,7 +37,7 @@ void Level1::Load()
 	weapons[0]->load();
 	weapons[0]->setParent(true);
 	((Player*)Rects[0])->addWeapon(weapons[0]);
-	paused = false;
+	particles->add(spark, Point{ 0,0 });
 
 }
 
@@ -52,6 +52,7 @@ void Level1::Unload() {
 		delete *it;
 	}
 	Rects.clear();
+	delete particles;
 }
 
 void Level1::Update()
@@ -160,13 +161,17 @@ void Level1::Update()
 	{
 		for (int i = 0; i < buttons.size(); i++)
 		{
-			if (mouseLeft && CollisionDetection::checkPointRectIntersect(mousePos, buttons[i]->getPosition(), 100, 50))
+			if (!lastMouseLeft && mouseLeft && CollisionDetection::checkPointRectIntersect(mousePos, Point{ buttons[i]->getPosition().x + cameraPos.x, buttons[i]->getPosition().y + cameraPos.y }, 100, 50))
 			{
 				buttons[i]->action();
 			}
 		}
 	}
-
+	particles->manage();
+	float random = rand();
+	float randmax = RAND_MAX;
+	float test = floor((random / randmax) * 100);
+	particles->add(spark, Point{ test, 0 });
 }
 void Level1::Render()
 {
@@ -188,4 +193,5 @@ void Level1::Render()
 				buttons[i]->draw();
 			}
 		}
+		particles->draw();
 }

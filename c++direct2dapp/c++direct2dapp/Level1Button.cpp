@@ -19,5 +19,5 @@ void Level1Button::action()
 }
 void Level1Button::draw()
 {
-	gfx->FillRect(position, 100, 50, 1.0f, 1.0f, 1.0f, 1.0f);
+	gfx->FillRect(Point{ position.x + cameraPos.x, position.y + cameraPos.y }, 100, 50, 1.0f, 1.0f, 1.0f, 1.0f);
 }

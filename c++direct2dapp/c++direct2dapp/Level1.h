@@ -5,10 +5,6 @@
 #include "GameController.h"
 #include "Graphics.h"
 
-
-
-
-
 class Level1 : public GameLevel
 {
 	float y;
@@ -16,12 +12,11 @@ class Level1 : public GameLevel
 	int soundLatch;
 	int testvar;
 	int fc;
-	bool paused;
 	Camera* camera;
 	SpriteSheet* backGround;
 	vector<Button*> buttons;
 	vector<Gun*> weapons;
-
+	particleCollection *particles;
 public:
 
 	void Load() override;
