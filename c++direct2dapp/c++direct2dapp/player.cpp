@@ -71,7 +71,7 @@ void Player::draw()
 	if (weapons.size()>0)
 	{
 		Point temppoint = { position.x, position.y };
-		weapons[0]->drawOnParent(temppoint, 0, -50);
+		weapons[weaponInUse]->drawOnParent(temppoint, 0, -50);
 
 	}
 	
@@ -86,6 +86,7 @@ void Player::load()
 	spritestandingright = new SpriteSheet(L"standingright.png", 32, 54, 0, 1, gfx);
 	spritejumpingleft = new SpriteSheet(L"jumpingleft.png", 32, 54, 0, 1, gfx);
 	spritejumpingright = new SpriteSheet(L"sanddunes.png", 1280, 720, 0, 1, gfx);
+	weaponInUse = 0;
 }
 
 int Player::getWeaponOffsetY()
@@ -99,4 +100,9 @@ int Player::getWeaponOffsetX()
 void Player::addWeapon(Gun* _gun)
 {
 	weapons.push_back(_gun);
+	weaponInUse = weapons.size() - 1;
+}
+int Player::getWeaponInUse()
+{
+	return weaponInUse;
 }

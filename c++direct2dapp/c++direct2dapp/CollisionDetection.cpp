@@ -29,6 +29,8 @@ bool CollisionDetection::CheckRectangleIntersect(Rect *_ob1, Rect *_ob2)
 	
 }
 
+
+
 float CollisionDetection::finddistance(float x1, float y1, float x2, float y2)
 {
 	float ob1ymob2y = pow((y1 - y2), 2);
@@ -259,6 +261,40 @@ void CollisionDetection::correctPosition(Rect* _player, Rect* _platform) {
 		}
 	}
 }
+void CollisionDetection::correctPositionParticle(Particle* _particle, Rect* _platform) {
+	//left = 1, bottom = 2, right = 3, top = 4
+	Rect* _player = new Rect(_particle->getPosition(), _particle->getWidth(), _particle->getHeight(), 0, 0, false, player, false, new Graphics);
+	if (!_player->getFixed()&&CheckRectangleIntersect(_player, _platform))
+	{
+		switch (getSide(_player, _platform))
+		{
+		case 1:
+			if (_particle->getxVel() > 0) {
+				_particle->setxVel(0);
+			}
+			_particle->setX(_platform->getX() - _particle->getWidth());
+			break;
+		case 3:
+			if (_particle->getxVel() < 0) {
+				_particle->setxVel(0);
+			}
+			_particle->setX(_platform->getX() + _platform->getWidth());
+			break;
+		case 2:
+			if (_particle->getyVel() < 0) {
+				_particle->setyVel(0);
+			}
+			_particle->setY(_platform->getY() + _platform->getHeight());
+			break;
+		case 4:
+			if (_particle->getyVel() > 0) {
+				_particle->setyVel(0);
+			}
+			_particle->setY(_platform->getY() - _particle->getHeight());
+			break;
+		}
+	}
+}
 bool CollisionDetection::isBetween(int _1, int _2, int _3)
 {
 	//tollerance
@@ -365,6 +401,7 @@ bool CollisionDetection::checkRectLineIntersect(Point _rp, float _width, float _
 }
 Point CollisionDetection::getClosestPoint(Point _p, vector<Point> _Points)
 {
+
 	vector< vector<int> > array(2, vector<int>(_Points.size()));
 	float test = 0;
 	for (int i = 0; i < _Points.size(); i++)
@@ -386,7 +423,8 @@ Point CollisionDetection::getClosestPoint(Point _p, vector<Point> _Points)
 				currentmini = j;
 			}
 		}
-
+	int temp1 = _Points[array[1][currentmini]].x;
+	temp1 = _Points[array[1][currentmini]].y;
 	return _Points[array[1][currentmini]];
 
 }
@@ -493,6 +531,7 @@ Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
 				}
 				else
 				{
+
 					return projectLineToEdge(Point{ cameraPos.x - 10, cameraPos.y - 10 }, 1280+30, 720+30, _p1, _p2);
 				}
 			}

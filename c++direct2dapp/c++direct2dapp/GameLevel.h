@@ -10,7 +10,6 @@
 #include "MenuButton.h"
 #include "Level1Button.h"
 #include "ExitButton.h"
-#include "ParticleCollection.h"
 #include <vector>
 
 using namespace std;

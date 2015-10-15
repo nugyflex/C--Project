@@ -31,13 +31,11 @@ void Gun::calcNewPos()
 		position.x += xVel;
 		position.y += yVel;
 	}
+
 }
 void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 {
-	if (mouseLeft == true)
-	{
-		fire();
-	}
+
 	if (_position.x <= mousePos.x)
 	{
 		gfx->rotate(_position, (atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))));
@@ -56,16 +54,24 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 	image->Draw(0, 0, -1*image->getFrameHeight()/2);
 	gfx->rotateBack(position, 0);
 	Point thing = CollisionDetection::getClosestTarget(_position, mousePos);
-
-}
-void Gun::fire()
-{
-	if (rand() < RAND_MAX/2)
+	if (firing)
 	{
 		gfx->DrawLine(Rects[0]->getPosition(), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)), 1, 0.85, 0.6, 1);
-		hitMarker->Draw(0, CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 4.5, CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 4.5);
-		
+		//hitMarker->Draw(0, CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 4.5, CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 4.5);
 	}
+	firing = false;
+	coolDown--;
+
+}
+bool Gun::fire()
+{
+	if (coolDown < 0)
+	{
+		firing = true;
+		coolDown = maxCooldown;
+		return true;
+	}
+	return false;
 }
 void Gun::setParent(bool _bool)
 {
@@ -78,10 +84,18 @@ void Gun::draw()
 		{
 			image->Draw(0, position.x, position.y);
 		}
+
 }
 
 void Gun::load()
 {
 	image = new SpriteSheet(L"gun1.png", 20, 10, 0, 1, gfx);
 	hitMarker = new SpriteSheet(L"hitmarker.png", 9, 9, 0, 1, gfx);
+	maxCooldown = 20;
+	coolDown = 0;
+}
+
+bool Gun::getFiring()
+{
+	return firing;
 }

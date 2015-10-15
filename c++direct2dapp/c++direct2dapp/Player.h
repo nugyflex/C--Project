@@ -4,7 +4,7 @@
 #include <vector>
 #include "gun.h"
 
-class Player: public Rect {
+class Player : public Rect {
 	SpriteSheet* spritewalkingleft;
 	SpriteSheet* spritewalkingright;
 	SpriteSheet* spritestandingleft;
@@ -22,4 +22,6 @@ public:
 	int getWeaponOffsetX() override;
 	vector<Gun*> weapons;
 	void addWeapon(Gun* _gun);
+	int weaponInUse;
+	int getWeaponInUse();
 };

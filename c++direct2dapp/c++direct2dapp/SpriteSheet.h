@@ -18,7 +18,7 @@ public:
 	SpriteSheet();
 	~SpriteSheet();
 
-	void Draw(int _frame, float _x, float _y);
+	void Draw(int _frame, int _x, int _y);
 	void autoSwitchFrame(int _speed);
 	void nextFrame();
 	void setFrame(int _frame);

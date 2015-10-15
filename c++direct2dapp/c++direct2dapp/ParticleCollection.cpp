@@ -6,12 +6,12 @@ particleCollection::particleCollection(Graphics* _gfx)
 	gfx = _gfx;
 }
 particleCollection::~particleCollection() {}
-void particleCollection::add(particleType _type, Point _position)
+void particleCollection::add(particleType _type, Point _position, float _xvel)
 {
 	switch (_type)
 	{
 	case spark:
-		particles.push_back(new sparkParticle(_position, gfx));
+		particles.push_back(new sparkParticle(_position, gfx, _xvel));
 	}
 	particles[particles.size() - 1]->load();
 }
@@ -32,23 +32,22 @@ void particleCollection::manage()
 	{
 		if (particles[i]->getDespawnTimer() <= 0)
 		{
+			delete particles[i];
 			particles.erase(particles.begin() + i);
+
 		}
 	}
 	for (int i = 0; i < particles.size(); i++)
 	{
 		for (int j = 0; j < Rects.size(); j++)
 		{
-			if (CollisionDetection::checkPointRectIntersect(particles[i]->getPosition(), Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight()) && Rects[j]->getType() == platform)
-			{
-				particles.erase(particles.begin() + i);
-				break;
-			}
-			if (CollisionDetection::checkPointRectIntersect(Point{ particles[i]->getPosition().x + 7, particles[i]->getPosition().y + 7 }, Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight()) && Rects[j]->getType() == platform)
-			{
-				particles.erase(particles.begin() + i);
-				break;
-			}
+			CollisionDetection::correctPositionParticle(particles[i], Rects[j]);
 		}
+		/*//uncomment if you want performance issues
+		for (int j = 0; j < particles.size(); j++)
+		{
+			CollisionDetection::correctPositionParticle(particles[i], new Rect(particles[j]->getPosition(), particles[j]->getWidth(), particles[j]->getHeight(), 0, 0, false, player, false, gfx));
+		}*/
+		
 	}
 }

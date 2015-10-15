@@ -1,4 +1,5 @@
 #pragma once
+#include "ParticleCollection.h"
 #include "Graphics.h"
 #include "SpriteSheet.h"
 #include "rectangle.h"
@@ -9,13 +10,16 @@ class Gun
 	SpriteSheet* image;
 	SpriteSheet* hitMarker;
 	float rotation = 0;
-
+	bool firing;
+	int maxCooldown;
+	int coolDown;
 public:
 	Gun(float _x, float _y, Graphics * gfx);
 	~Gun();
+	bool getFiring();
 	void load();
 	void draw();
-	void fire();
+	bool fire();
 	bool hasParent;
 	void setParent(bool _bool);
 	void calcNewPos();

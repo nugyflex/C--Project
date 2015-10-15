@@ -62,7 +62,7 @@ SpriteSheet::~SpriteSheet()
 	if (bmp) bmp->Release();
 }
 
-void SpriteSheet::Draw(int _frame, float _x, float _y)
+void SpriteSheet::Draw(int _frame, int _x, int _y)
 {
 	if (_frame > -1)
 	{

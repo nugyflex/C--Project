@@ -13,7 +13,7 @@ public:
 	vector<Particle*> particles;
 	particleCollection(Graphics* _gfx);
 	~particleCollection();
-	void add(particleType _type, Point _position);
+	void add(particleType _type, Point _position, float _xvel);
 	void draw();
 	void manage();
 protected:
