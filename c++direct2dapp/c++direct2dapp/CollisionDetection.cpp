@@ -288,7 +288,7 @@ void CollisionDetection::correctPositionParticle(Particle* _particle, Rect* _pla
 			break;
 		case 4:
 			if (_particle->getyVel() > 0) {
-				_particle->setyVel(0);
+				_particle->setyVel(_particle->getyVel()*-0.5);
 			}
 			_particle->setY(_platform->getY() - _particle->getHeight());
 			break;

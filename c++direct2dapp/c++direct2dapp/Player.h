@@ -9,8 +9,11 @@ class Player : public Rect {
 	SpriteSheet* spritewalkingright;
 	SpriteSheet* spritestandingleft;
 	SpriteSheet* spritestandingright;
-	SpriteSheet* spritejumpingleft;
-	SpriteSheet* spritejumpingright;
+	SpriteSheet* spritewalkingleftwithbags;
+	SpriteSheet* spritewalkingrightwithbags;
+	SpriteSheet* spritestandingleftwithbags;
+	SpriteSheet* spritestandingrightwithbags;
+	bool hasBags;
 public:
 	Player();
 	Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
