@@ -83,8 +83,21 @@ void Level1::Update()
 				{
 					if (((Player*)Rects[i])->weapons.size()>0)
 					{
+						if (((Player*)Rects[i])->weapons[((Player*)Rects[i])->getWeaponInUse()]->getCooldown() <-2)
+						{
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+						}
 						if (((Player*)Rects[i])->weapons[((Player*)Rects[i])->getWeaponInUse()]->fire())
 						{
+
 
 								float test = rand() % 10 + 1;
 								if (test > 9)
@@ -175,7 +188,7 @@ void Level1::Update()
 			{
 				for (int j = 0; j < Rects.size(); j++)
 				{
-					if (Rects[j]->getFixed())
+			if (Rects[j]->getFixed())
 					{
 						CollisionDetection::correctPosition(Rects[i], Rects[j]);
 					}

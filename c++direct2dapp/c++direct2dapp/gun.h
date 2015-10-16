@@ -25,6 +25,7 @@ public:
 	void calcNewPos();
 	float xVel;
 	float yVel;
+	int getCooldown();
 	void drawOnParent(Point _position, int _offSetX, int  _offSetY);
 protected:
 	Graphics* gfx;

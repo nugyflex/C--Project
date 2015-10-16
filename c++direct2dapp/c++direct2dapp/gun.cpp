@@ -99,3 +99,8 @@ bool Gun::getFiring()
 {
 	return firing;
 }
+
+int Gun::getCooldown()
+{
+	return coolDown;
+}
