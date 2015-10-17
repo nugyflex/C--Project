@@ -76,24 +76,24 @@ void Player::draw()
 			if (xVel < 0)
 			{
 				spritewalkingleft->autoSwitchFrame(10);
-				spritewalkingleft->Draw(-1, position.x, position.y);
+				spritewalkingleft->Draw(-1, position.x - 9, position.y);
 				lastdirection = 0;
 			}
 			if (xVel > 0)
 			{
 				spritewalkingright->autoSwitchFrame(10);
-				spritewalkingright->Draw(-1, position.x, position.y);
+				spritewalkingright->Draw(-1, position.x - 9, position.y);
 				lastdirection = 1;
 			}
 			if (xVel == 0)
 			{
 				if (lastdirection == 0)
 				{
-					spritestandingleft->Draw(0, position.x, position.y);
+					spritestandingleft->Draw(0, position.x - 9, position.y);
 				}
 				if (lastdirection == 1)
 				{
-					spritestandingright->Draw(0, position.x, position.y);
+					spritestandingright->Draw(0, position.x - 9, position.y);
 				}
 			}
 		}
@@ -101,23 +101,23 @@ void Player::draw()
 		{
 			if (xVel > 0)
 			{
-				spritewalkingright->Draw(0, position.x, position.y);
+				spritewalkingright->Draw(0, position.x - 9, position.y);
 				lastdirection = 1;
 			}
 			if (xVel < 0)
 			{
-				spritewalkingleft->Draw(0, position.x, position.y);
+				spritewalkingleft->Draw(0, position.x - 9, position.y);
 				lastdirection = 0;
 			}
 			if (xVel == 0)
 			{
 				if (lastdirection == 0)
 				{
-					spritewalkingleft->Draw(0, position.x, position.y);
+					spritewalkingleft->Draw(0, position.x - 9, position.y);
 				}
 				if (lastdirection == 1)
 				{
-					spritewalkingright->Draw(0, position.x, position.y);
+					spritewalkingright->Draw(0, position.x - 9, position.y);
 				}
 			}
 		}
@@ -145,7 +145,7 @@ int Player::getWeaponOffsetY()
 }
 int Player::getWeaponOffsetX()
 {
-	return 18;
+	return 9;
 }
 void Player::addWeapon(Gun* _gun)
 {

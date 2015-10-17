@@ -5,7 +5,8 @@
 Graphics::Graphics()
 {
 	factory = NULL;
-	renderTarget = NULL;
+	bitmapRenderTarget = NULL;
+	lightingTarget = NULL;
 	brush = NULL;
 	zoomLevel = 1;
 }
@@ -13,7 +14,8 @@ Graphics::Graphics()
 Graphics::~Graphics()
 {
 	if (factory) factory->Release();
-	if (renderTarget) renderTarget->Release();
+	if (bitmapRenderTarget) bitmapRenderTarget->Release();
+	if (lightingTarget) lightingTarget->Release();
 	if (brush) brush->Release();
 }
 
@@ -27,9 +29,11 @@ bool Graphics::Init(HWND windowHandle)
 	GetClientRect(windowHandle, &rect);
 	
 	factory->CreateHwndRenderTarget(D2D1::RenderTargetProperties(), D2D1::HwndRenderTargetProperties(windowHandle, D2D1::SizeU(rect.right, rect.bottom)), &renderTarget);
-
+	renderTarget->CreateCompatibleRenderTarget(&bitmapRenderTarget);
+	renderTarget->CreateCompatibleRenderTarget(&lightingTarget);
 	if (res != S_OK) return false;
-	res = renderTarget->CreateSolidColorBrush(D2D1::ColorF(0, 0, 0, 0), &brush);
+	res = bitmapRenderTarget->CreateSolidColorBrush(D2D1::ColorF(0, 0, 0, 0), &brush);
+	res = lightingTarget->CreateSolidColorBrush(D2D1::ColorF(0, 0, 0, 0), &brush);
 	if (res != S_OK) return false;
 	brush->SetColor(D2D1::ColorF(0, 0, 0, 0));
 	return true;
@@ -41,7 +45,7 @@ void Graphics::centerCamera(Point _position)
 	translation._11 = 1; translation._12 = 0.0;
 	translation._21 = 0.0; translation._22 = 1;
 	translation._31 = -_position.x + 640; translation._32 = -_position.y + 360;
-	renderTarget->SetTransform(translation);
+	bitmapRenderTarget->SetTransform(translation);
 }
 
 void Graphics::rotate(Point _position, float _theta)
@@ -50,7 +54,7 @@ void Graphics::rotate(Point _position, float _theta)
 	translation._11 = cos(_theta); translation._12 = sin(_theta);
 	translation._21 = -1* sin(_theta); translation._22 = cos(_theta);
 	translation._31 = -camera.x + 640 + _position.x; translation._32 = -camera.y + 360 + _position.y;
-	renderTarget->SetTransform(translation);
+	bitmapRenderTarget->SetTransform(translation);
 }
 void Graphics::flip(Point _position, float _theta)
 {
@@ -58,7 +62,7 @@ void Graphics::flip(Point _position, float _theta)
 	translation._11 = -1 * cos(_theta); translation._12 = sin(_theta);
 	translation._21 = sin(_theta); translation._22 = cos(_theta);
 	translation._31 = -camera.x + 640 + _position.x; translation._32 = -camera.y + 360 + _position.y;
-	renderTarget->SetTransform(translation);
+	bitmapRenderTarget->SetTransform(translation);
 }
 
 void Graphics::rotateBack(Point _position, float _theta)
@@ -69,34 +73,41 @@ void Graphics::rotateBack(Point _position, float _theta)
 
 void Graphics::ClearScreen(float _r, float _g, float _b)
 {
-	renderTarget->Clear(D2D1::ColorF(_r, _g, _b));
+	bitmapRenderTarget->Clear(D2D1::ColorF(_r, _g, _b));
 
 }
 void Graphics::DrawCircle(Point _center, float _radius, float _r, float _g, float _b, float _a)
 {
 	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
 
-	renderTarget->DrawEllipse(D2D1::Ellipse(D2D1::Point2F(_center.x, _center.y), _radius, _radius), brush, 2.0f);
+	bitmapRenderTarget->DrawEllipse(D2D1::Ellipse(D2D1::Point2F(_center.x, _center.y), _radius, _radius), brush, 2.0f);
 }
 void Graphics::DrawRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a)
 {
 	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
-	renderTarget->DrawRectangle(D2D1::Rect(_position.x, _position.y, _position.x+ _width, _position.y + _height), brush, 2.0f);
+	bitmapRenderTarget->DrawRectangle(D2D1::Rect(_position.x, _position.y, _position.x+ _width, _position.y + _height), brush, 2.0f);
 
 }
 
 void Graphics::FillRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a)
 {
 	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
-	renderTarget->FillRectangle(D2D1::Rect(_position.x, _position.y, _position.x+ _width, _position.y + _height), brush);
+	bitmapRenderTarget->FillRectangle(D2D1::Rect(_position.x, _position.y, _position.x+ _width, _position.y + _height), brush);
 }
 
 void Graphics::DrawLine(Point _position1, Point _position2, float _r, float _g, float _b, float _a)
 {
 	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
 	
-	renderTarget->DrawLine(D2D1::Point2F(_position1.x, _position1.y), D2D1::Point2F(_position2.x, _position2.y), brush, 2.0f);
-
+	bitmapRenderTarget->DrawLine(D2D1::Point2F(_position1.x, _position1.y), D2D1::Point2F(_position2.x, _position2.y), brush, 2.0f);
+	if (_position2.x < 100)
+	{
+		bitmapRenderTarget->DrawLine(D2D1::Point2F(_position1.x, _position1.y), D2D1::Point2F(_position2.x, _position2.y), brush, 2.0f);
+	}
+	if (_position1.x == 0)
+	{
+		bitmapRenderTarget->DrawLine(D2D1::Point2F(_position1.x, _position1.y), D2D1::Point2F(_position2.x, _position2.y), brush, 2.0f);
+	}
 }
 void Graphics::setZoomLevel(float _zoom)
 {
@@ -109,4 +120,38 @@ float Graphics::getZoomLevel()
 void Graphics::setCamera(Point _p)
 {
 	camera = _p;
+}
+void Graphics::draw()
+{
+	renderTarget->QueryInterface(&deviceContext);
+
+	// Create and apply gaussian blur
+	deviceContext->CreateEffect(CLSID_D2D1GaussianBlur, &gaussianBlur);
+
+	bitmapRenderTarget->GetBitmap(&bitmap);
+	//normal drawing
+
+	renderTarget->BeginDraw();
+	renderTarget->DrawBitmap(bitmap, D2D1::RectF(0, 0, 1280, 720), 1.0f, D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, D2D1::RectF(0, 0, 1280, 720));
+	renderTarget->EndDraw();
+	/*
+	//LIGHTING:
+
+	gaussianBlur->SetInput(0, lightingBitmap);
+	gaussianBlur->SetValue(D2D1_GAUSSIANBLUR_PROP_BORDER_MODE, D2D1_BORDER_MODE_SOFT);
+	gaussianBlur->SetValue(D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION, 20.0f);
+
+	// Draw resulting bitmap
+	
+
+	deviceContext->BeginDraw();
+	deviceContext->DrawImage(
+		gaussianBlur,
+		D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
+	deviceContext->EndDraw();
+	*/
+
+
+
+
 }

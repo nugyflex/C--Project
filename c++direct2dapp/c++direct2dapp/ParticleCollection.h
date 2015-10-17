@@ -1,10 +1,11 @@
 #pragma once
 #include "sparkParticle.h"
+#include "SmokeParticle.h"
 #include <vector>
 
 using std::vector;
 
-enum particleType { spark, fire };
+enum particleType { spark, fire, smoke };
 
 class particleCollection
 {

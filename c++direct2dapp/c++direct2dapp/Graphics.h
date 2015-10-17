@@ -2,14 +2,26 @@
 
 #include <Windows.h>
 #include <d2d1.h>
+#include <d2d1effects.h>
+#include <d2d1effecthelpers.h>
 #include "Common.h"
 #include <math.h>
+
 
 class Graphics
 {
 	ID2D1Factory* factory;
 	ID2D1HwndRenderTarget* renderTarget;
 	ID2D1SolidColorBrush* brush;
+
+	ID2D1Bitmap *bitmap;
+	ID2D1Bitmap *lightingBitmap;
+	ID2D1BitmapRenderTarget *bitmapRenderTarget;
+	ID2D1BitmapRenderTarget *lightingTarget;
+	ID2D1DeviceContext *deviceContext;
+	ID2D1Effect *gaussianBlur;
+	ID2D1Effect *pointDefuse;
+
 	float zoomLevel;
 	Point camera;
 public:
@@ -20,11 +32,11 @@ public:
 
 	ID2D1RenderTarget* GetRenderTarget()
 	{
-		return renderTarget;
+		return bitmapRenderTarget;
 	}
 
-	void BeginDraw() { renderTarget->BeginDraw(); }
-	void EndDraw() { renderTarget->EndDraw(); }
+	void BeginDraw() { bitmapRenderTarget->BeginDraw(); }
+	void EndDraw() { bitmapRenderTarget->EndDraw(); }
 
 	void ClearScreen(float _r, float _g, float _b);
 	void DrawCircle(Point _center, float _radius, float _r, float _g, float _b, float _a);
@@ -38,4 +50,5 @@ public:
 	void setCamera(Point _p);
 	void rotateBack(Point _position, float _theta);
 	void flip(Point _position, float _theta);
+	void draw();
 };

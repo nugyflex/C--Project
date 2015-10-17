@@ -502,6 +502,10 @@ Point CollisionDetection::getClosestRectLineIntersect(Point _rp, float _width, f
 }
 Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
 {
+	_p2.x = floor(_p2.x);
+	_p2.y = floor(_p2.y);
+	_p1.x = floor(_p1.x);
+	_p1.y = floor(_p1.y);
 	vector<Point> temppoints;
 	for (int i = 0; i < Rects.size(); i++)
 	{
@@ -537,6 +541,7 @@ Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
 			}
 		}
 	}
+	return Point{ 1000, 1000 };
 }
 
 Point CollisionDetection::projectLineToEdge(Point _c, int _Width, int _Height, Point _p1, Point _p2)

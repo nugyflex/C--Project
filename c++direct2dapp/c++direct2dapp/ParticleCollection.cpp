@@ -12,6 +12,10 @@ void particleCollection::add(particleType _type, Point _position, float _xvel)
 	{
 	case spark:
 		particles.push_back(new sparkParticle(_position, gfx, _xvel));
+		break;
+	case smoke:
+		particles.push_back(new smokeParticle(_position, gfx));
+		break;
 	}
 	particles[particles.size() - 1]->load();
 }

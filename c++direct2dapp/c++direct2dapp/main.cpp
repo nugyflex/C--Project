@@ -219,6 +219,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			}
 			//-------------------------------------
 			graphics->EndDraw();
+			graphics->draw();
 			//so it runs at the set framerate, it sleeps for the rest of the time allocated to complete the frame
 			if (1000 / GameController::fps - endminusstart > 1)
 			{
