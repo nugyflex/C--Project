@@ -1,4 +1,4 @@
-#include "GameLevel.h"
+#include "gameLevel.h"
 
 
-Graphics * GameLevel::gfx;
+Graphics * gameLevel::gfx;

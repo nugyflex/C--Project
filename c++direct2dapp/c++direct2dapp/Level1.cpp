@@ -70,12 +70,12 @@ void Level1::Update()
 	else
 	{
 		//makes the mouse movie with the camera
-		GameController::mouse.x += camera->getxVel();
-		GameController::mouse.y += camera->getyVel();
+		gameController::mouse.x += camera->getxVel();
+		gameController::mouse.y += camera->getyVel();
 		camera->calcNewPos(Rects[0]->getPosition());
 		cameraPos = camera->getPosition();
 
-		if (GameController::mouseLeft)
+		if (gameController::mouseLeft)
 		{
 			for (int i = 0; i < Rects.size(); i++)
 			{
@@ -127,7 +127,7 @@ void Level1::Update()
 		}
 
 		//VARIABLE JUMP
-		if (GameController::keyW)
+		if (gameController::keyW)
 		{
 			if (Rects[0]->getyVel() >= 0)
 			{
@@ -147,7 +147,7 @@ void Level1::Update()
 				Rects[0]->setyVel(-3);
 			}
 		}
-		if (GameController::keyA)
+		if (gameController::keyA)
 		{
 
 
@@ -155,18 +155,18 @@ void Level1::Update()
 
 
 		}
-		if (!GameController::keyA && !GameController::keyD)
+		if (!gameController::keyA && !gameController::keyD)
 		{
 			Rects[0]->setxVel(0);
 		}
 
-		if (GameController::keyD)
+		if (gameController::keyD)
 		{
 
 			Rects[0]->setxVel(3);
 
 		}
-		if (GameController::keyA && GameController::keyD)
+		if (gameController::keyA && gameController::keyD)
 		{
 			Rects[0]->setxVel(0);
 		}

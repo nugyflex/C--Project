@@ -1,16 +1,16 @@
 #pragma once
 
-#include "GameLevel.h"
+#include "gameLevel.h"
 #include <vector>
 
 
 using namespace std;
 
-class GameController
+class gameController
 {
-	GameController() {}
+	gameController() {}
 public:
-	static GameLevel* currentlevel;
+	static gameLevel* currentlevel;
 
 public:
 	static Point mouse;
@@ -26,8 +26,8 @@ public:
 		 
 	static void Init();
 
-	static void LoadInitialLevel(GameLevel* lev);
-	static void  SwitchLevel(GameLevel* lev);
+	static void LoadInitialLevel(gameLevel* lev);
+	static void  SwitchLevel(gameLevel* lev);
 
 	static void Render();
 	static void Update();

@@ -1,5 +1,5 @@
 #include "MenuButton.h"
-#include "GameController.h"
+#include "gameController.h"
 #include "menu.h"
 
 MenuButton::MenuButton()
@@ -15,7 +15,7 @@ Button(_x, _y, _gfx)
 }
 void MenuButton::action()
 {
-	GameController::SwitchLevel(new Menu());
+	gameController::SwitchLevel(new Menu());
 }
 void MenuButton::draw()
 {

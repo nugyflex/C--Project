@@ -1,27 +1,27 @@
-#include "GameController.h"
+#include "gameController.h"
 #include <vector>
 
 
-GameLevel* GameController::currentlevel;
-bool GameController::Loading;
-bool GameController::keyW;
-bool GameController::keyA;
-bool GameController::keyS;
-bool GameController::keyD;
-float GameController::zoomLevel;
-int GameController::fps;
-Point GameController::mouse;
-bool GameController::mouseMoved;
-bool GameController::mouseLeft;
+gameLevel* gameController::currentlevel;
+bool gameController::Loading;
+bool gameController::keyW;
+bool gameController::keyA;
+bool gameController::keyS;
+bool gameController::keyD;
+float gameController::zoomLevel;
+int gameController::fps;
+Point gameController::mouse;
+bool gameController::mouseMoved;
+bool gameController::mouseLeft;
 
 
-void GameController::Init()
+void gameController::Init()
 {
 	Loading = true;
 	currentlevel = 0;
 }
 
-void GameController::LoadInitialLevel(GameLevel* lev)
+void gameController::LoadInitialLevel(gameLevel* lev)
 {
 	Loading = true;
 	currentlevel = lev;
@@ -29,7 +29,7 @@ void GameController::LoadInitialLevel(GameLevel* lev)
 	Loading = false;
 }
 
-void GameController::SwitchLevel(GameLevel* lev)
+void gameController::SwitchLevel(gameLevel* lev)
 {
 	paused = false;
 	Loading = true;
@@ -40,26 +40,26 @@ void GameController::SwitchLevel(GameLevel* lev)
 	Loading = false;
 }
 
-void GameController::Render()
+void gameController::Render()
 {
 	if (Loading) return;
 	currentlevel->Render();
 }
 
-void GameController::Update()
+void gameController::Update()
 {
 	if (Loading) return;
 	currentlevel->Update();
 }
-void GameController::setMouseX(float _x)
+void gameController::setMouseX(float _x)
 {
 	mouse.x = _x;
 }
-void GameController::setMouseY(float _y)
+void gameController::setMouseY(float _y)
 {
 	mouse.y = _y;
 }
-Point GameController::getMousePos()
+Point gameController::getMousePos()
 {
 	return mouse;
 }

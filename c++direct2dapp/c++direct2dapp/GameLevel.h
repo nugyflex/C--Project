@@ -14,7 +14,7 @@
 
 using namespace std;
 
-class GameLevel
+class gameLevel
 {
 protected:
 	static Graphics* gfx;

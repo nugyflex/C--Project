@@ -1,5 +1,5 @@
 #include "ExitButton.h"
-#include "GameController.h"
+#include "gameController.h"
 #include <stdlib.h>
 
 ExitButton::ExitButton()

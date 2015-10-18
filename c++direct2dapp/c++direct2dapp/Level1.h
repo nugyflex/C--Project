@@ -1,11 +1,11 @@
 #pragma once
 
-#include "GameLevel.h"
+#include "gameLevel.h"
 #include "CollisionDetection.h"
-#include "GameController.h"
+#include "gameController.h"
 #include "Graphics.h"
 
-class Level1 : public GameLevel
+class Level1 : public gameLevel
 {
 	float y;
 	float yVel;

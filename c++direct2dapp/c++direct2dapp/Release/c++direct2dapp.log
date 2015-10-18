@@ -1,9 +1,48 @@
-﻿Build started 28/09/2015 12:55:20 PM.
+﻿Build started 18/10/2015 2:20:38 PM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Graphics.cpp
+         Graphics.cpp
+     1>Graphics.cpp(54): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
+     1>Graphics.cpp(55): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
+     1>Graphics.cpp(62): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
+     1>Graphics.cpp(63): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe" /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.lib" /MACHINE:X86 /SAFESEH Release\Ball.obj
+         Release\button.obj
+         Release\Camera.obj
+         Release\CollisionDetection.obj
+         Release\ExitButton.obj
+         Release\fireball.obj
+         Release\GameController.obj
+         Release\GameLevel.obj
+         Release\Graphics.obj
+         Release\gun.obj
+         Release\Level1.obj
+         Release\Level1Button.obj
+         Release\main.obj
+         Release\menu.obj
+         Release\MenuButton.obj
+         Release\Particle.obj
+         Release\ParticleCollection.obj
+         Release\Platform.obj
+         Release\player.obj
+         Release\rectangle.obj
+         Release\smokeParticle.obj
+         Release\sparkParticle.obj
+         Release\SpriteSheet.obj
+         Release\Spy.obj
+         Generating code
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(58): warning C4715: 'CollisionDetection::finddistance': not all control paths return a value
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(502): warning C4715: 'CollisionDetection::getClosestRectLineIntersect': not all control paths return a value
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(599): warning C4715: 'CollisionDetection::projectLineToEdge': not all control paths return a value
+         529 of 728 functions (72.7%) were compiled, the rest were copied from previous compilation.
+           331 functions were new in current compilation
+           9 functions had inline decision re-evaluated but remain unchanged
+         Finished generating code
          c++direct2dapp.vcxproj -> C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe
      1>Done Building Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:01.60

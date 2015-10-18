@@ -4,7 +4,7 @@
 
 #include "Level1.h"
 #include "menu.h"
-#include "GameController.h"
+#include "gameController.h"
 #include "Camera.h"
 #include <mmsystem.h>
 #pragma comment (lib, "winmm.lib")
@@ -35,28 +35,30 @@ void sleep(int _mseconds)
 //handle all window events like keypress, mouse movement and pressing the red x
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	if (uMsg == WM_DESTROY) { PostQuitMessage(0); return 0; }
 
 	switch (uMsg)
 	{
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
 
 	case WM_KEYDOWN: //This is used if we press a key
 		switch (LOWORD(wParam))
 		{
 		case 0x57:
-			GameController::keyW = true;
+			gameController::keyW = true;
 			break;
 
 		case 0x41:
-			GameController::keyA = true;
+			gameController::keyA = true;
 			break;
 
 		case 0x53:
-			GameController::keyS = true;
+			gameController::keyS = true;
 			break;
 
 		case 0x44:
-			GameController::keyD = true;
+			gameController::keyD = true;
 			break;
 		}
 		break;
@@ -64,19 +66,19 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		switch (LOWORD(wParam))
 		{
 		case 0x57:
-			GameController::keyW = false;
+			gameController::keyW = false;
 			break;
 
 		case 0x41:
-			GameController::keyA = false;
+			gameController::keyA = false;
 			break;
 
 		case 0x53:
-			GameController::keyS = false;
+			gameController::keyS = false;
 			break;
 
 		case 0x44:
-			GameController::keyD = false;
+			gameController::keyD = false;
 			break;
 		case 0x1B:
 			if (paused)
@@ -91,21 +93,21 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		}
 		break;
 	case WM_MOUSEMOVE: //this sets the cursor when the mouse is moved.
-		GameController::setMouseX(LOWORD(lParam));
-		GameController::setMouseY(HIWORD(lParam));
-GameController::mouse.x += 0.1 + cameraPos.x - 1280 / 2;
-GameController::mouse.y += 0.1 + cameraPos.y - 360;
+		gameController::setMouseX(LOWORD(lParam));
+		gameController::setMouseY(HIWORD(lParam));
+gameController::mouse.x += 0.1 + cameraPos.x - 1280 / 2;
+gameController::mouse.y += 0.1 + cameraPos.y - 360;
 	case WM_LBUTTONDOWN:
 		switch (LOWORD(wParam))
 		{
 			case MK_LBUTTON:
-				GameController::mouseLeft = true;
+				gameController::mouseLeft = true;
 				break;
 		}
 		break;
 	case WM_LBUTTONUP:
 
-			GameController::mouseLeft = false;
+			gameController::mouseLeft = false;
 
 		break;
 	}
@@ -143,11 +145,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 		return -1;
 	}
 	//initialising and loading some stuff and setting the framerate
-	GameLevel::Init(graphics);
-	GameController::fps = 60;
+	gameLevel::Init(graphics);
+	gameController::fps = 60;
 	ShowWindow(windowhandle, nCmdShow);
-	GameController::LoadInitialLevel(new Menu());
-	GameController::zoomLevel = 1;
+	gameController::LoadInitialLevel(new Menu());
+	gameController::zoomLevel = 1;
 	MSG message;
 	message.message = WM_NULL;
 	int starttime = 0;
@@ -156,7 +158,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 
 
 	Point randompoint = { 0,0 };
-	GameController::mouse = randompoint;
+	gameController::mouse = randompoint;
 	//===========||TODO||===============//
 	//1. Particle effects, the object   ||
 	//   itself with a wrapper object   ||
@@ -183,18 +185,18 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 		else
 		{
 			starttime = clock();
-			mousePos = GameController::mouse;
-			mouseLeft = GameController::mouseLeft;
+			mousePos = gameController::mouse;
+			mouseLeft = gameController::mouseLeft;
 
 			graphics->setCamera(cameraPos);
 			//updating everything
-			GameController::Update();
+			gameController::Update();
 			lastMouseLeft = mouseLeft;
 			graphics->BeginDraw();
 			graphics->centerCamera(cameraPos);
 
 			//drawing everything
-			GameController::Render();
+			gameController::Render();
 			graphics->centerCamera(cameraPos);
 			temppoints.clear();
 			endtime = clock();
@@ -205,25 +207,25 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			randompoint = { 30,30 };
 			graphics->FillRect(randompoint, 100, 10, 0.5, 0.5, 0.5, 1);
 			randompoint = { 30,30 };
-			if (endminusstart / (1000 / GameController::fps) < 0.5)
+			if (endminusstart / (1000 / gameController::fps) < 0.5)
 			{
-				graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / GameController::fps)), 10, 0.5, 1, 0.5, 1);
+				graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / gameController::fps)), 10, 0.5, 1, 0.5, 1);
 			}
 			else
 			{
-				graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / GameController::fps)), 10, 1, 0.5, 0.5, 1);
-				if (endminusstart / (1000 / GameController::fps) > 1)
+				graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / gameController::fps)), 10, 1, 0.5, 0.5, 1);
+				if (endminusstart / (1000 / gameController::fps) > 1)
 				{
-					graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / GameController::fps)), 10, 1, 0.2, 0.2, 1);
+					graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / gameController::fps)), 10, 1, 0.2, 0.2, 1);
 				}
 			}
 			//-------------------------------------
 			graphics->EndDraw();
 			graphics->draw();
 			//so it runs at the set framerate, it sleeps for the rest of the time allocated to complete the frame
-			if (1000 / GameController::fps - endminusstart > 1)
+			if (1000 / gameController::fps - endminusstart > 1)
 			{
-				sleep(1000 / GameController::fps - endminusstart);
+				sleep(1000 / gameController::fps - endminusstart);
 			}
 		}
 	}

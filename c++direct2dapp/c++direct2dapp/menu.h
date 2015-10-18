@@ -1,16 +1,16 @@
 #pragma once
 #pragma once
 
-#include "GameLevel.h"
+#include "gameLevel.h"
 #include "CollisionDetection.h"
-#include "GameController.h"
+#include "gameController.h"
 #include "Graphics.h"
 
 
 
 
 
-class Menu : public GameLevel
+class Menu : public gameLevel
 {
 
 public:
