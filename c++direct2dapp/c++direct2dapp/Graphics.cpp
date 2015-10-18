@@ -168,7 +168,7 @@ void Graphics::setScreenShake(float _intensity)
 	}
 	else
 	{
-		float amount = _intensity * 40;
+		float amount = _intensity * 80;
 		if (amount < 1){amount = 1;}
 		screenShakeX = -(amount / 2) + (rand() % (int)amount + 1);
 		screenShakeY = -(amount / 2) + (rand() % (int)amount + 1);
@@ -184,7 +184,7 @@ void Graphics::settleScreenShake()
 	{
 		screenShakeIntensity = 0;
 	}
-	if (screenShakeIntensity < 1/40)
+	if (screenShakeIntensity < 1/80)
 	{
 		screenShakeIntensity = 0;
 	}

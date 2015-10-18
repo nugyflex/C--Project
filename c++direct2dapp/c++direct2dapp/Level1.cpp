@@ -140,7 +140,7 @@ void Level1::Update()
 
 												}
 												Rects.erase(Rects.begin() + j);
-												gfx->setScreenShakeIntensity(1);
+												gfx->setScreenShakeIntensity(0.5);
 												//commented until i add offsets to spawning smoke particles
 												/*
 												for (int l = 0; l < 20; l++)
