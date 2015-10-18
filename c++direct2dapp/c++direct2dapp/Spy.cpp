@@ -16,37 +16,47 @@ Spy::~Spy()
 
 void Spy::draw()
 {
-	if (yVel < 0)
+	if (health > 0)
 	{
-		up->Draw(0, position.x, position.y);
-	}
-	if (yVel >= 0)
-	{
-		down->Draw(0, position.x, position.y);
-	}
-	if (xVel < 0)
-	{
-		left->Draw(0, position.x, position.y);
-	}
-	if (xVel > 0)
-	{
-		right->Draw(0, position.x-8, position.y);
+		if (yVel < 0)
+		{
+			up->Draw(0, position.x, position.y);
+		}
+		if (yVel >= 0)
+		{
+			down->Draw(0, position.x, position.y);
+		}
+		if (xVel < 0)
+		{
+			left->Draw(0, position.x, position.y);
+		}
+		if (xVel > 0)
+		{
+			right->Draw(0, position.x - 8, position.y);
+		}
 	}
 }
 
 void Spy::calcNewPos(Point _position)
 {
-	if (position.x < _position.x) {
-		setxVel(floor((_position.x - position.x) / 35));
+	if (health > 0)
+	{
+		if (position.x < _position.x) {
+			setxVel(floor((_position.x - position.x) / 35));
+		}
+		if (position.x > _position.x) {
+			setxVel(floor((position.x - _position.x) / -35));
+		}
+		if (position.y < _position.y) {
+			setyVel(floor(((_position.y - 10) - position.y) / 35));
+		}
+		if (position.y > _position.y) {
+			setyVel(floor((position.y - (_position.y - 10)) / -35));
+		}
 	}
-	if (position.x > _position.x) {
-		setxVel(floor((position.x - _position.x) / -35));
-	}
-	if (position.y < _position.y) {
-		setyVel(floor(((_position.y - 10) - position.y) / 35));
-	}
-	if (position.y > _position.y) {
-		setyVel(floor((position.y - (_position.y - 10)) / -35));
+	else
+	{
+		position = Point{ 10000, 10000 };
 	}
 }
 
@@ -57,4 +67,13 @@ void Spy::load()
 	up = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
 	down = new SpriteSheet(L"spy_down.png", 8, 16, 0, 1, gfx);
 	normal = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
+	health = 10;
+}
+void Spy::subtractHealth(int _amount)
+{
+	health -= _amount;
+}
+int Spy::getHealth()
+{
+	return health;
 }

@@ -6,18 +6,24 @@ particleCollection::particleCollection(Graphics* _gfx)
 	gfx = _gfx;
 }
 particleCollection::~particleCollection() {}
-void particleCollection::add(particleType _type, Point _position, float _xvel)
+void particleCollection::add(particleType _type, Point _position, float _xvel, float _yvel)
 {
 	switch (_type)
 	{
 	case spark:
-		particles.push_back(new sparkParticle(_position, gfx, _xvel));
+		particles.push_back(new sparkParticle(_position, gfx, _xvel, _yvel));
+
 		break;
 	case smoke:
 		particles.push_back(new smokeParticle(_position, gfx));
 		break;
 	}
+
 	particles[particles.size() - 1]->load();
+	for (int i = 0; i < Rects.size(); i++)
+	{
+		CollisionDetection::correctPositionParticle(particles[particles.size() - 1], Rects[i]);
+	}
 }
 void particleCollection::draw()
 {

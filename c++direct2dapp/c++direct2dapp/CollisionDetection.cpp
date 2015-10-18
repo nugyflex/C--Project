@@ -294,6 +294,7 @@ void CollisionDetection::correctPositionParticle(Particle* _particle, Rect* _pla
 			break;
 		}
 	}
+	delete _player;
 }
 bool CollisionDetection::isBetween(int _1, int _2, int _3)
 {

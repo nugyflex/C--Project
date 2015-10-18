@@ -1,10 +1,11 @@
 #include "sparkParticle.h"
 
-sparkParticle::sparkParticle(Point _position, Graphics* _gfx, float _xvel)
+sparkParticle::sparkParticle(Point _position, Graphics* _gfx, float _xvel, float _yvel)
 {
 	gfx = _gfx;
 	position = _position;
 	xVel = _xvel;
+	yVel = _yvel;
 }
 
 sparkParticle::~sparkParticle(){}

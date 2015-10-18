@@ -14,8 +14,11 @@
 #include <sstream>
 #include "stdio.h"
 #include <stdlib.h>
+#include "psapi.h"
 using namespace std;
 
+
+#define DIV 1048576
 
 Graphics* graphics;
 Camera* camera;
@@ -184,7 +187,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			DispatchMessage(&message);
 		else
 		{
+
 			starttime = clock();
+
 			mousePos = gameController::mouse;
 			mouseLeft = gameController::mouseLeft;
 
@@ -197,7 +202,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 
 			//drawing everything
 			gameController::Render();
-			graphics->centerCamera(cameraPos);
+			graphics->settleScreenShake();
+			graphics->screenShake();
+
+
 			temppoints.clear();
 			endtime = clock();
 			endminusstart = endtime - starttime;

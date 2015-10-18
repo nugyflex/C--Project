@@ -25,6 +25,7 @@ public:
 	int getWeaponOffsetX() override;
 	vector<Gun*> weapons;
 	void addWeapon(Gun* _gun);
+	Point getWeaponPos();
 	int weaponInUse;
 	int getWeaponInUse();
 };

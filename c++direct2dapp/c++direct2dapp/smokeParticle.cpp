@@ -15,7 +15,7 @@ void smokeParticle::load()
 	gravity = -0.05;
 	despawnTimer = 240;
 	image = new SpriteSheet(L"smokeSpriteSheet.png", 10, 10, 0, 1, gfx);
-	frame = rand() % 6 + 1;
+	frame = rand() % 5 + 1;
 	width = 10;
 	height = 10;
 	maxvel = 2;

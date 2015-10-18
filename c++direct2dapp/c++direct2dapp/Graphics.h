@@ -21,7 +21,9 @@ class Graphics
 	ID2D1DeviceContext *deviceContext;
 	ID2D1Effect *gaussianBlur;
 	ID2D1Effect *pointDefuse;
-
+	int screenShakeX;
+	int screenShakeY;
+	float screenShakeIntensity;
 	float zoomLevel;
 	Point camera;
 public:
@@ -51,4 +53,8 @@ public:
 	void rotateBack(Point _position, float _theta);
 	void flip(Point _position, float _theta);
 	void draw();
+	void setScreenShakeIntensity(float _intensity);
+	void setScreenShake(float _intensity);
+	void settleScreenShake();
+	void screenShake();
 };

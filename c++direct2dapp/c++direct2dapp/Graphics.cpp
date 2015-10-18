@@ -44,7 +44,7 @@ void Graphics::centerCamera(Point _position)
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = 1; translation._12 = 0.0;
 	translation._21 = 0.0; translation._22 = 1;
-	translation._31 = -_position.x + 640; translation._32 = -_position.y + 360;
+	translation._31 = -_position.x + 640 + screenShakeX; translation._32 = -_position.y + 360 + screenShakeY;
 	bitmapRenderTarget->SetTransform(translation);
 }
 
@@ -53,7 +53,7 @@ void Graphics::rotate(Point _position, float _theta)
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = cos(_theta); translation._12 = sin(_theta);
 	translation._21 = -1* sin(_theta); translation._22 = cos(_theta);
-	translation._31 = -camera.x + 640 + _position.x; translation._32 = -camera.y + 360 + _position.y;
+	translation._31 = -camera.x + 640 + _position.x + screenShakeX; translation._32 = -camera.y + 360 + _position.y + screenShakeY;
 	bitmapRenderTarget->SetTransform(translation);
 }
 void Graphics::flip(Point _position, float _theta)
@@ -61,7 +61,7 @@ void Graphics::flip(Point _position, float _theta)
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = -1 * cos(_theta); translation._12 = sin(_theta);
 	translation._21 = sin(_theta); translation._22 = cos(_theta);
-	translation._31 = -camera.x + 640 + _position.x; translation._32 = -camera.y + 360 + _position.y;
+	translation._31 = -camera.x + 640 + _position.x + screenShakeX; translation._32 = -camera.y + 360 + _position.y + screenShakeY;
 	bitmapRenderTarget->SetTransform(translation);
 }
 
@@ -154,4 +154,43 @@ void Graphics::draw()
 
 
 
+}
+void Graphics::setScreenShakeIntensity(float _intensity)
+{
+	screenShakeIntensity = _intensity;
+}
+void Graphics::setScreenShake(float _intensity)
+{
+	if (_intensity == 0)
+	{
+		screenShakeX = 0;
+		screenShakeY = 0;
+	}
+	else
+	{
+		float amount = _intensity * 40;
+		if (amount < 1){amount = 1;}
+		screenShakeX = -(amount / 2) + (rand() % (int)amount + 1);
+		screenShakeY = -(amount / 2) + (rand() % (int)amount + 1);
+	}
+}
+void Graphics::settleScreenShake()
+{
+	if (screenShakeIntensity > 0)
+	{
+		screenShakeIntensity = screenShakeIntensity - 0.01;
+	}
+	if (screenShakeIntensity < 0)
+	{
+		screenShakeIntensity = 0;
+	}
+	if (screenShakeIntensity < 1/40)
+	{
+		screenShakeIntensity = 0;
+	}
+}
+void Graphics::screenShake()
+{
+	float result = floor(screenShakeIntensity * 100) / 100;
+	setScreenShake(result);
 }

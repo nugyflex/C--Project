@@ -83,17 +83,18 @@ void Level1::Update()
 				{
 					if (((Player*)Rects[i])->weapons.size()>0)
 					{
+						Point temppoint = CollisionDetection::getClosestTarget(((Player*)Rects[0])->getWeaponPos(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, ((Player*)Rects[0])->getWeaponPos(), mousePos));
 						if (((Player*)Rects[i])->weapons[((Player*)Rects[i])->getWeaponInUse()]->getCooldown() <-2)
 						{
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
-							particles->add(spark, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10);
+							
+							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
 						}
 						if (((Player*)Rects[i])->weapons[((Player*)Rects[i])->getWeaponInUse()]->fire())
 						{
@@ -117,9 +118,41 @@ void Level1::Update()
 								}
 								for (int i = 0; i < test; i++)
 								{
-									particles->add(smoke, Point{ CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 2.5f - 3 + (rand() % 6 + 1), CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10);
+									particles->add(smoke, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) }, 0, 0);
+									if (rand() % 10 + 1 > 6)
+									{
+										particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+
+									}
 								}
-							
+								for (int j = 0; j < Rects.size(); j++)
+								{
+									if (Rects[j]->getType() == spy)
+									{
+										if (CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), ((Player*)Rects[0])->getWeaponPos(), temppoint))
+										{
+											((Spy*)Rects[j])->subtractHealth(1);
+											if (((Spy*)Rects[j])->getHealth() < 1)
+											{
+												for (int l = 0; l < 30; l++)
+												{
+													particles->add(spark, Rects[j]->getPosition(), -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
+
+												}
+												Rects.erase(Rects.begin() + j);
+												gfx->setScreenShakeIntensity(1);
+												//commented until i add offsets to spawning smoke particles
+												/*
+												for (int l = 0; l < 20; l++)
+												{
+													particles->add(smoke, Rects[j]->getWeaponPos(), 0, 0);
+
+												}*/
+											}
+										}
+									}
+								}
+								
 						}
 					}
 				}
@@ -224,7 +257,7 @@ void Level1::Update()
 		float randmax = RAND_MAX;
 		float test = floor((random / randmax) * 100);
 		particles->add(spark, Point{ test, 0 }, 0);*/
-		
+
 	}
 }
 void Level1::Render()

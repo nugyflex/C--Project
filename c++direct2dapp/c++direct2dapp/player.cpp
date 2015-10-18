@@ -156,3 +156,7 @@ int Player::getWeaponInUse()
 {
 	return weaponInUse;
 }
+Point Player::getWeaponPos()
+{
+	return Point{ position.x + getWeaponOffsetX(), position.y + getWeaponOffsetY() };
+}
