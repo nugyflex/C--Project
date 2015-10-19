@@ -12,6 +12,10 @@ Spy::Spy(Point _position, float _width, float _height, float _yVel, float _xVel,
 
 Spy::~Spy()
 {
+	delete up;
+	delete down;
+	delete left;
+	delete right;
 }
 
 void Spy::draw()
@@ -42,6 +46,7 @@ void Spy::calcNewPos(Point _position)
 	position.x += width;
 	position.y += height;
 	float theta = atan(-1 * (_position.y - position.y) / (_position.x - position.x));
+
 	switch (mode)
 	{
 	case follow:
@@ -86,7 +91,7 @@ void Spy::load()
 	up = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
 	down = new SpriteSheet(L"spy_down.png", 8, 16, 0, 1, gfx);
 	normal = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
-	health = 10;
+	health = 8;
 	speed = 1.5;
 	hovermode = rise;
 	mode = hover;
@@ -102,4 +107,5 @@ int Spy::getHealth()
 void Spy::setMode(behaviorType _mode)
 {
 	mode = _mode;
+
 }

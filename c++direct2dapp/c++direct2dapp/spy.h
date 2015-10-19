@@ -15,7 +15,6 @@ class Spy : public Rect {
 	float speed;
 	behaviorType mode;
 	hoverMode hovermode;
-	int chaseTimer;
 public:
 	Spy();
 	Spy(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);

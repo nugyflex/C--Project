@@ -98,7 +98,6 @@ void Graphics::FillRect(Point _position, float _width, float _height, float _r, 
 void Graphics::DrawLine(Point _position1, Point _position2, float _r, float _g, float _b, float _a)
 {
 	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
-	
 	bitmapRenderTarget->DrawLine(D2D1::Point2F(_position1.x, _position1.y), D2D1::Point2F(_position2.x, _position2.y), brush, 2.0f);
 	if (_position2.x < 100)
 	{

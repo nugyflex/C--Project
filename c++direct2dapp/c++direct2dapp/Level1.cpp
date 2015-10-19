@@ -33,10 +33,12 @@ void Level1::Load()
 	Rects.push_back(tempobject);
 	tempobject = new FireBall(Point{ 200, 200 }, 0, 0, gfx);
 	Rects.push_back(tempobject);
-	tempobject = new Spy(Point{ 200, 200 }, 10, 10, 0, 0, gfx);
-	Rects.push_back(tempobject);
-	tempobject = new Spy(Point{ 600, 200 }, 10, 10, 0, 0, gfx);
-	Rects.push_back(tempobject);
+
+		tempobject = new Spy(Point{ 200, 200 }, 10, 10, 0, 0, gfx);
+		Rects.push_back(tempobject);
+		tempobject = new Spy(Point{ 600, 200 }, 10, 10, 0, 0, gfx);
+		Rects.push_back(tempobject);
+	
 	for (int i = 0; i < Rects.size(); i++)
 	{
 		Rects[i]->load();
@@ -143,25 +145,22 @@ void Level1::Update()
 											((Spy*)Rects[j])->subtractHealth(1);
 											if (((Spy*)Rects[j])->getHealth() < 1)
 											{
-												for (int l = 0; l < 30; l++)
-												{
-													particles->add(spark, Rects[j]->getPosition(), -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
-
-												}
+												temppoint = Rects[j]->getPosition();
 												Rects.erase(Rects.begin() + j);
 												gfx->setScreenShakeIntensity(0.5);
-												//commented until i add offsets to spawning smoke particles
-												/*
-												for (int l = 0; l < 20; l++)
+												for (int l = 0; l < 25; l++)
 												{
-													particles->add(smoke, Rects[j]->getWeaponPos(), 0, 0);
+													particles->add(spark, temppoint, -5 + (rand() % 10 + 1), -10 + (rand() % 20 + 1));
+												}
+												for (int l = 0; l < 35; l++)
+												{
+													particles->add(smoke, Point{ temppoint.x - 35 + (rand() % 70 + 1), temppoint.y - 35 + (rand() % 70 + 1) }, 0, 0);
 
-												}*/
+												}
 											}
 										}
 									}
 								}
-								
 						}
 					}
 				}
@@ -222,15 +221,17 @@ void Level1::Update()
 			//adding xvel x to x and yvel to y
 			if (Rects[i]->getType() == spy)
 			{
-				((Spy*)Rects[i])->setMode(follow);
+				behaviorType result = follow;
 				for (int j = 0; j < Rects.size(); j++)
 				{
 					if (Rects[j]->getType() == platform && CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), Rects[i]->getPosition(), Rects[0]->getPosition()))
 					{
-						((Spy*)Rects[i])->setMode(hover);
+						result = hover;
 						break;
 					}
+							
 				}
+				((Spy*)Rects[i])->setMode(result);
 				Rects[i]->calcNewPos(Rects[0]->getPosition());
 				Rects[i]->calcNewPos();
 
