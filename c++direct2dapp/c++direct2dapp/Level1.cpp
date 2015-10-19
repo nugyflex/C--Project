@@ -19,9 +19,15 @@ void Level1::Load()
 
 	Rect* tempobject = new Player(Point{ 640,9 }, 12, 54, 0, 0, gfx);
 	Rects.push_back(tempobject);
-	tempobject = new Platform(Point{ 50, 298 }, 1200, 50, 0, 0, gfx);
+	tempobject = new Platform(Point{ 50, 300 }, 1200, 50, 0, 0, gfx);
 	Rects.push_back(tempobject);
 	tempobject = new Platform(Point{ 50, 500 }, 1600, 50, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 550, 200 }, 50, 100, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 500, 250 }, 50, 50, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 600, 250 }, 50, 50, 0, 0, gfx);
 	Rects.push_back(tempobject);
 	tempobject = new Platform(Point{ 500, 450 }, 50, 50, 0, 0, gfx);
 	Rects.push_back(tempobject);
@@ -29,9 +35,12 @@ void Level1::Load()
 	Rects.push_back(tempobject);
 	tempobject = new Spy(Point{ 200, 200 }, 10, 10, 0, 0, gfx);
 	Rects.push_back(tempobject);
-	Rects[0]->load();
-	Rects[4]->load();
-	Rects[5]->load();
+	tempobject = new Spy(Point{ 600, 200 }, 10, 10, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	for (int i = 0; i < Rects.size(); i++)
+	{
+		Rects[i]->load();
+	}
 	Gun* newgun = new Gun(300, 300, gfx);
 	weapons.push_back(newgun);
 	weapons[0]->load();
@@ -211,10 +220,24 @@ void Level1::Update()
 				Rects[i]->setyVel(Rects[i]->getyVel() + 0.51f);
 			}
 			//adding xvel x to x and yvel to y
-			Rects[i]->calcNewPos();
 			if (Rects[i]->getType() == spy)
 			{
+				((Spy*)Rects[i])->setMode(follow);
+				for (int j = 0; j < Rects.size(); j++)
+				{
+					if (Rects[j]->getType() == platform && CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), Rects[i]->getPosition(), Rects[0]->getPosition()))
+					{
+						((Spy*)Rects[i])->setMode(hover);
+						break;
+					}
+				}
 				Rects[i]->calcNewPos(Rects[0]->getPosition());
+				Rects[i]->calcNewPos();
+
+			}
+			else
+			{
+				Rects[i]->calcNewPos();
 			}
 
 			if (!Rects[i]->getFixed() && Rects[i]->getType() != fireball)
@@ -227,7 +250,16 @@ void Level1::Update()
 					}
 				}
 			}
-
+			if (Rects[i]->getType() == spy)
+			{
+				for (int j = 0; j < Rects.size(); j++)
+				{
+					if (Rects[j]->getType() == spy && j != i)
+					{
+						CollisionDetection::correctPosition(Rects[i], Rects[j]);
+					}
+				}
+			}
 		}
 
 		for (int i = 0; i < Rects.size(); i++)
@@ -247,6 +279,7 @@ void Level1::Update()
 							break;
 						}
 					}
+
 				}
 
 			}

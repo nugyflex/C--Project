@@ -230,7 +230,7 @@ int CollisionDetection::getSide(Rect *_player, Rect *_platform) {
 //this function corrects the position of a rectangle if it is colliding with another rectangle
 void CollisionDetection::correctPosition(Rect* _player, Rect* _platform) {
 	//left = 1, bottom = 2, right = 3, top = 4
-	if (!_player->getFixed())
+	if (!_player->getFixed()&&CheckRectangleIntersect(_player, _platform))
 	{
 		switch (getSide(_player, _platform))
 		{

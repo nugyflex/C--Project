@@ -39,25 +39,44 @@ void Spy::draw()
 
 void Spy::calcNewPos(Point _position)
 {
-	if (health > 0)
+	position.x += width;
+	position.y += height;
+	float theta = atan(-1 * (_position.y - position.y) / (_position.x - position.x));
+	switch (mode)
 	{
-		if (position.x < _position.x) {
-			setxVel(floor((_position.x - position.x) / 35));
+	case follow:
+
+		if (_position.x > position.x) {
+			yVel = sin(theta) * -1 * speed;
+			xVel = cos(theta) * speed;
 		}
-		if (position.x > _position.x) {
-			setxVel(floor((position.x - _position.x) / -35));
+		else {
+			yVel = sin(theta) * speed;
+			xVel = cos(theta) * -1 * speed;
 		}
-		if (position.y < _position.y) {
-			setyVel(floor(((_position.y - 10) - position.y) / 35));
+		break;
+	case hover:
+		if (yVel > 1)
+		{
+			hovermode = rise;
 		}
-		if (position.y > _position.y) {
-			setyVel(floor((position.y - (_position.y - 10)) / -35));
+		if (yVel < -1)
+		{
+			hovermode = fall;
 		}
+		switch (hovermode)
+		{
+		case fall:
+			yVel += 0.05;
+			break;
+		case rise:
+			yVel -= 0.05;
+			break;
+		}
+		break;
 	}
-	else
-	{
-		position = Point{ 10000, 10000 };
-	}
+	position.x -= width;
+	position.y -= height;
 }
 
 void Spy::load()
@@ -68,6 +87,9 @@ void Spy::load()
 	down = new SpriteSheet(L"spy_down.png", 8, 16, 0, 1, gfx);
 	normal = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
 	health = 10;
+	speed = 1.5;
+	hovermode = rise;
+	mode = hover;
 }
 void Spy::subtractHealth(int _amount)
 {
@@ -76,4 +98,8 @@ void Spy::subtractHealth(int _amount)
 int Spy::getHealth()
 {
 	return health;
+}
+void Spy::setMode(behaviorType _mode)
+{
+	mode = _mode;
 }

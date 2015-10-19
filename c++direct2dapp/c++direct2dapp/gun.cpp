@@ -103,7 +103,7 @@ void Gun::load()
 {
 	image = new SpriteSheet(L"gun1.png", 20, 10, 0, 1, gfx);
 	hitMarker = new SpriteSheet(L"hitmarker.png", 9, 9, 0, 1, gfx);
-	maxCooldown = 10;
+	maxCooldown = 5;
 	coolDown = 0;
 }
 
