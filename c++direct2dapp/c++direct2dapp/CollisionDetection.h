@@ -29,4 +29,5 @@ public:
 	static Point projectLineToEdge(Point _c, int Width, int Height, Point _p1, Point _p2);
 	static bool checkPointRectIntersect(Point _p1, Point _r, int width, int height);
 	static void correctPositionParticle(Particle* _particle, Rect* _platform);
+	static Point convertPointFromPointer(Point* _p);
 };

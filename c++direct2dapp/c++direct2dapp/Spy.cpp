@@ -1,6 +1,7 @@
 #include "Spy.h"
 #include "stdio.h"
 #include <math.h>
+#include "CollisionDetection.h"
 
 Spy::Spy() {}
 
@@ -43,12 +44,29 @@ void Spy::draw()
 
 void Spy::calcNewPos(Point _position)
 {
-	position.x += width;
-	position.y += height;
+	behaviorType result = follow;
+	for (int j = 0; j < Rects.size(); j++)
+	{
+		if (Rects[j]->getType() == platform && CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), position, _position))
+		{
+			result = hover;
+			if (mode == inactive)
+			{
+				result = inactive;
+			}
+			break;
+		}
+
+	}
+	mode = result;
+
 	float theta = atan(-1 * (_position.y - position.y) / (_position.x - position.x));
 
 	switch (mode)
 	{
+	case inactive:
+		lastBehavior = inactive;
+		break;
 	case follow:
 
 		if (_position.x > position.x) {
@@ -59,29 +77,53 @@ void Spy::calcNewPos(Point _position)
 			yVel = sin(theta) * speed;
 			xVel = cos(theta) * -1 * speed;
 		}
+		destinations.clear();
+		destinations.push_back(_position);
+		lastBehavior = follow;
 		break;
 	case hover:
-		if (yVel > 1)
+		if (destinations.size() > 0 && position.x >= destinations[0].x - speed && position.x <= destinations[0].x + speed && position.y >= destinations[0].y - speed && position.y <= destinations[0].y + speed)
 		{
-			hovermode = rise;
+			destinations.erase(destinations.begin());
 		}
-		if (yVel < -1)
+		if (destinations.size() > 0)
 		{
-			hovermode = fall;
+			for (int i = 0; i < Rects.size(); i++)
+			{
+				if (Rects[i]->getType() == platform)
+				{
+					if (CollisionDetection::checkRectLineIntersect(Rects[i]->getPosition(), Rects[i]->getWidth(), Rects[i]->getHeight(), position, destinations[0]))
+					{
+						destinations[0] = CollisionDetection::getClosestTarget(position, destinations[0]);
+					}
+				}
+			}
+			float testx = destinations[0].x;
+			float testy = destinations[0].y;
+			theta = atan(-1 * (destinations[0].y - position.y) / (destinations[0].x - position.x));
+			if (destinations[0].x > position.x) {
+				yVel = sin(theta) * -1 * speed;
+				xVel = cos(theta) * speed;
+			}
+			else {
+				float testx = destinations[0].x;
+				float testy = destinations[0].y;
+				yVel = sin(theta) * speed;
+				xVel = cos(theta) * -1 * speed;
+			}
 		}
-		switch (hovermode)
+		else
 		{
-		case fall:
-			yVel += 0.05;
-			break;
-		case rise:
-			yVel -= 0.05;
-			break;
+			destinations.push_back(Point{ position.x+50, position.y });
+			destinations.push_back(Point{ position.x-50, position.y });
+			destinations.push_back(Point{ position.x, position.y+50 });
+			destinations.push_back(Point{ position.x, position.y-50 });
+			destinations.push_back(Point{ position.x+1, position.y+1 });
 		}
+		lastBehavior = hover;
 		break;
 	}
-	position.x -= width;
-	position.y -= height;
+
 }
 
 void Spy::load()
@@ -91,10 +133,12 @@ void Spy::load()
 	up = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
 	down = new SpriteSheet(L"spy_down.png", 8, 16, 0, 1, gfx);
 	normal = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
-	health = 8;
+	health = 6;
 	speed = 1.5;
 	hovermode = rise;
 	mode = hover;
+	roamTimer = 0;
+	destinations.push_back(Point{ position.x + 1, position.y + 1 });
 }
 void Spy::subtractHealth(int _amount)
 {

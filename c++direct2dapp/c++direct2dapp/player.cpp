@@ -101,23 +101,23 @@ void Player::draw()
 		{
 			if (xVel > 0)
 			{
-				spritewalkingright->Draw(0, position.x - 9, position.y);
+				spritewalkingright->Draw(3, position.x - 9, position.y);
 				lastdirection = 1;
 			}
 			if (xVel < 0)
 			{
-				spritewalkingleft->Draw(0, position.x - 9, position.y);
+				spritewalkingleft->Draw(3, position.x - 9, position.y);
 				lastdirection = 0;
 			}
 			if (xVel == 0)
 			{
 				if (lastdirection == 0)
 				{
-					spritewalkingleft->Draw(0, position.x - 9, position.y);
+					spritewalkingleft->Draw(3, position.x - 9, position.y);
 				}
 				if (lastdirection == 1)
 				{
-					spritewalkingright->Draw(0, position.x - 9, position.y);
+					spritewalkingright->Draw(3, position.x - 9, position.y);
 				}
 			}
 		}

@@ -125,34 +125,13 @@ void Graphics::draw()
 	renderTarget->QueryInterface(&deviceContext);
 
 	// Create and apply gaussian blur
-	//deviceContext->CreateEffect(CLSID_D2D1GaussianBlur, &gaussianBlur);
+	deviceContext->CreateEffect(CLSID_D2D1Brightness, &gaussianBlur);
 
 	bitmapRenderTarget->GetBitmap(&bitmap);
 	//normal drawing
-
 	renderTarget->BeginDraw();
 	renderTarget->DrawBitmap(bitmap, D2D1::RectF(0, 0, 1280, 720), 1.0f, D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, D2D1::RectF(0, 0, 1280, 720));
 	renderTarget->EndDraw();
-	/*
-	//LIGHTING:
-
-	gaussianBlur->SetInput(0, lightingBitmap);
-	gaussianBlur->SetValue(D2D1_GAUSSIANBLUR_PROP_BORDER_MODE, D2D1_BORDER_MODE_SOFT);
-	gaussianBlur->SetValue(D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION, 20.0f);
-
-	// Draw resulting bitmap
-	
-
-	deviceContext->BeginDraw();
-	deviceContext->DrawImage(
-		gaussianBlur,
-		D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
-	deviceContext->EndDraw();
-	*/
-
-
-
-
 }
 void Graphics::setScreenShakeIntensity(float _intensity)
 {

@@ -282,12 +282,14 @@ void CollisionDetection::correctPositionParticle(Particle* _particle, Rect* _pla
 			break;
 		case 2:
 			if (_particle->getyVel() < 0) {
+
 				_particle->setyVel(0);
 			}
 			_particle->setY(_platform->getY() + _platform->getHeight());
 			break;
 		case 4:
 			if (_particle->getyVel() > 0) {
+
 				_particle->setyVel(_particle->getyVel()*-0.5);
 			}
 			_particle->setY(_platform->getY() - _particle->getHeight());
@@ -606,4 +608,8 @@ bool CollisionDetection::checkPointRectIntersect(Point _p1, Point _r, int _width
 		return true;
 	}
 	else{return false;}
+}
+Point CollisionDetection::convertPointFromPointer(Point* _p)
+{
+	return Point{ _p->x, _p->y };
 }

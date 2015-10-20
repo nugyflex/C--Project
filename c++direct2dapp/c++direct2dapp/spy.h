@@ -3,7 +3,7 @@
 #include "rectangle.h"
 #include "SpriteSheet.h"
 
-enum behaviorType { hover, follow };
+enum behaviorType { hover, follow, inactive };
 enum hoverMode { rise, fall };
 class Spy : public Rect {
 	SpriteSheet* left;
@@ -14,7 +14,11 @@ class Spy : public Rect {
 	int health;
 	float speed;
 	behaviorType mode;
+	behaviorType lastBehavior;
 	hoverMode hovermode;
+	int roamTimer;
+	float baseyVel;
+	vector<Point> destinations;
 public:
 	Spy();
 	Spy(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
