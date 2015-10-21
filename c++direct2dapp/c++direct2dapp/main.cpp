@@ -22,7 +22,7 @@ using namespace std;
 
 Graphics* graphics;
 Camera* camera;
-
+RECT rect;
 
 void sleep(int _mseconds)
 {
@@ -98,8 +98,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_MOUSEMOVE: //this sets the cursor when the mouse is moved.
 		gameController::setMouseX(LOWORD(lParam));
 		gameController::setMouseY(HIWORD(lParam));
-gameController::mouse.x += 0.1 + cameraPos.x - 1280 / 2;
-gameController::mouse.y += 0.1 + cameraPos.y - 360;
+gameController::mouse.x += 0.1 + cameraPos.x - screenWidth / 2;
+gameController::mouse.y += 0.1 + cameraPos.y - screenHeight / 2;
 	case WM_LBUTTONDOWN:
 		switch (LOWORD(wParam))
 		{
@@ -114,9 +114,12 @@ gameController::mouse.y += 0.1 + cameraPos.y - 360;
 
 		break;
 	}
+	//GetWindowRect(hwnd, &rect);
 
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
+
+
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow)
 {
@@ -134,8 +137,25 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	windowclass.style = CS_HREDRAW | CS_VREDRAW;
 
 	RegisterClassEx(&windowclass);
+	RECT desktop;
+	// Get a handle to the desktop window
+	const HWND hDesktop = GetDesktopWindow();
+	// Get the size of screen to the variable desktop
+	GetWindowRect(hDesktop, &desktop);
+	// The top left corner will have coordinates (0,0)
+	// and the bottom right corner will have coordinates
+	// (horizontal, vertical)
+	RECT rect;
+	int taskbarheight;
+	HWND taskBar = FindWindow("Shell_traywnd", NULL);
+	if (taskBar && GetWindowRect(taskBar, &rect)) {
+		taskbarheight = rect.bottom - rect.top;
+	}
+	rect = { 0, 0, desktop.right, desktop.bottom - taskbarheight*2 };
+	screenWidth = desktop.right;
+	screenHeight = desktop.bottom;
 
-	RECT rect{ 0, 0, 1280, 720 };
+
 	AdjustWindowRectEx(&rect, WS_OVERLAPPEDWINDOW, false, WS_EX_OVERLAPPEDWINDOW);
 
 	HWND windowhandle = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MainWindow", "c++ things", WS_OVERLAPPEDWINDOW, 0, 0, rect.right - rect.left, rect.bottom - rect.top, NULL, NULL, hInstance, 0);
@@ -187,7 +207,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			DispatchMessage(&message);
 		else
 		{
-
 			starttime = clock();
 
 			mousePos = gameController::mouse;

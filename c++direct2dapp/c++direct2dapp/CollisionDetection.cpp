@@ -298,7 +298,7 @@ void CollisionDetection::correctPositionParticle(Particle* _particle, Rect* _pla
 	}
 	delete _player;
 }
-bool CollisionDetection::isBetween(int _1, int _2, int _3)
+bool CollisionDetection::isBetween(float _1, float _2, float _3)
 {
 	//tollerance
 	/*
@@ -539,7 +539,7 @@ Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
 				else
 				{
 
-					return projectLineToEdge(Point{ cameraPos.x - 10, cameraPos.y - 10 }, 1280+30, 720+30, _p1, _p2);
+					return projectLineToEdge(Point{ cameraPos.x - 10, cameraPos.y - 10 }, _p1, _p2);
 				}
 			}
 		}
@@ -547,12 +547,12 @@ Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
 	return Point{ 1000, 1000 };
 }
 
-Point CollisionDetection::projectLineToEdge(Point _c, int _Width, int _Height, Point _p1, Point _p2)
+Point CollisionDetection::projectLineToEdge(Point _c, Point _p1, Point _p2)
 {
-	float boundaryMinX = _c.x - _Width / 2;
-	float boundaryMaxX = _c.x + _Width / 2;
-	float boundaryMinY = _c.y - _Height / 2;
-	float boundaryMaxY = _c.y + _Height / 2;
+	float boundaryMinX = _c.x - screenWidth / 2;
+	float boundaryMaxX = _c.x + screenWidth / 2;
+	float boundaryMinY = _c.y - screenHeight / 2;
+	float boundaryMaxY = _c.y + screenHeight / 2;
 	Point temp1;
 	Point temp2;
 	temp1 = { boundaryMinX, boundaryMinY };
@@ -601,7 +601,7 @@ Point CollisionDetection::projectLineToEdge(Point _c, int _Width, int _Height, P
 	}
 }
 
-bool CollisionDetection::checkPointRectIntersect(Point _p1, Point _r, int _width, int _height)
+bool CollisionDetection::checkPointRectIntersect(Point _p1, Point _r, float _width, float _height)
 {
 	if (_p1.x >= _r.x&&_p1.x <= _r.x + _width&&_p1.y >= _r.y&&_p1.y < _r.y + _height)
 	{

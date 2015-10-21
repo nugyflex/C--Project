@@ -44,7 +44,7 @@ void Graphics::centerCamera(Point _position)
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = 1; translation._12 = 0.0;
 	translation._21 = 0.0; translation._22 = 1;
-	translation._31 = -_position.x + 640 + screenShakeX; translation._32 = -_position.y + 360 + screenShakeY;
+	translation._31 = -_position.x + screenWidth/2 + screenShakeX; translation._32 = -_position.y + screenHeight / 2 + screenShakeY;
 	bitmapRenderTarget->SetTransform(translation);
 }
 
@@ -53,7 +53,7 @@ void Graphics::rotate(Point _position, float _theta)
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = cos(_theta); translation._12 = sin(_theta);
 	translation._21 = -1* sin(_theta); translation._22 = cos(_theta);
-	translation._31 = -camera.x + 640 + _position.x + screenShakeX; translation._32 = -camera.y + 360 + _position.y + screenShakeY;
+	translation._31 = -camera.x + screenWidth / 2 + _position.x + screenShakeX; translation._32 = -camera.y + screenHeight / 2 + _position.y + screenShakeY;
 	bitmapRenderTarget->SetTransform(translation);
 }
 void Graphics::flip(Point _position, float _theta)
@@ -61,7 +61,7 @@ void Graphics::flip(Point _position, float _theta)
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = -1 * cos(_theta); translation._12 = sin(_theta);
 	translation._21 = sin(_theta); translation._22 = cos(_theta);
-	translation._31 = -camera.x + 640 + _position.x + screenShakeX; translation._32 = -camera.y + 360 + _position.y + screenShakeY;
+	translation._31 = -camera.x + screenWidth / 2 + _position.x + screenShakeX; translation._32 = -camera.y + screenHeight / 2 + _position.y + screenShakeY;
 	bitmapRenderTarget->SetTransform(translation);
 }
 
@@ -130,7 +130,7 @@ void Graphics::draw()
 	bitmapRenderTarget->GetBitmap(&bitmap);
 	//normal drawing
 	renderTarget->BeginDraw();
-	renderTarget->DrawBitmap(bitmap, D2D1::RectF(0, 0, 1280, 720), 1.0f, D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, D2D1::RectF(0, 0, 1280, 720));
+	renderTarget->DrawBitmap(bitmap, D2D1::RectF(0, 0, screenWidth, screenHeight), 1.0f, D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, D2D1::RectF(0, 0, screenWidth, screenHeight));
 	renderTarget->EndDraw();
 }
 void Graphics::setScreenShakeIntensity(float _intensity)

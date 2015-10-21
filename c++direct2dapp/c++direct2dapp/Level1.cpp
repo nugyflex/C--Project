@@ -15,7 +15,7 @@ void Level1::Load()
 
 
 	camera = new Camera(Point{ 0,0 });
-	backGround  = new SpriteSheet(L"newbackground.png", 1280, 720, 0, 0, gfx);
+	backGround  = new SpriteSheet(L"sanddunes.png", screenWidth, screenHeight, 0, 0, gfx);
 
 	Rect* tempobject = new Player(Point{ 640,9 }, 12, 54, 0, 0, gfx);
 	Rects.push_back(tempobject);
@@ -95,7 +95,7 @@ void Level1::Update()
 				{
 					if (((Player*)Rects[i])->weapons.size()>0)
 					{
-						Point temppoint = CollisionDetection::getClosestTarget(((Player*)Rects[0])->getWeaponPos(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, ((Player*)Rects[0])->getWeaponPos(), mousePos));
+						Point temppoint = CollisionDetection::getClosestTarget(((Player*)Rects[0])->getWeaponPos(), CollisionDetection::projectLineToEdge(cameraPos, ((Player*)Rects[0])->getWeaponPos(), mousePos));
 						if (((Player*)Rects[i])->weapons[((Player*)Rects[i])->getWeaponInUse()]->getCooldown() <-2)
 						{
 							
@@ -246,6 +246,14 @@ void Level1::Update()
 						CollisionDetection::correctPosition(Rects[i], Rects[j]);
 					}
 				}
+				if (((Spy*)Rects[i])->getHealth() < 2 && (rand() % 6 + 1) > 5)
+				{
+					particles->add(smoke, Point{ Rects[i]->getPosition().x + 5 - 3 + (rand() % 6 + 1), Rects[i]->getPosition().y + 5 - 3 + (rand() % 6 + 1) }, 0, 0);
+					if ((rand() % 6 + 1) > 5)
+					{
+						particles->add(spark, Rects[i]->getPosition(), -2 + (rand() % 4 + 1), -2 + (rand() % 4 + 1));
+					}
+				}
 			}
 		}
 
@@ -282,7 +290,7 @@ void Level1::Update()
 }
 void Level1::Render()
 {
-	backGround->Draw(0, camera->getPosition().x - 640, camera->getPosition().y - 360);
+	backGround->Draw(0, camera->getPosition().x - screenWidth/2, camera->getPosition().y - screenHeight/2);
 		//gfx->ClearScreen(0.0f, 0.0f, 0.0f);
 
 		for (int i = 0; i < Rects.size(); i++)

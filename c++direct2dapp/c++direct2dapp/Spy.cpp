@@ -44,6 +44,8 @@ void Spy::draw()
 
 void Spy::calcNewPos(Point _position)
 {
+	position.x += width / 2;
+	position.y += height / 2;
 	behaviorType result = follow;
 	for (int j = 0; j < Rects.size(); j++)
 	{
@@ -82,7 +84,9 @@ void Spy::calcNewPos(Point _position)
 		lastBehavior = follow;
 		break;
 	case hover:
-		if (destinations.size() > 0 && position.x >= destinations[0].x - speed && position.x <= destinations[0].x + speed && position.y >= destinations[0].y - speed && position.y <= destinations[0].y + speed)
+		float testx = destinations[0].x;
+		float testy = destinations[0].y;
+		if (destinations.size() > 0 && CollisionDetection::checkPointRectIntersect(destinations[0], Point{ position.x - width / 2, position.y - height / 2 }, width, height))
 		{
 			destinations.erase(destinations.begin());
 		}
@@ -123,7 +127,8 @@ void Spy::calcNewPos(Point _position)
 		lastBehavior = hover;
 		break;
 	}
-
+	position.x -= width / 2;
+	position.y -= height / 2;
 }
 
 void Spy::load()
@@ -133,12 +138,12 @@ void Spy::load()
 	up = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
 	down = new SpriteSheet(L"spy_down.png", 8, 16, 0, 1, gfx);
 	normal = new SpriteSheet(L"spy_up.png", 8, 16, 0, 1, gfx);
-	health = 6;
+	health = 4;
 	speed = 1.5;
 	hovermode = rise;
-	mode = hover;
+	mode = inactive;
 	roamTimer = 0;
-	destinations.push_back(Point{ position.x + 1, position.y + 1 });
+	destinations.push_back(Point{ position.x, position.y});
 }
 void Spy::subtractHealth(int _amount)
 {

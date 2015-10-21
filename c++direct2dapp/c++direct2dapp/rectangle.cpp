@@ -1,6 +1,9 @@
 #include "Rectangle.h"
 using namespace std;
 
+int screenWidth;
+int screenHeight;
+
 Rect::Rect(Point _position, float _width, float _height, float _yVel, float _xVel, bool _fixed, rectType _type, bool _gravity, Graphics * gfxi)
 {
 	position = _position;

@@ -9,3 +9,7 @@ extern bool mouseLeft;
 extern bool lastMouseLeft;
 
 extern bool paused;
+
+extern int screenWidth;
+
+extern int screenHeight;

@@ -5,6 +5,8 @@
 
 using namespace std;
 
+
+
 enum rectType { platform, player, fireball, spy };
 
 class Rect

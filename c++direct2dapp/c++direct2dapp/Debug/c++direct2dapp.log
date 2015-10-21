@@ -1,14 +1,14 @@
-﻿Build started 20/10/2015 10:53:04 PM.
+﻿Build started 22/10/2015 12:39:47 AM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Spy.cpp
-         Spy.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(48): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(91): warning C4018: '<': signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(101): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(102): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(230): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(233): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(246): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(255): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.exe" /INCREMENTAL /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.lib" /MACHINE:X86 Debug\Ball.obj
          Debug\button.obj
@@ -39,4 +39,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.98
+Time Elapsed 00:00:01.25

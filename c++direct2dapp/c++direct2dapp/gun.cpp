@@ -40,16 +40,15 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 
 	if (firing)
 	{
-		gfx->DrawLine(_position, CollisionDetection::getClosestTarget(_position, CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, _position, mousePos)), 1, 0.85, 0.6, 1);
-		if (CollisionDetection::getClosestTarget(_position, CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, _position, mousePos)).x == 0)
+		gfx->DrawLine(_position, CollisionDetection::getClosestTarget(_position, CollisionDetection::projectLineToEdge(cameraPos, _position, mousePos)), 1, 0.85, 0.6, 1);
+		if (CollisionDetection::getClosestTarget(_position, CollisionDetection::projectLineToEdge(cameraPos, _position, mousePos)).x == 0)
 		{
 			int y = 0;
 		}
-		if (CollisionDetection::getClosestTarget(_position, CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, _position, mousePos)).y == 0)
+		if (CollisionDetection::getClosestTarget(_position, CollisionDetection::projectLineToEdge(cameraPos, _position, mousePos)).y == 0)
 		{
 			int y = 0;
 		}
-		//hitMarker->Draw(0, CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).x - 4.5, CollisionDetection::getClosestTarget(Rects[0]->getPosition(), CollisionDetection::projectLineToEdge(cameraPos, 1280, 720, Rects[0]->getPosition(), mousePos)).y - 4.5);
 	}
 	firing = false;
 	coolDown--;
