@@ -96,12 +96,13 @@ void Spy::calcNewPos(Point _position)
 			{
 				if (Rects[i]->getType() == platform)
 				{
-					if (CollisionDetection::checkRectLineIntersect(Rects[i]->getPosition(), Rects[i]->getWidth(), Rects[i]->getHeight(), position, destinations[0]))
+					if (CollisionDetection::checkRectLineIntersect(Rects[i]->getPosition(), Rects[i]->getWidth(), Rects[i]->getHeight(), Point{ position.x - width / 2, position.y + width / 2 }, destinations[0]))
 					{
-						destinations[0] = CollisionDetection::getClosestTarget(position, destinations[0]);
+						destinations[0] = CollisionDetection::getClosestTarget(Point{ position.x - width / 2, position.y + width / 2 }, destinations[0]);
 					}
 				}
 			}
+
 			float testx = destinations[0].x;
 			float testy = destinations[0].y;
 			theta = atan(-1 * (destinations[0].y - position.y) / (destinations[0].x - position.x));
@@ -113,6 +114,7 @@ void Spy::calcNewPos(Point _position)
 				float testx = destinations[0].x;
 				float testy = destinations[0].y;
 				yVel = sin(theta) * speed;
+				float lol = sin(theta);
 				xVel = cos(theta) * -1 * speed;
 			}
 		}

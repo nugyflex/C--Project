@@ -98,8 +98,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_MOUSEMOVE: //this sets the cursor when the mouse is moved.
 		gameController::setMouseX(LOWORD(lParam));
 		gameController::setMouseY(HIWORD(lParam));
-gameController::mouse.x += 0.1 + cameraPos.x - screenWidth / 2;
-gameController::mouse.y += 0.1 + cameraPos.y - screenHeight / 2;
+gameController::mouse.x += cameraPos.x - screenWidth / 2;
+gameController::mouse.y += cameraPos.y - screenHeight / 2;
 	case WM_LBUTTONDOWN:
 		switch (LOWORD(wParam))
 		{
@@ -146,14 +146,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	// and the bottom right corner will have coordinates
 	// (horizontal, vertical)
 	RECT rect;
-	int taskbarheight;
-	HWND taskBar = FindWindow("Shell_traywnd", NULL);
-	if (taskBar && GetWindowRect(taskBar, &rect)) {
-		taskbarheight = rect.bottom - rect.top;
-	}
-	rect = { 0, 0, desktop.right, desktop.bottom - taskbarheight*2 };
 	screenWidth = desktop.right;
 	screenHeight = desktop.bottom;
+	rect = { 0, 0, screenWidth, desktop.bottom };
+
 
 
 	AdjustWindowRectEx(&rect, WS_OVERLAPPEDWINDOW, false, WS_EX_OVERLAPPEDWINDOW);
