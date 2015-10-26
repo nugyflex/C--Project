@@ -14,7 +14,7 @@
 
 using namespace std;
 
-class gameLevel
+class gameLevel //the gameLevel class, inherited by Level1 and Menu
 {
 protected:
 	static Graphics* gfx;

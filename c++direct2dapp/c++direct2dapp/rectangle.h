@@ -7,9 +7,9 @@ using namespace std;
 
 
 
-enum rectType { platform, player, fireball, spy };
+enum rectType { platform, player, fireball, spy }; //this is an enum, very useful!
 
-class Rect
+class Rect //the Rect class, inherited by fireball, spy, player, and platform
 {
 
 

@@ -1,3 +1,4 @@
+//declarations for structs and global(extern) variables
 struct Point{ float x; float y; };
 
 extern Point mousePos;

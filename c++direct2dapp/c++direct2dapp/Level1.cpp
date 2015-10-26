@@ -1,7 +1,8 @@
 #include "Level1.h"
 #include <stdio.h>
 #include <math.h>
-void Level1::Load()
+
+void Level1::Load() //loads the level, called when the level is instantiated
 {
 
 	particles = new particleCollection(gfx);
@@ -17,9 +18,11 @@ void Level1::Load()
 	camera = new Camera(Point{ 0,0 });
 	backGround  = new SpriteSheet(L"sanddunes.png", screenWidth, screenHeight, 0, 0, gfx);
 
-	Rect* tempobject = new Player(Point{ 640,9 }, 12, 54, 0, 0, gfx);
+	Rect* tempobject = new Player(Point{ 750, 240 }, 12, 54, 0, 0, gfx);
 	Rects.push_back(tempobject);
 	tempobject = new Platform(Point{ 50, 300 }, 1200, 50, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 1300, 300 }, 75, 25, 0, 0, gfx);
 	Rects.push_back(tempobject);
 	tempobject = new Platform(Point{ 50, 500 }, 1600, 50, 0, 0, gfx);
 	Rects.push_back(tempobject);
@@ -31,14 +34,26 @@ void Level1::Load()
 	Rects.push_back(tempobject);
 	tempobject = new Platform(Point{ 500, 450 }, 50, 50, 0, 0, gfx);
 	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 1300, 450 }, 50, 50, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 1350, 400 }, 50, 100, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 1400, 350 }, 50, 150, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 1450, 300 }, 50, 200, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 1500, 0 }, 50, 500, 0, 0, gfx);
+	Rects.push_back(tempobject);
+	tempobject = new Platform(Point{ 0, 0 }, 50, 550, 0, 0, gfx);
+	Rects.push_back(tempobject);
 	tempobject = new FireBall(Point{ 200, 200 }, 0, 0, gfx);
 	Rects.push_back(tempobject);
 	//for (int i = 0; i < 2; i++)
 	//{
 		//tempobject = new Spy(Point{ 200, 200 }, 10, 10, 0, 0, gfx);
 		//Rects.push_back(tempobject);
-		tempobject = new Spy(Point{ 600, 200 }, 10, 10, 0, 0, gfx);
-		Rects.push_back(tempobject);
+	Rects.push_back(new Spy(Point{ 220, 220 }, 10, 10, 0, 0, Point{ 100, 220 }, Point{ 400, 220 }, gfx));
+	Rects.push_back(new Spy(Point{ 220, 400 }, 10, 10, 0, 0, Point{ 100, 400 }, Point{ 800, 400 }, gfx));
 	//}
 	for (int i = 0; i < Rects.size(); i++)
 	{
@@ -50,10 +65,15 @@ void Level1::Load()
 	weapons[0]->setParent(true);
 	((Player*)Rects[0])->addWeapon(weapons[0]);
 	//particles->add(spark, Point{ 0,0 });
+	
+	saveFileOut.open("save.txt");
+	saveFileIn.open("save.txt");
+	float x, y;
+	saveFileIn >> x >> y;
 
 }
 
-void Level1::Unload() {
+void Level1::Unload() { //called when the level is finishded
 	delete backGround;
 	delete camera;
 	for (int i = 0; i < buttons.size(); i++)
@@ -67,7 +87,7 @@ void Level1::Unload() {
 	delete particles;
 }
 
-void Level1::Update()
+void Level1::Update() //updates all physics, controls and collision detection (and more!)
 {
 	if (paused)
 	{
@@ -147,8 +167,9 @@ void Level1::Update()
 											if (((Spy*)Rects[j])->getHealth() < 1)
 											{
 												temppoint = Rects[j]->getPosition();
+												Rects.push_back(new Spy(Point{ 220, 220 }, 10, 10, 0, 0, Point{ 100, 220 }, Point{ 400, 220 }, gfx));
 												Rects.erase(Rects.begin() + j);
-												Rects.push_back(new Spy(Point{ 220, 220 }, 10, 10, 0, 0, gfx));
+
 												Rects[Rects.size() - 1]->load();
 												gfx->setScreenShakeIntensity(0.25);
 												for (int l = 0; l < 20; l++)
@@ -169,10 +190,12 @@ void Level1::Update()
 				}
 			}
 		}
-
+		//CONTROLS
 		//VARIABLE JUMP
 		if (gameController::keyW)
 		{
+			//saveFileOut << Rects[0]->getX() << endl;
+			//saveFileOut << Rects[0]->getY() << endl;
 			if (Rects[0]->getyVel() >= 0)
 			{
 				for (int j = 0; j < Rects.size(); j++)
@@ -246,7 +269,7 @@ void Level1::Update()
 						CollisionDetection::correctPosition(Rects[i], Rects[j]);
 					}
 				}
-				if (((Spy*)Rects[i])->getHealth() < 2 && (rand() % 6 + 1) > 5)
+				if (((Spy*)Rects[i])->getHealth() < 3 && (rand() % 6 + 1) > 5)
 				{
 					particles->add(smoke, Point{ Rects[i]->getPosition().x + 5 - 3 + (rand() % 6 + 1), Rects[i]->getPosition().y + 5 - 3 + (rand() % 6 + 1) }, 0, 0);
 					if ((rand() % 6 + 1) > 5)
@@ -288,10 +311,10 @@ void Level1::Update()
 
 	}
 }
-void Level1::Render()
+void Level1::Render()//draws everything in the level
 {
 	backGround->Draw(0, camera->getPosition().x - screenWidth/2, camera->getPosition().y - screenHeight/2);
-		//gfx->ClearScreen(0.0f, 0.0f, 0.0f);
+		gfx->ClearScreen(0.0f, 0.0f, 0.1f);
 
 		for (int i = 0; i < Rects.size(); i++)
 		{
@@ -312,4 +335,6 @@ void Level1::Render()
 			}
 		}
 		particles->draw();
+		//for debugging
+		gfx->DrawRect(mousePos, 2, 2, 1, 1, 1, 1);
 }

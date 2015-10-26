@@ -125,7 +125,7 @@ void Graphics::draw()
 	renderTarget->QueryInterface(&deviceContext);
 
 	// Create and apply gaussian blur
-	deviceContext->CreateEffect(CLSID_D2D1Brightness, &gaussianBlur);
+	//deviceContext->CreateEffect(CLSID_D2D1Brightness, &gaussianBlur);
 
 	bitmapRenderTarget->GetBitmap(&bitmap);
 	//normal drawing

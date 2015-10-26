@@ -29,7 +29,7 @@ void Menu::Update()
 }
 void Menu::Render()
 {
-	gfx->FillRect(Point{ -1280/2, -360 }, 1280, 720, 0, 0, 0, 1);
+	gfx->ClearScreen(0, 0, 0.02f);
 	for (int i = 0; i < buttons.size(); i++)
 	{
 		buttons[i]->draw();

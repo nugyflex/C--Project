@@ -15,6 +15,8 @@
 #include "stdio.h"
 #include <stdlib.h>
 #include "psapi.h"
+#include <fstream>
+#include <string>
 using namespace std;
 
 
@@ -32,8 +34,6 @@ void sleep(int _mseconds)
 		while (goal > clock());
 	}
 }
-
-
 
 //handle all window events like keypress, mouse movement and pressing the red x
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -118,10 +118,17 @@ gameController::mouse.y += cameraPos.y - screenHeight / 2;
 
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
+//----------------LOOK-HERE!-------------//
+// the .h files are header files, they   ||
+// contain the declarations of the       ||
+// classes and their methods and         ||
+// properties, the cpp files contain the ||
+// actual code for those methods defined ||
+// in the header file.                   ||
+//=======================================//
 
 
-
-int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow)
+int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow) //same as int main in normal c++, the first code run in the program
 {
 	vector<Point> temppoints;
 
@@ -204,6 +211,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 		else
 		{
 			starttime = clock();
+
 
 			mousePos = gameController::mouse;
 			mouseLeft = gameController::mouseLeft;

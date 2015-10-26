@@ -14,6 +14,7 @@ class Player : public Rect {
 	SpriteSheet* spritestandingleftwithbags;
 	SpriteSheet* spritestandingrightwithbags;
 	bool hasBags;
+	int health;
 public:
 	Player();
 	Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
@@ -28,4 +29,5 @@ public:
 	Point getWeaponPos();
 	int weaponInUse;
 	int getWeaponInUse();
+
 };

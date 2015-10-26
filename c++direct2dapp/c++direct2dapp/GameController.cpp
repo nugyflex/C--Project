@@ -2,7 +2,7 @@
 #include <vector>
 
 
-gameLevel* gameController::currentlevel;
+gameLevel* gameController::currentlevel; //the gameController class, this runs the game
 bool gameController::Loading;
 bool gameController::keyW;
 bool gameController::keyA;

@@ -8,7 +8,7 @@
 #include <math.h>
 
 
-class Graphics
+class Graphics //the graphics class, used to draw everything, handles the rendertarget as well
 {
 	ID2D1Factory* factory;
 	ID2D1HwndRenderTarget* renderTarget;

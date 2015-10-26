@@ -4,8 +4,9 @@
 #include "CollisionDetection.h"
 #include "gameController.h"
 #include "Graphics.h"
+#include <fstream>
 
-class Level1 : public gameLevel
+class Level1 : public gameLevel 
 {
 	float y;
 	float yVel;
@@ -17,6 +18,8 @@ class Level1 : public gameLevel
 	vector<Button*> buttons;
 	vector<Gun*> weapons;
 	particleCollection *particles;
+	ofstream saveFileOut;
+	ifstream saveFileIn;
 public:
 
 	void Load() override;
