@@ -61,7 +61,7 @@ void Spy::draw()
 		gfx->DrawLine(trail2[i + 1], trail2[i], 1, 1, 1, 1);
 	}
 	*/
-	gfx->DrawRect(destinations[0], 2, 2, 1, 0, 0, 1);
+	//gfx->DrawRect(destinations[0], 2, 2, 1, 0, 0, 1);
 }
 
 void Spy::calcNewPos(Point _position)
@@ -149,7 +149,6 @@ void Spy::calcNewPos(Point _position)
 		lastBehavior = inactive;
 		break;
 	case follow:
-
 		if (_position.x > position.x) {
 			yVel = sin(theta) * -1 * speed;
 			xVel = cos(theta) * speed;
@@ -163,6 +162,8 @@ void Spy::calcNewPos(Point _position)
 		lastBehavior = follow;
 		break;
 	case hover:
+		int testx = destinations[0].x;
+		int testy = destinations[0].y;
 		if (destinations.size() > 0 && CollisionDetection::checkPointRectIntersect(destinations[0], Point{ position.x - (width / 2) - 0.5f, position.y - (height / 2) - 0.5f } , width+1, height+1))
 		{
 			destinations.erase(destinations.begin());
@@ -223,13 +224,13 @@ void Spy::calcNewPos(Point _position)
 		}
 		else
 		{
-			destinations.push_back(Point{ position.x+50, position.y });
-			destinations.push_back(Point{ position.x, position.y });
-			destinations.push_back(Point{ position.x-50, position.y });
+			destinations.push_back(Point{ position.x, position.y-50 });
 			destinations.push_back(Point{ position.x, position.y });
 			destinations.push_back(Point{ position.x, position.y+50 });
 			destinations.push_back(Point{ position.x, position.y });
-			destinations.push_back(Point{ position.x, position.y-50 });
+			destinations.push_back(Point{ position.x+50, position.y });
+			destinations.push_back(Point{ position.x, position.y });
+			destinations.push_back(Point{ position.x, position.y - 50 });
 			destinations.push_back(Point{ position.x, position.y });
 		}
 		if (hoverVel > 0.8)

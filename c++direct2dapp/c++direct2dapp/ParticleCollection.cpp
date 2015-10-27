@@ -17,6 +17,24 @@ void particleCollection::add(particleType _type, Point _position, float _xvel, f
 	case smoke:
 		particles.push_back(new smokeParticle(_position, gfx));
 		break;
+	case shell:
+		particles.push_back(new shellParticle(_position, gfx, _xvel, _yvel));
+		break;
+	}
+
+	particles[particles.size() - 1]->load();
+	for (int i = 0; i < Rects.size(); i++)
+	{
+		CollisionDetection::correctPositionParticle(particles[particles.size() - 1], Rects[i]);
+	}
+}
+void particleCollection::add(particleType _type, Point _position)
+{
+	switch (_type)
+	{
+	case smoke:
+		particles.push_back(new smokeParticle(_position, gfx));
+		break;
 	}
 
 	particles[particles.size() - 1]->load();
@@ -51,7 +69,10 @@ void particleCollection::manage()
 	{
 		for (int j = 0; j < Rects.size(); j++)
 		{
-			CollisionDetection::correctPositionParticle(particles[i], Rects[j]);
+			if (Rects[j]->getType() == platform)
+			{
+				CollisionDetection::correctPositionParticle(particles[i], Rects[j]);
+			}
 		}
 		/*//uncomment if you want performance issues
 		for (int j = 0; j < particles.size(); j++)

@@ -88,6 +88,7 @@
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="rectangle.cpp" />
+    <ClCompile Include="shellParticle.cpp" />
     <ClCompile Include="smokeParticle.cpp" />
     <ClCompile Include="sparkParticle.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="rectangle.h" />
+    <ClInclude Include="shellParticle.h" />
     <ClInclude Include="SmokeParticle.h" />
     <ClInclude Include="sparkParticle.h" />
     <ClInclude Include="SpriteSheet.h" />

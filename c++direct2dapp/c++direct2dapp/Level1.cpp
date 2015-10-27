@@ -130,8 +130,7 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 						}
 						if (((Player*)Rects[i])->weapons[((Player*)Rects[i])->getWeaponInUse()]->fire())
 						{
-
-
+							//particles->add(shell, Point { Rects[i]->getPosition().x + Rects[i]->getWeaponOffsetX(), Rects[i]->getPosition().y + Rects[i]->getWeaponOffsetY()}, -1 + (rand() % 2 + 1), -6 + (rand() % 2 + 1));
 								float test = rand() % 10 + 1;
 								if (test > 9)
 								{
@@ -150,7 +149,7 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 								}
 								for (int i = 0; i < test; i++)
 								{
-									particles->add(smoke, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) }, 0, 0);
+									particles->add(smoke, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) });
 									if (rand() % 10 + 1 > 6)
 									{
 										particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
@@ -178,7 +177,7 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 												}
 												for (int l = 0; l < 25; l++)
 												{
-													particles->add(smoke, Point{ temppoint.x - 35 + (rand() % 70 + 1), temppoint.y - 35 + (rand() % 70 + 1) }, 0, 0);
+													particles->add(smoke, Point{ temppoint.x - 35 + (rand() % 70 + 1), temppoint.y - 35 + (rand() % 70 + 1) });
 
 												}
 											}
@@ -271,7 +270,7 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 				}
 				if (((Spy*)Rects[i])->getHealth() < 3 && (rand() % 6 + 1) > 5)
 				{
-					particles->add(smoke, Point{ Rects[i]->getPosition().x + 5 - 3 + (rand() % 6 + 1), Rects[i]->getPosition().y + 5 - 3 + (rand() % 6 + 1) }, 0, 0);
+					particles->add(smoke, Point{ Rects[i]->getPosition().x + 5 - 3 + (rand() % 6 + 1), Rects[i]->getPosition().y + 5 - 3 + (rand() % 6 + 1) });
 					if ((rand() % 6 + 1) > 5)
 					{
 						particles->add(spark, Rects[i]->getPosition(), -2 + (rand() % 4 + 1), -2 + (rand() % 4 + 1));

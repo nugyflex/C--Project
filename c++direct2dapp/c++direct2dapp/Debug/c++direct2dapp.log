@@ -1,146 +1,19 @@
-﻿Build started 26/10/2015 11:08:52 PM.
+﻿Build started 28/10/2015 8:17:03 AM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp button.cpp Camera.cpp CollisionDetection.cpp ExitButton.cpp fireball.cpp GameController.cpp GameLevel.cpp Graphics.cpp gun.cpp Level1.cpp Level1Button.cpp main.cpp menu.cpp MenuButton.cpp Particle.cpp ParticleCollection.cpp Platform.cpp player.cpp rectangle.cpp smokeParticle.cpp sparkParticle.cpp SpriteSheet.cpp Spy.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Spy.cpp
          Spy.cpp
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(72): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(172): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(245): warning C4305: '-=': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(249): warning C4305: '+=': truncation from 'double' to 'float'
-         SpriteSheet.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spritesheet.cpp(72): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spritesheet.cpp(76): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spritesheet.cpp(84): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spritesheet.cpp(88): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-         sparkParticle.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\sparkparticle.cpp(22): warning C4305: '=': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\sparkparticle.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         smokeParticle.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\smokeparticle.cpp(15): warning C4305: '=': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\smokeparticle.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         rectangle.cpp
-         player.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(92): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(104): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(109): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(120): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         Platform.cpp
-         ParticleCollection.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particlecollection.cpp(23): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particlecollection.cpp(30): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particlecollection.cpp(37): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particlecollection.cpp(41): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particlecollection.cpp(50): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particlecollection.cpp(52): warning C4018: '<': signed/unsigned mismatch
-         Particle.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particle.cpp(28): warning C4305: '-=': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particle.cpp(32): warning C4305: '+=': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\particle.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         MenuButton.cpp
-         menu.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\menu.cpp(22): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\menu.cpp(33): warning C4018: '<': signed/unsigned mismatch
-         main.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(234): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(237): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(250): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(259): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         Level1Button.cpp
-         Level1.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(58): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(79): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(94): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(112): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(122): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(123): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(124): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(125): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(126): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(127): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(128): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(129): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(135): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(138): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(144): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(156): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(160): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(177): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(201): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(240): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(255): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(265): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(277): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(283): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(289): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(316): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(319): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\level1.cpp(332): warning C4018: '<': signed/unsigned mismatch
-         gun.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\gun.cpp(43): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\gun.cpp(96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         Graphics.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(54): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(55): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(62): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(63): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(133): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(151): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(152): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(159): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\graphics.cpp(172): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         GameLevel.cpp
-         GameController.cpp
-         fireball.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\fireball.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         ExitButton.cpp
-         Generating Code...
-         Compiling...
-         CollisionDetection.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(266): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(293): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(370): warning C4553: '==': operator has no effect; did you intend '='?
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(410): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(412): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(413): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(415): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(421): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(422): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(423): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(429): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(430): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(455): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(460): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(465): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(470): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(513): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(525): warning C4018: '<': signed/unsigned mismatch
-         Camera.cpp
-         button.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\button.cpp(9): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\button.cpp(10): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-         Ball.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\ball.cpp(80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\ball.cpp(86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-         Generating Code...
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(58): warning C4715: 'CollisionDetection::finddistance': not all control paths return a value
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(505): warning C4715: 'CollisionDetection::getClosestRectLineIntersect': not all control paths return a value
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\collisiondetection.cpp(602): warning C4715: 'CollisionDetection::projectLineToEdge': not all control paths return a value
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(165): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(166): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(173): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(246): warning C4305: '-=': truncation from 'double' to 'float'
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\spy.cpp(250): warning C4305: '+=': truncation from 'double' to 'float'
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.exe" /INCREMENTAL /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.lib" /MACHINE:X86 Debug\Ball.obj
          Debug\button.obj
@@ -162,6 +35,7 @@
          Debug\Platform.obj
          Debug\player.obj
          Debug\rectangle.obj
+         Debug\shellParticle.obj
          Debug\smokeParticle.obj
          Debug\sparkParticle.obj
          Debug\SpriteSheet.obj
@@ -171,4 +45,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:15.44
+Time Elapsed 00:00:01.57
