@@ -1,4 +1,5 @@
 #include "projectileCollection.h"
+#include "Player.h"
 
 projectileCollection::projectileCollection(Graphics* _gfx)
 {
@@ -39,6 +40,15 @@ void projectileCollection::manage()
 			{
 				if (CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), projectiles[i]->getPosition(), projectiles[i]->getLastPosition()))
 				{
+					projectiles.erase(projectiles.begin() + i);
+					break;
+				}
+			}
+			if (Rects[j]->getType() == player)
+			{
+				if (CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), projectiles[i]->getPosition(), projectiles[i]->getLastPosition()))
+				{
+					((Player*)Rects[j])->subtractHealth(1);
 					projectiles.erase(projectiles.begin() + i);
 					break;
 				}

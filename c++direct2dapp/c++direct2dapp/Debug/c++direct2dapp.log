@@ -1,11 +1,24 @@
-﻿Build started 28/10/2015 11:13:34 PM.
+﻿Build started 29/10/2015 8:28:04 AM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt projectileCollection.cpp
-         projectileCollection.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\projectilecollection.cpp(25): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\projectilecollection.cpp(32): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\projectilecollection.cpp(36): warning C4018: '<': signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt player.cpp
+         player.cpp
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(92): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(104): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(109): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\player.cpp(120): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.exe" /INCREMENTAL /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.lib" /MACHINE:X86 Debug\Ball.obj
          Debug\button.obj
@@ -39,4 +52,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.41
+Time Elapsed 00:00:00.99

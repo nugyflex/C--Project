@@ -137,9 +137,8 @@ void Player::load()
 	spritestandingrightwithbags = new SpriteSheet(L"standingrightwithbags.png", 32, 54, 0, 1, gfx);
 	weaponInUse = 0;
 	hasBags = false;
-	health = 50;
+	health = 10;
 }
-
 int Player::getWeaponOffsetY()
 {
 	return 22;
@@ -160,4 +159,12 @@ int Player::getWeaponInUse()
 Point Player::getWeaponPos()
 {
 	return Point{ position.x + getWeaponOffsetX(), position.y + getWeaponOffsetY() };
+}
+void Player::subtractHealth(int _amount)
+{
+	health -= _amount;
+}
+int Player::getHealth()
+{
+	return health;
 }

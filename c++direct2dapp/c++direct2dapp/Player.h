@@ -29,5 +29,6 @@ public:
 	Point getWeaponPos();
 	int weaponInUse;
 	int getWeaponInUse();
-
+	void subtractHealth(int _amount);
+	int getHealth();
 };

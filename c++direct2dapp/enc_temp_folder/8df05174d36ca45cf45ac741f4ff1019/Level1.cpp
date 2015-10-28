@@ -299,17 +299,12 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 			}
 			if (Rects[i]->getType() == player)
 			{
-				if (((Player*)Rects[i])->getHealth() == 0)
+				if (((Player*)Rects[i])->getHealth() < 1)
 				{
-					gfx->setScreenShakeIntensity(0.25);
-					for (int l = 0; l < 20; l++)
+					particles->add(smoke, Point{ Rects[i]->getPosition().x + 5 - 3 + (rand() % 6 + 1), Rects[i]->getPosition().y + 5 - 3 + (rand() % 6 + 1) });
+					if ((rand() % 6 + 1) > 5)
 					{
-						particles->add(spark, Rects[i]->getPosition(), -5 + (rand() % 10 + 1), -10 + (rand() % 20 + 1));
-					}
-					for (int l = 0; l < 25; l++)
-					{
-						particles->add(smoke, Point{ Rects[i]->getPosition().x - 35 + (rand() % 70 + 1), Rects[i]->getPosition().y - 35 + (rand() % 70 + 1) });
-
+						particles->add(spark, Rects[i]->getPosition(), -2 + (rand() % 4 + 1), -2 + (rand() % 4 + 1));
 					}
 				}
 			}
