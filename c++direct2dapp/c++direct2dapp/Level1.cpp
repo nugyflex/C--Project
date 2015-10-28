@@ -301,7 +301,7 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 			{
 				if (((Player*)Rects[i])->getHealth() == 0)
 				{
-					gfx->setScreenShakeIntensity(0.25);
+					gfx->setScreenShakeIntensity(1);
 					for (int l = 0; l < 20; l++)
 					{
 						particles->add(spark, Rects[i]->getPosition(), -5 + (rand() % 10 + 1), -10 + (rand() % 20 + 1));
@@ -311,6 +311,7 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 						particles->add(smoke, Point{ Rects[i]->getPosition().x - 35 + (rand() % 70 + 1), Rects[i]->getPosition().y - 35 + (rand() % 70 + 1) });
 
 					}
+					((Player*)Rects[i])->subtractHealth(1);
 				}
 			}
 		}
