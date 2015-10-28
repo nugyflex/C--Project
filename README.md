@@ -1,4 +1,4 @@
-# C--Project
+# C++Project
 c++ stuff with directx
 
 
