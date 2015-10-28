@@ -4,7 +4,7 @@
 
 void Level1::Load() //loads the level, called when the level is instantiated
 {
-
+	projectiles = new projectileCollection(gfx);
 	particles = new particleCollection(gfx);
 	soundLatch = 0;
 	testvar = 0;
@@ -59,6 +59,7 @@ void Level1::Load() //loads the level, called when the level is instantiated
 	{
 		Rects[i]->load();
 	}
+	projectiles->add(Point{ 300, 100 }, 6, 3);
 	Gun* newgun = new Gun(300, 300, gfx);
 	weapons.push_back(newgun);
 	weapons[0]->load();
@@ -89,6 +90,7 @@ void Level1::Unload() { //called when the level is finishded
 
 void Level1::Update() //updates all physics, controls and collision detection (and more!)
 {
+
 	if (paused)
 	{
 		for (int i = 0; i < buttons.size(); i++)
@@ -302,17 +304,27 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 			}
 		}
 		particles->manage();
+		projectiles->manage();
+		for (int i = 0; i < Rects.size(); i++)
+		{
+			if (Rects[i]->getType() == spy)
+			{
+				if (((Spy*)Rects[i])->getFiring())
+				{
+					projectiles->add(Rects[i]->getPosition(), Rects[0]->getPosition(), 14);
+				}
+			}
+		}
 		/*// waterfall of spark particles
 		float random = rand();
 		float randmax = RAND_MAX;
 		float test = floor((random / randmax) * 100);
 		particles->add(spark, Point{ test, 0 }, 0);*/
-
 	}
 }
 void Level1::Render()//draws everything in the level
 {
-	backGround->Draw(0, camera->getPosition().x - screenWidth/2, camera->getPosition().y - screenHeight/2);
+		backGround->Draw(0, camera->getPosition().x - screenWidth / 2, camera->getPosition().y - screenHeight / 2);
 		gfx->ClearScreen(0.0f, 0.0f, 0.1f);
 
 		for (int i = 0; i < Rects.size(); i++)
@@ -326,6 +338,10 @@ void Level1::Render()//draws everything in the level
 				}
 			}
 		}
+		particles->draw();
+		//for debugging
+		gfx->DrawRect(mousePos, 2, 2, 1, 1, 1, 1);
+	
 		if (paused)
 		{
 			for (int i = 0; i < buttons.size(); i++)
@@ -333,7 +349,5 @@ void Level1::Render()//draws everything in the level
 				buttons[i]->draw();
 			}
 		}
-		particles->draw();
-		//for debugging
-		gfx->DrawRect(mousePos, 2, 2, 1, 1, 1, 1);
+		projectiles->draw();
 }

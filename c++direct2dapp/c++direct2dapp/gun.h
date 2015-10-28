@@ -1,5 +1,6 @@
 #pragma once
 #include "ParticleCollection.h"
+#include "projectileCollection.h"
 #include "Graphics.h"
 #include "SpriteSheet.h"
 #include "rectangle.h"

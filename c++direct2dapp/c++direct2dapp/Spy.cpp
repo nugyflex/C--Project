@@ -62,6 +62,8 @@ void Spy::draw()
 	}
 	*/
 	//gfx->DrawRect(destinations[0], 2, 2, 1, 0, 0, 1);
+	firing = false;
+	firecooldown--;
 }
 
 void Spy::calcNewPos(Point _position)
@@ -160,6 +162,11 @@ void Spy::calcNewPos(Point _position)
 		destinations.clear();
 		destinations.push_back(_position);
 		lastBehavior = follow;
+		if (firecooldown < 0)
+		{
+			firecooldown = 120;
+			firing = true;
+		}
 		break;
 	case hover:
 		int testx = destinations[0].x;
@@ -307,5 +314,8 @@ int Spy::getHealth()
 void Spy::setMode(behaviorType _mode)
 {
 	mode = _mode;
-
+}
+bool Spy::getFiring()
+{
+	return firing;
 }

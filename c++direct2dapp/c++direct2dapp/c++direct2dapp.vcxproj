@@ -87,6 +87,8 @@
     <ClCompile Include="ParticleCollection.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="projectile.cpp" />
+    <ClCompile Include="projectileCollection.cpp" />
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="shellParticle.cpp" />
     <ClCompile Include="smokeParticle.cpp" />
@@ -114,6 +116,8 @@
     <ClInclude Include="ParticleCollection.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="projectile.h" />
+    <ClInclude Include="projectileCollection.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="shellParticle.h" />
     <ClInclude Include="SmokeParticle.h" />

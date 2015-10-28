@@ -1,6 +1,5 @@
 #pragma once
 
-#include "gameLevel.h"
 #include "CollisionDetection.h"
 #include "gameController.h"
 #include "Graphics.h"
@@ -18,6 +17,7 @@ class Level1 : public gameLevel
 	vector<Button*> buttons;
 	vector<Gun*> weapons;
 	particleCollection *particles;
+	projectileCollection *projectiles;
 	ofstream saveFileOut;
 	ifstream saveFileIn;
 public:

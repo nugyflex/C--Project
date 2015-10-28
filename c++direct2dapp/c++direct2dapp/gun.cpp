@@ -6,6 +6,7 @@ Point cameraPos;
 bool mouseLeft;
 bool lastMouseLeft;
 bool paused;
+bool lastPaused;
 
 Gun::Gun(float _x, float _y, Graphics * _gfx)
 {
