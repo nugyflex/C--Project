@@ -4,6 +4,7 @@
 
 gameLevel* gameController::currentlevel; //the gameController class, this runs the game
 bool gameController::Loading;
+bool gameController::space;
 bool gameController::keyW;
 bool gameController::keyA;
 bool gameController::keyS;

@@ -103,22 +103,38 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 	}
 	else
 	{
+
+		playerIndex = -1;
+		for (int i = 0; i < Rects.size(); i++)
+		{
+			if (Rects[i]->getType() == player)
+			{
+				playerIndex = i;
+			}
+		}
+		if (playerIndex == -1 && gameController::space == true)
+		{
+			playerIndex = Rects.size();
+			Rects.push_back(new Player(Point{ 750, 240 }, 12, 54, 0, 0, gfx));
+			Rects[playerIndex]->load();
+		}
 		//makes the mouse movie with the camera
 		gameController::mouse.x += camera->getxVel();
 		gameController::mouse.y += camera->getyVel();
-		camera->calcNewPos(Rects[0]->getPosition());
+		if (playerIndex != -1)
+		{
+			camera->calcNewPos(Rects[playerIndex]->getPosition());
+		}
 		cameraPos = camera->getPosition();
 
 		if (gameController::mouseLeft)
 		{
-			for (int i = 0; i < Rects.size(); i++)
-			{
-				if (Rects[i]->getType() == player)
+				if (playerIndex != -1)
 				{
-					if (((Player*)Rects[i])->weapons.size()>0)
+					if (((Player*)Rects[playerIndex])->weapons.size()>0)
 					{
-						Point temppoint = CollisionDetection::getClosestTarget(((Player*)Rects[0])->getWeaponPos(), CollisionDetection::projectLineToEdge(cameraPos, ((Player*)Rects[0])->getWeaponPos(), mousePos));
-						if (((Player*)Rects[i])->weapons[((Player*)Rects[i])->getWeaponInUse()]->getCooldown() <-2)
+						Point temppoint = CollisionDetection::getClosestTarget(((Player*)Rects[playerIndex])->getWeaponPos(), CollisionDetection::projectLineToEdge(cameraPos, ((Player*)Rects[playerIndex])->getWeaponPos(), mousePos));
+						if (((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getCooldown() <-2)
 						{
 							
 							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
@@ -130,7 +146,7 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
 							particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
 						}
-						if (((Player*)Rects[i])->weapons[((Player*)Rects[i])->getWeaponInUse()]->fire())
+						if (((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->fire())
 						{
 							//particles->add(shell, Point { Rects[i]->getPosition().x + Rects[i]->getWeaponOffsetX(), Rects[i]->getPosition().y + Rects[i]->getWeaponOffsetY()}, -1 + (rand() % 2 + 1), -6 + (rand() % 2 + 1));
 								float test = rand() % 10 + 1;
@@ -162,7 +178,7 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 								{
 									if (Rects[j]->getType() == spy)
 									{
-										if (CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), ((Player*)Rects[0])->getWeaponPos(), temppoint))
+										if (CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), ((Player*)Rects[playerIndex])->getWeaponPos(), temppoint))
 										{
 											((Spy*)Rects[j])->subtractHealth(1);
 											if (((Spy*)Rects[j])->getHealth() < 1)
@@ -189,54 +205,57 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 						}
 					}
 				}
-			}
+
 		}
 		//CONTROLS
 		//VARIABLE JUMP
-		if (gameController::keyW)
+		if (playerIndex != -1)
 		{
-			//saveFileOut << Rects[0]->getX() << endl;
-			//saveFileOut << Rects[0]->getY() << endl;
-			if (Rects[0]->getyVel() >= 0)
+			if (gameController::keyW)
 			{
-				for (int j = 0; j < Rects.size(); j++)
+				//saveFileOut << Rects[0]->getX() << endl;
+				//saveFileOut << Rects[0]->getY() << endl;
+				if (Rects[playerIndex]->getyVel() >= 0)
 				{
-					if (Rects[j]->getFixed() && CollisionDetection::getSide(Rects[0], Rects[j]) == 4)
+					for (int j = 0; j < Rects.size(); j++)
 					{
-						Rects[0]->setyVel(-8);
+						if (Rects[j]->getFixed() && CollisionDetection::getSide(Rects[playerIndex], Rects[j]) == 4)
+						{
+							Rects[playerIndex]->setyVel(-8);
+						}
 					}
 				}
 			}
-		}
-		else
-		{
-			if (Rects[0]->getyVel() < -3)
+			else
 			{
-				Rects[0]->setyVel(-3);
+				if (Rects[playerIndex]->getyVel() < -3)
+				{
+					Rects[playerIndex]->setyVel(-3);
+				}
 			}
-		}
-		if (gameController::keyA)
-		{
+			if (gameController::keyA)
+			{
 
 
-			Rects[0]->setxVel(-3);
+				Rects[playerIndex]->setxVel(-3);
 
 
-		}
-		if (!gameController::keyA && !gameController::keyD)
-		{
-			Rects[0]->setxVel(0);
-		}
+			}
+			if (!gameController::keyA && !gameController::keyD)
+			{
+				Rects[playerIndex]->setxVel(0);
+			}
 
-		if (gameController::keyD)
-		{
+			if (gameController::keyD)
+			{
 
-			Rects[0]->setxVel(3);
+				Rects[playerIndex]->setxVel(3);
 
-		}
-		if (gameController::keyA && gameController::keyD)
-		{
-			Rects[0]->setxVel(0);
+			}
+			if (gameController::keyA && gameController::keyD)
+			{
+				Rects[playerIndex]->setxVel(0);
+			}
 		}
 		for (int i = 0; i < Rects.size(); i++)
 		{
@@ -246,9 +265,9 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 				Rects[i]->setyVel(Rects[i]->getyVel() + 0.51f);
 			}
 			//adding xvel x to x and yvel to y
-			if (Rects[i]->getType() == spy)
+			if (Rects[i]->getType() == spy && playerIndex != -1)
 			{
-				Rects[i]->calcNewPos(Rects[0]->getPosition());
+				Rects[i]->calcNewPos(Rects[playerIndex]->getPosition());
 			}
 				Rects[i]->calcNewPos();
 			if (!Rects[i]->getFixed() && Rects[i]->getType() != fireball)
@@ -297,22 +316,22 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 				}
 
 			}
-			if (Rects[i]->getType() == player)
+		}
+		if (playerIndex != -1)
+		{
+			if (((Player*)Rects[playerIndex])->getHealth() == 0)
 			{
-				if (((Player*)Rects[i])->getHealth() == 0)
+				gfx->setScreenShakeIntensity(1);
+				for (int l = 0; l < 20; l++)
 				{
-					gfx->setScreenShakeIntensity(1);
-					for (int l = 0; l < 20; l++)
-					{
-						particles->add(spark, Rects[i]->getPosition(), -5 + (rand() % 10 + 1), -10 + (rand() % 20 + 1));
-					}
-					for (int l = 0; l < 25; l++)
-					{
-						particles->add(smoke, Point{ Rects[i]->getPosition().x - 35 + (rand() % 70 + 1), Rects[i]->getPosition().y - 35 + (rand() % 70 + 1) });
-
-					}
-					((Player*)Rects[i])->subtractHealth(1);
+					particles->add(spark, Rects[playerIndex]->getPosition(), -5 + (rand() % 10 + 1), -10 + (rand() % 20 + 1));
 				}
+				for (int l = 0; l < 25; l++)
+				{
+					particles->add(smoke, Point{ Rects[playerIndex]->getPosition().x - 35 + (rand() % 70 + 1), Rects[playerIndex]->getPosition().y - 35 + (rand() % 70 + 1) });
+
+				}
+				Rects.erase(Rects.begin() + playerIndex);
 			}
 		}
 
@@ -322,9 +341,9 @@ void Level1::Update() //updates all physics, controls and collision detection (a
 		{
 			if (Rects[i]->getType() == spy)
 			{
-				if (((Spy*)Rects[i])->getFiring())
+				if (((Spy*)Rects[i])->getFiring() & playerIndex != -1)
 				{
-					projectiles->add(Rects[i]->getPosition(), Point{ Rects[0]->getPosition().x + Rects[0]->getWidth()/2, Rects[0]->getPosition().y + Rects[0]->getHeight() / 2 }, 14);
+					projectiles->add(Rects[i]->getPosition(), Point{ Rects[playerIndex]->getPosition().x + Rects[playerIndex]->getWidth()/2, Rects[playerIndex]->getPosition().y + Rects[playerIndex]->getHeight() / 2 }, 20);
 				}
 			}
 		}

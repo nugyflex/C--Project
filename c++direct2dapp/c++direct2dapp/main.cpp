@@ -63,6 +63,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case 0x44:
 			gameController::keyD = true;
 			break;
+		case VK_SPACE:
+			gameController::space = true;
 		}
 		break;
 	case WM_KEYUP: //This is used if we release a key
@@ -83,7 +85,10 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case 0x44:
 			gameController::keyD = false;
 			break;
-		case 0x1B:
+		case VK_SPACE:
+			gameController::space = false;
+			break;
+		case VK_ESCAPE:
 			if (paused)
 			{
 				paused = false;

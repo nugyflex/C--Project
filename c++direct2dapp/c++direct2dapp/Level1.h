@@ -20,6 +20,7 @@ class Level1 : public gameLevel
 	projectileCollection *projectiles;
 	ofstream saveFileOut;
 	ifstream saveFileIn;
+	int playerIndex;
 public:
 
 	void Load() override;

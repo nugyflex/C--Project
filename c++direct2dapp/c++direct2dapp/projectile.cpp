@@ -3,6 +3,8 @@
 projectile::projectile(Point _position, float _xVel, float _yVel, Graphics* _gfx)
 {
 	position = _position;
+	lastPosition1 = _position;
+	lastPosition2 = _position;
 	xVel = _xVel;
 	yVel = _yVel;
 	gfx = _gfx;

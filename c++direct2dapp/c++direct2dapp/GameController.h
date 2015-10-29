@@ -14,6 +14,7 @@ public:
 
 public:
 	static Point mouse;
+	static bool space;
 	static bool Loading;
 	static bool keyW;
 	static bool keyA;
