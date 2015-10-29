@@ -1,156 +1,53 @@
-﻿Build started 29/10/2015 8:33:31 AM.
+﻿Build started 29/10/2015 11:21:36 PM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Ball.cpp button.cpp Camera.cpp CollisionDetection.cpp ExitButton.cpp fireball.cpp GameController.cpp GameLevel.cpp Graphics.cpp gun.cpp Level1.cpp Level1Button.cpp main.cpp menu.cpp MenuButton.cpp Particle.cpp ParticleCollection.cpp Platform.cpp player.cpp projectile.cpp projectileCollection.cpp rectangle.cpp shellParticle.cpp smokeParticle.cpp sparkParticle.cpp SpriteSheet.cpp Spy.cpp
-         Ball.cpp
-     1>Ball.cpp(80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Ball.cpp(86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-         button.cpp
-     1>button.cpp(9): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>button.cpp(10): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-         Camera.cpp
-         CollisionDetection.cpp
-     1>CollisionDetection.cpp(266): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>CollisionDetection.cpp(293): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>CollisionDetection.cpp(370): warning C4553: '==': operator has no effect; did you intend '='?
-     1>CollisionDetection.cpp(410): warning C4018: '<': signed/unsigned mismatch
-     1>CollisionDetection.cpp(412): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>CollisionDetection.cpp(413): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>CollisionDetection.cpp(415): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>CollisionDetection.cpp(421): warning C4018: '<': signed/unsigned mismatch
-     1>CollisionDetection.cpp(422): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>CollisionDetection.cpp(423): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>CollisionDetection.cpp(429): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-     1>CollisionDetection.cpp(430): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>CollisionDetection.cpp(455): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>CollisionDetection.cpp(460): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>CollisionDetection.cpp(465): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>CollisionDetection.cpp(470): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>CollisionDetection.cpp(513): warning C4018: '<': signed/unsigned mismatch
-     1>CollisionDetection.cpp(525): warning C4018: '<': signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt ExitButton.cpp GameController.cpp Level1.cpp Level1Button.cpp MenuButton.cpp main.cpp menu.cpp projectile.cpp
          ExitButton.cpp
-         fireball.cpp
-     1>fireball.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
          GameController.cpp
-         GameLevel.cpp
-         Graphics.cpp
-     1>Graphics.cpp(54): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
-     1>Graphics.cpp(55): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
-     1>Graphics.cpp(62): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
-     1>Graphics.cpp(63): warning C4244: '=': conversion from 'double' to 'FLOAT', possible loss of data
-     1>Graphics.cpp(133): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-     1>Graphics.cpp(151): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>Graphics.cpp(152): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-     1>Graphics.cpp(159): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-     1>Graphics.cpp(172): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         gun.cpp
-     1>gun.cpp(65): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>gun.cpp(99): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
          Level1.cpp
      1>Level1.cpp(58): warning C4018: '<': signed/unsigned mismatch
      1>Level1.cpp(80): warning C4018: '<': signed/unsigned mismatch
      1>Level1.cpp(96): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(114): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(124): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(125): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(126): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(127): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(128): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(129): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(130): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(131): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(136): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(139): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(145): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(157): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(161): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(178): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(202): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(241): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(256): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(266): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(278): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(108): warning C4018: '<': signed/unsigned mismatch
+     1>Level1.cpp(140): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(141): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(142): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(143): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(144): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(145): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(146): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(147): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(152): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(155): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(161): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(173): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(177): warning C4018: '<': signed/unsigned mismatch
+     1>Level1.cpp(194): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(220): warning C4018: '<': signed/unsigned mismatch
+     1>Level1.cpp(260): warning C4018: '<': signed/unsigned mismatch
+     1>Level1.cpp(275): warning C4018: '<': signed/unsigned mismatch
      1>Level1.cpp(285): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(307): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>Level1.cpp(321): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(340): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>Level1.cpp(343): warning C4018: '<': signed/unsigned mismatch
-     1>Level1.cpp(360): warning C4018: '<': signed/unsigned mismatch
+     1>Level1.cpp(297): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(304): warning C4018: '<': signed/unsigned mismatch
+     1>Level1.cpp(327): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>Level1.cpp(340): warning C4018: '<': signed/unsigned mismatch
+     1>Level1.cpp(344): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+     1>Level1.cpp(359): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>Level1.cpp(362): warning C4018: '<': signed/unsigned mismatch
+     1>Level1.cpp(379): warning C4018: '<': signed/unsigned mismatch
          Level1Button.cpp
+         MenuButton.cpp
          main.cpp
-     1>main.cpp(234): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(237): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>main.cpp(250): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>main.cpp(259): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(239): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(242): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>main.cpp(255): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>main.cpp(264): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
          menu.cpp
      1>menu.cpp(22): warning C4018: '<': signed/unsigned mismatch
      1>menu.cpp(33): warning C4018: '<': signed/unsigned mismatch
-         MenuButton.cpp
-         Particle.cpp
-     1>Particle.cpp(28): warning C4305: '-=': truncation from 'double' to 'float'
-     1>Particle.cpp(32): warning C4305: '+=': truncation from 'double' to 'float'
-     1>Particle.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         ParticleCollection.cpp
-     1>ParticleCollection.cpp(26): warning C4018: '<': signed/unsigned mismatch
-     1>ParticleCollection.cpp(41): warning C4018: '<': signed/unsigned mismatch
-     1>ParticleCollection.cpp(48): warning C4018: '<': signed/unsigned mismatch
-     1>ParticleCollection.cpp(55): warning C4018: '<': signed/unsigned mismatch
-     1>ParticleCollection.cpp(59): warning C4018: '<': signed/unsigned mismatch
-     1>ParticleCollection.cpp(68): warning C4018: '<': signed/unsigned mismatch
-     1>ParticleCollection.cpp(70): warning C4018: '<': signed/unsigned mismatch
-         Platform.cpp
-         player.cpp
-     1>player.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(92): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(104): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(109): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(120): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
          projectile.cpp
-     1>projectile.cpp(26): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>projectile.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
-         Compiling...
-         projectileCollection.cpp
-     1>projectileCollection.cpp(26): warning C4018: '<': signed/unsigned mismatch
-     1>projectileCollection.cpp(33): warning C4018: '<': signed/unsigned mismatch
-     1>projectileCollection.cpp(37): warning C4018: '<': signed/unsigned mismatch
-         rectangle.cpp
-         shellParticle.cpp
-     1>shellParticle.cpp(16): warning C4305: '=': truncation from 'double' to 'float'
-     1>shellParticle.cpp(22): warning C4305: '=': truncation from 'double' to 'float'
-     1>shellParticle.cpp(23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-         smokeParticle.cpp
-     1>smokeParticle.cpp(15): warning C4305: '=': truncation from 'double' to 'float'
-     1>smokeParticle.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         sparkParticle.cpp
-     1>sparkParticle.cpp(22): warning C4305: '=': truncation from 'double' to 'float'
-     1>sparkParticle.cpp(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         SpriteSheet.cpp
-     1>SpriteSheet.cpp(72): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-     1>SpriteSheet.cpp(76): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-     1>SpriteSheet.cpp(84): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-     1>SpriteSheet.cpp(88): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-         Spy.cpp
-     1>Spy.cpp(35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>Spy.cpp(39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>Spy.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>Spy.cpp(47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>Spy.cpp(74): warning C4018: '<': signed/unsigned mismatch
-     1>Spy.cpp(172): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-     1>Spy.cpp(173): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-     1>Spy.cpp(180): warning C4018: '<': signed/unsigned mismatch
-     1>Spy.cpp(253): warning C4305: '-=': truncation from 'double' to 'float'
-     1>Spy.cpp(257): warning C4305: '+=': truncation from 'double' to 'float'
+     1>projectile.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>projectile.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe" /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.lib" /MACHINE:X86 /SAFESEH Release\Ball.obj
          Release\button.obj
@@ -180,13 +77,13 @@
          Release\SpriteSheet.obj
          Release\Spy.obj
          Generating code
-         97 of 974 functions (10.0%) were compiled, the rest were copied from previous compilation.
-           89 functions were new in current compilation
-           42 functions had inline decision re-evaluated but remain unchanged
+         10 of 974 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           10 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
          c++direct2dapp.vcxproj -> C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe
      1>Done Building Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:16.54
+Time Elapsed 00:00:06.03
