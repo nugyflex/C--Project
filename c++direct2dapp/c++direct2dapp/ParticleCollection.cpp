@@ -62,7 +62,6 @@ void particleCollection::manage()
 		{
 			delete particles[i];
 			particles.erase(particles.begin() + i);
-
 		}
 	}
 	for (int i = 0; i < particles.size(); i++)
@@ -79,6 +78,5 @@ void particleCollection::manage()
 		{
 			CollisionDetection::correctPositionParticle(particles[i], new Rect(particles[j]->getPosition(), particles[j]->getWidth(), particles[j]->getHeight(), 0, 0, false, player, false, gfx));
 		}*/
-		
 	}
 }

@@ -8,9 +8,10 @@ projectile::projectile(Point _position, float _xVel, float _yVel, Graphics* _gfx
 	xVel = _xVel;
 	yVel = _yVel;
 	gfx = _gfx;
+	angle = -1.5;
 }
-projectile::projectile(){}
-projectile::~projectile(){}
+projectile::projectile() {}
+projectile::~projectile() {}
 
 Point projectile::getPosition()
 {
@@ -20,6 +21,7 @@ void projectile::calcNewPos()
 {
 	lastPosition2 = lastPosition1;
 	lastPosition1 = position;
+
 	position.x += xVel;
 	position.y += yVel;
 }
@@ -39,4 +41,18 @@ float projectile::getyVel()
 Point projectile::getLastPosition()
 {
 	return lastPosition1;
+}
+void projectile::setxVel(float _xVel) {
+	xVel = _xVel;
+}
+void projectile::setyVel(float yv) {
+	yVel = yv;
+}
+float projectile::getSpeed()
+{
+	return speed;
+}
+float projectile::getAngle()
+{
+	return angle;
 }

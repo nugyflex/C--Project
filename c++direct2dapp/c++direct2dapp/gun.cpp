@@ -25,14 +25,12 @@ void Gun::calcNewPos()
 {
 	if (hasParent)
 	{
-		
 	}
 	else
 	{
 		position.x += xVel;
 		position.y += yVel;
 	}
-
 }
 void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 {
@@ -48,7 +46,7 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 	{
 		if (_position.y > mousePos.y)
 		{
-			gfx->flip(_position, (atan((mousePos.y+(2*(_position.y-mousePos.y)) - (_position.y)) / (mousePos.x - _position.x))));
+			gfx->flip(_position, (atan((mousePos.y + (2 * (_position.y - mousePos.y)) - (_position.y)) / (mousePos.x - _position.x))));
 		}
 		else
 		{
@@ -56,7 +54,7 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 		}
 		fireStart = { _position.x - 25 * (cos((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))), _position.y - 25 * (sin((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))) };
 	}
-	image->Draw(0, 0, -1*image->getFrameHeight()/2);
+	image->Draw(0, 0, -1 * image->getFrameHeight() / 2);
 	gfx->rotateBack(position, 0);
 	Point thing = CollisionDetection::getClosestTarget(_position, mousePos);
 
@@ -74,8 +72,6 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 	}
 	firing = false;
 	coolDown--;
-
-
 }
 bool Gun::fire()
 {
@@ -94,11 +90,10 @@ void Gun::setParent(bool _bool)
 
 void Gun::draw()
 {
-		if (!hasParent)
-		{
-			image->Draw(0, position.x, position.y);
-		}
-
+	if (!hasParent)
+	{
+		image->Draw(0, position.x, position.y);
+	}
 }
 
 void Gun::load()

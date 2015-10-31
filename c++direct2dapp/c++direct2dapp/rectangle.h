@@ -5,14 +5,10 @@
 
 using namespace std;
 
-
-
 enum rectType { platform, player, fireball, spy }; //this is an enum, very useful!
 
 class Rect //the Rect class, inherited by fireball, spy, player, and platform
 {
-
-
 protected:
 	Point position;
 	float width;
@@ -57,6 +53,5 @@ public:
 	virtual void load();
 	virtual int getWeaponOffsetX();
 	virtual int getWeaponOffsetY();
-
 };
 extern vector<Rect*> Rects;

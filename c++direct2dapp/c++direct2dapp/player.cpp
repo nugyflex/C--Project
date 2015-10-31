@@ -3,10 +3,9 @@
 
 Player::Player() {}
 
-Player::Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi):
-Rect(_position, _width, _height, _yVel, _xVel, false, player, true, gfxi)
+Player::Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi) :
+	Rect(_position, _width, _height, _yVel, _xVel, false, player, true, gfxi)
 {
-
 }
 
 Player::~Player()
@@ -15,7 +14,6 @@ Player::~Player()
 
 void Player::draw()
 {
-
 	if (hasBags)
 	{
 		if (yVel == 0)
@@ -122,6 +120,7 @@ void Player::draw()
 			}
 		}
 	}
+	gfx->FillRect(position, health * 5, 5, 1, 1, 1, 1);
 }
 
 void Player::load()
@@ -137,7 +136,8 @@ void Player::load()
 	spritestandingrightwithbags = new SpriteSheet(L"standingrightwithbags.png", 32, 54, 0, 1, gfx);
 	weaponInUse = 0;
 	hasBags = false;
-	health = 5;
+	health = 6;
+	invulnerable = false;
 }
 int Player::getWeaponOffsetY()
 {
@@ -167,4 +167,12 @@ void Player::subtractHealth(int _amount)
 int Player::getHealth()
 {
 	return health;
+}
+bool Player::getInvulnerable()
+{
+	return invulnerable;
+}
+void Player::setInvulnerable(bool _b)
+{
+	invulnerable = _b;
 }

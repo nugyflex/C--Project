@@ -1,7 +1,5 @@
 #include "Graphics.h"
 
-
-
 Graphics::Graphics()
 {
 	factory = NULL;
@@ -24,10 +22,9 @@ bool Graphics::Init(HWND windowHandle)
 	HRESULT res = D2D1CreateFactory(D2D1_FACTORY_TYPE::D2D1_FACTORY_TYPE_SINGLE_THREADED, &factory);
 	if (res != S_OK) return false;
 
-
 	RECT rect;
 	GetClientRect(windowHandle, &rect);
-	
+
 	factory->CreateHwndRenderTarget(D2D1::RenderTargetProperties(), D2D1::HwndRenderTargetProperties(windowHandle, D2D1::SizeU(rect.right, rect.bottom)), &renderTarget);
 	renderTarget->CreateCompatibleRenderTarget(&bitmapRenderTarget);
 	renderTarget->CreateCompatibleRenderTarget(&lightingTarget);
@@ -44,7 +41,7 @@ void Graphics::centerCamera(Point _position)
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = 1; translation._12 = 0.0;
 	translation._21 = 0.0; translation._22 = 1;
-	translation._31 = -_position.x + screenWidth/2 + screenShakeX; translation._32 = -_position.y + screenHeight / 2 + screenShakeY;
+	translation._31 = -_position.x + screenWidth / 2 + screenShakeX; translation._32 = -_position.y + screenHeight / 2 + screenShakeY;
 	bitmapRenderTarget->SetTransform(translation);
 }
 
@@ -52,7 +49,7 @@ void Graphics::rotate(Point _position, float _theta)
 {
 	D2D_MATRIX_3X2_F translation;
 	translation._11 = cos(_theta); translation._12 = sin(_theta);
-	translation._21 = -1* sin(_theta); translation._22 = cos(_theta);
+	translation._21 = -1 * sin(_theta); translation._22 = cos(_theta);
 	translation._31 = -camera.x + screenWidth / 2 + _position.x + screenShakeX; translation._32 = -camera.y + screenHeight / 2 + _position.y + screenShakeY;
 	bitmapRenderTarget->SetTransform(translation);
 }
@@ -74,7 +71,6 @@ void Graphics::rotateBack(Point _position, float _theta)
 void Graphics::ClearScreen(float _r, float _g, float _b)
 {
 	bitmapRenderTarget->Clear(D2D1::ColorF(_r, _g, _b));
-
 }
 void Graphics::DrawCircle(Point _center, float _radius, float _r, float _g, float _b, float _a)
 {
@@ -85,14 +81,13 @@ void Graphics::DrawCircle(Point _center, float _radius, float _r, float _g, floa
 void Graphics::DrawRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a)
 {
 	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
-	bitmapRenderTarget->DrawRectangle(D2D1::Rect(_position.x, _position.y, _position.x+ _width, _position.y + _height), brush, 2.0f);
-
+	bitmapRenderTarget->DrawRectangle(D2D1::Rect(_position.x, _position.y, _position.x + _width, _position.y + _height), brush, 2.0f);
 }
 
 void Graphics::FillRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a)
 {
 	brush->SetColor(D2D1::ColorF(_r, _g, _b, _a));
-	bitmapRenderTarget->FillRectangle(D2D1::Rect(_position.x, _position.y, _position.x+ _width, _position.y + _height), brush);
+	bitmapRenderTarget->FillRectangle(D2D1::Rect(_position.x, _position.y, _position.x + _width, _position.y + _height), brush);
 }
 
 void Graphics::DrawLine(Point _position1, Point _position2, float _r, float _g, float _b, float _a)
@@ -147,7 +142,7 @@ void Graphics::setScreenShake(float _intensity)
 	else
 	{
 		float amount = _intensity * 80;
-		if (amount < 1){amount = 1;}
+		if (amount < 1) { amount = 1; }
 		screenShakeX = -(amount / 2) + (rand() % (int)amount + 1);
 		screenShakeY = -(amount / 2) + (rand() % (int)amount + 1);
 	}
@@ -162,7 +157,7 @@ void Graphics::settleScreenShake()
 	{
 		screenShakeIntensity = 0;
 	}
-	if (screenShakeIntensity < 1/80)
+	if (screenShakeIntensity < 1 / 80)
 	{
 		screenShakeIntensity = 0;
 	}

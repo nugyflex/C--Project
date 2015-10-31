@@ -7,6 +7,7 @@ class CollisionDetection
 {
 	CollisionDetection() {}
 public:
+	static bool CheckRectangleIntersect(Rect *_ob1, Point _p1, int _width, int _height);
 	static bool CheckRectangleIntersect(Rect *_ob1, Rect *_ob2);
 	static float finddistance(float x1, float y1, float x2, float y2);
 	static bool test1(Rect *player, Rect *platform);
@@ -24,8 +25,8 @@ public:
 	static bool isBetween(float _1, float _2, float _3);
 	static bool checkRectLineIntersect(Point _rp, float _width, float _height, Point _p1, Point _p2);
 	static Point getClosestRectLineIntersect(Point _rp, float _width, float _height, Point _p1, Point _p2);
-	static Point getClosestPoint(Point _p,  vector<Point> _Points);
-	static Point getClosestTarget( Point _p1, Point _p2);
+	static Point getClosestPoint(Point _p, vector<Point> _Points);
+	static Point getClosestTarget(Point _p1, Point _p2);
 	static Point projectLineToEdge(Point _c, Point _p1, Point _p2);
 	static bool checkPointRectIntersect(Point _p1, Point _r, float width, float height);
 	static void correctPositionParticle(Particle* _particle, Rect* _platform);

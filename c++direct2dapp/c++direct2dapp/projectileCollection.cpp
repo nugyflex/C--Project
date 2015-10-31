@@ -48,12 +48,20 @@ void projectileCollection::manage()
 			{
 				if (CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), projectiles[i]->getPosition(), projectiles[i]->getLastPosition()))
 				{
-					((Player*)Rects[j])->subtractHealth(1);
+					if (((Player*)Rects[j])->getInvulnerable() == false)
+					{
+						((Player*)Rects[j])->subtractHealth(1);
+					}
 					projectiles.erase(projectiles.begin() + i);
 					break;
 				}
 			}
 		}
-
+	}
+}
+void projectileCollection::manageTracking(Point _p)
+{
+	for (int i = 0; i < projectiles.size(); i++)
+	{
 	}
 }

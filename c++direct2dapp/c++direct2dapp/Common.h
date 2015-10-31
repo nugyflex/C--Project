@@ -1,5 +1,5 @@
 //declarations for structs and global(extern) variables
-struct Point{ float x; float y; };
+struct Point { float x; float y; };
 
 extern Point mousePos;
 
@@ -16,3 +16,5 @@ extern bool lastPaused;
 extern int screenWidth;
 
 extern int screenHeight;
+
+const float pi = 3.1415926535897;

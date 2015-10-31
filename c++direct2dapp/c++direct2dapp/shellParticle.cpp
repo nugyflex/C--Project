@@ -19,7 +19,7 @@ void shellParticle::load()
 	frame = rand() % 6 + 1;
 	width = 6;
 	height = 5;
-	maxvel =4.9;
+	maxvel = 4.9;
 	rotation = (rand() % 20 + 1);
 	rotation = rotation / 20;
 	rotation -= 0.5;

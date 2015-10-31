@@ -2,9 +2,6 @@
 #include "SpriteSheet.h"
 class Particle
 {
-
-
-
 public:
 	Particle();
 	Particle(Point _position);
@@ -35,5 +32,4 @@ protected:
 	int width;
 	int height;
 	float maxvel;
-	
 };

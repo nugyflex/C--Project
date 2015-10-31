@@ -4,16 +4,14 @@
 
 void Menu::Load()
 {
-
 	Button* temp = new Level1Button(0, 0, gfx);
 	buttons.push_back(temp);
 	temp = new ExitButton(0, 100, gfx);
 	buttons.push_back(temp);
 }
 
-void Menu::Unload() 
+void Menu::Unload()
 {
-	
 }
 
 void Menu::Update()

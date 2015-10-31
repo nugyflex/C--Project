@@ -30,5 +30,4 @@ public:
 	void drawOnParent(Point _position, int _offSetX, int  _offSetY);
 protected:
 	Graphics* gfx;
-
 };

@@ -1,7 +1,6 @@
 #include "button.h"
 Button::Button()
 {
-
 }
 Button::Button(int _x, int _y, Graphics * _gfx)
 {
@@ -9,11 +8,11 @@ Button::Button(int _x, int _y, Graphics * _gfx)
 	position.x = _x;
 	position.y = _y;
 }
-Button::~Button(){}
+Button::~Button() {}
 
-void Button::action(){}
+void Button::action() {}
 
-void Button::draw(){}
+void Button::draw() {}
 
 Point Button::getPosition()
 {

@@ -15,6 +15,7 @@ class Player : public Rect {
 	SpriteSheet* spritestandingrightwithbags;
 	bool hasBags;
 	int health;
+	bool invulnerable;
 public:
 	Player();
 	Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
@@ -31,4 +32,6 @@ public:
 	int getWeaponInUse();
 	void subtractHealth(int _amount);
 	int getHealth();
+	bool getInvulnerable();
+	void setInvulnerable(bool _b);
 };

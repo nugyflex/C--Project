@@ -3,6 +3,7 @@
 #include "Graphics.h"
 
 #include "Level1.h"
+#include "level2.h"
 #include "menu.h"
 #include "gameController.h"
 #include "Camera.h"
@@ -18,7 +19,6 @@
 #include <fstream>
 #include <string>
 using namespace std;
-
 
 #define DIV 1048576
 
@@ -38,7 +38,6 @@ void sleep(int _mseconds)
 //handle all window events like keypress, mouse movement and pressing the red x
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-
 	switch (uMsg)
 	{
 	case WM_DESTROY:
@@ -103,19 +102,19 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_MOUSEMOVE: //this sets the cursor when the mouse is moved.
 		gameController::setMouseX(LOWORD(lParam));
 		gameController::setMouseY(HIWORD(lParam));
-gameController::mouse.x += cameraPos.x - screenWidth / 2;
-gameController::mouse.y += cameraPos.y - screenHeight / 2;
+		gameController::mouse.x += cameraPos.x - screenWidth / 2;
+		gameController::mouse.y += cameraPos.y - screenHeight / 2;
 	case WM_LBUTTONDOWN:
 		switch (LOWORD(wParam))
 		{
-			case MK_LBUTTON:
-				gameController::mouseLeft = true;
-				break;
+		case MK_LBUTTON:
+			gameController::mouseLeft = true;
+			break;
 		}
 		break;
 	case WM_LBUTTONUP:
 
-			gameController::mouseLeft = false;
+		gameController::mouseLeft = false;
 
 		break;
 	}
@@ -132,13 +131,12 @@ gameController::mouse.y += cameraPos.y - screenHeight / 2;
 // in the header file.                   ||
 //=======================================//
 
-
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow) //same as int main in normal c++, the first code run in the program
 {
 	vector<Point> temppoints;
 
 	graphics = new Graphics();
-	
+
 	WNDCLASSEX windowclass;
 	ZeroMemory(&windowclass, sizeof(WNDCLASSEX));
 	windowclass.cbSize = sizeof(WNDCLASSEX);
@@ -160,15 +158,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	RECT rect;
 	screenWidth = desktop.right;
 	screenHeight = desktop.bottom;
-	rect = { 0, 0, screenWidth, desktop.bottom };
-
-
+	rect = { 0, 0, screenWidth, screenHeight };
 
 	AdjustWindowRectEx(&rect, WS_OVERLAPPEDWINDOW, false, WS_EX_OVERLAPPEDWINDOW);
 
 	HWND windowhandle = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MainWindow", "c++ things", WS_OVERLAPPEDWINDOW, 0, 0, rect.right - rect.left, rect.bottom - rect.top, NULL, NULL, hInstance, 0);
-
-
 
 	if (!graphics->Init(windowhandle))
 	{
@@ -187,7 +181,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	int endtime = 0;
 	float endminusstart = 0;
 
-
 	Point randompoint = { 0,0 };
 	gameController::mouse = randompoint;
 	//===========||TODO||===============//
@@ -205,9 +198,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	//   feature?                       ||
 	//	 time: 2 hours                  ||
 	//==================================//
-	//3. 
-
-
+	//3.
 
 	while (message.message != WM_QUIT)
 	{
@@ -216,7 +207,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 		else
 		{
 			starttime = clock();
-
 
 			mousePos = gameController::mouse;
 			mouseLeft = gameController::mouseLeft;
@@ -233,7 +223,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			graphics->settleScreenShake();
 			graphics->screenShake();
 
-
 			temppoints.clear();
 			endtime = clock();
 			endminusstart = endtime - starttime;
@@ -243,6 +232,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			randompoint = { 30,30 };
 			graphics->FillRect(randompoint, 100, 10, 0.5, 0.5, 0.5, 1);
 			randompoint = { 30,30 };
+			/*
 			if (endminusstart / (1000 / gameController::fps) < 0.5)
 			{
 				graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / gameController::fps)), 10, 0.5, 1, 0.5, 1);
@@ -255,6 +245,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 					graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / gameController::fps)), 10, 1, 0.2, 0.2, 1);
 				}
 			}
+			*/
 			//-------------------------------------
 			graphics->EndDraw();
 			graphics->draw();

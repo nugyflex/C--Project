@@ -2,7 +2,6 @@
 #include "Graphics.h"
 class projectile
 {
-
 public:
 	projectile();
 	projectile(Point _position, float _xVel, float _yVel, Graphics* _gfx);
@@ -13,7 +12,10 @@ public:
 	float getxVel();
 	float getyVel();
 	Point getLastPosition();
-
+	void setxVel(float _x);
+	void setyVel(float _y);
+	float getSpeed();
+	float getAngle();
 protected:
 	Graphics* gfx;
 	float gravity;
@@ -22,4 +24,6 @@ protected:
 	Point lastPosition2;
 	float xVel;
 	float yVel;
+	float speed;
+	float angle;
 };

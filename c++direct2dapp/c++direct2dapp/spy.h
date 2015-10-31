@@ -26,7 +26,8 @@ class Spy : public Rect {
 	vector<Point> trail2;*/
 	float hoverVel;
 	bool firing;
-	int firecooldown;
+	int shootCooldown;
+	int maxShootCooldown;
 public:
 	Spy();
 	Spy(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);

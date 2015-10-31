@@ -1,10 +1,8 @@
 #include "CollisionDetection.h"
 
-/*
-bool CollisionDetection::CheckRectangleIntersect(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4)
+bool CollisionDetection::CheckRectangleIntersect(Rect *_ob1, Point _p1, int _width, int _height)
 {
-
-	if (x2 >x3&&x1<x4&&y2>y3&&y1 < y4)
+	if (_ob1->getX() + _ob1->getWidth() > _p1.x && _ob1->getX() < _p1.x + _width && _ob1->getY() + _ob1->getHeight() > _p1.y && _ob1->getY() < _p1.y + _height)
 	{
 		return true;
 	}
@@ -12,12 +10,10 @@ bool CollisionDetection::CheckRectangleIntersect(float x1, float y1, float x2, f
 	{
 		return false;
 	}
-	
-}*/
+}
 
 bool CollisionDetection::CheckRectangleIntersect(Rect *_ob1, Rect *_ob2)
 {
-
 	if (_ob1->getX() + _ob1->getWidth() > _ob2->getX() && _ob1->getX() < _ob2->getX() + _ob2->getWidth() && _ob1->getY() + _ob1->getHeight() > _ob2->getY() && _ob1->getY() < _ob2->getY() + _ob2->getHeight())
 	{
 		return true;
@@ -26,10 +22,7 @@ bool CollisionDetection::CheckRectangleIntersect(Rect *_ob1, Rect *_ob2)
 	{
 		return false;
 	}
-	
 }
-
-
 
 float CollisionDetection::finddistance(float x1, float y1, float x2, float y2)
 {
@@ -40,11 +33,9 @@ float CollisionDetection::finddistance(float x1, float y1, float x2, float y2)
 	if (x1 > x2) {
 		if (y1 > y2) {
 			return sqrt(ob1ymob2y + ob1xmob2x);
-
 		}
 		if (y1 < y2) {
 			return sqrt(ob2ymob1y + ob1xmob2x);
-
 		}
 	}
 	if (x1 < x2) {
@@ -59,7 +50,6 @@ float CollisionDetection::finddistance(float x1, float y1, float x2, float y2)
 bool CollisionDetection::test1(Rect *_player, Rect *_platform) {
 	if (_player->getX() + _player->getWidth() >= _platform->getX()) {
 		return true;
-
 	}
 	return false;
 }
@@ -191,11 +181,9 @@ int CollisionDetection::getSide(Rect *_player, Rect *_platform) {
 	case 43:
 		if (_platform->getX() + _platform->getWidth() - _player->getX() > (_player->getY() + _player->getHeight()) - _platform->getY()) {
 			result = 4;
-
 		}
 		else {
 			result = 3;
-
 		}
 		break;
 
@@ -203,7 +191,6 @@ int CollisionDetection::getSide(Rect *_player, Rect *_platform) {
 		//0,1,1,1,0,0,0,1 = 113
 	case 113:
 		if (_player->getX() + _player->getWidth() - _platform->getX() > _platform->getY() + _platform->getHeight() - _player->getY()) {
-
 			result = 2;
 		}
 		else
@@ -224,13 +211,12 @@ int CollisionDetection::getSide(Rect *_player, Rect *_platform) {
 		break;
 	}
 
-
 	return result;
 }
 //this function corrects the position of a rectangle if it is colliding with another rectangle
 void CollisionDetection::correctPosition(Rect* _player, Rect* _platform) {
 	//left = 1, bottom = 2, right = 3, top = 4
-	if (!_player->getFixed()&&CheckRectangleIntersect(_player, _platform))
+	if (!_player->getFixed() && CheckRectangleIntersect(_player, _platform))
 	{
 		switch (getSide(_player, _platform))
 		{
@@ -264,7 +250,7 @@ void CollisionDetection::correctPosition(Rect* _player, Rect* _platform) {
 void CollisionDetection::correctPositionParticle(Particle* _particle, Rect* _platform) {
 	//left = 1, bottom = 2, right = 3, top = 4
 	Rect* _player = new Rect(_particle->getPosition(), _particle->getWidth(), _particle->getHeight(), 0, 0, false, player, false, new Graphics);
-	if (!_player->getFixed()&&CheckRectangleIntersect(_player, _platform))
+	if (!_player->getFixed() && CheckRectangleIntersect(_player, _platform))
 	{
 		switch (getSide(_player, _platform))
 		{
@@ -282,14 +268,12 @@ void CollisionDetection::correctPositionParticle(Particle* _particle, Rect* _pla
 			break;
 		case 2:
 			if (_particle->getyVel() < 0) {
-
 				_particle->setyVel(0);
 			}
 			_particle->setY(_platform->getY() + _platform->getHeight());
 			break;
 		case 4:
 			if (_particle->getyVel() > 0) {
-
 				_particle->setyVel(_particle->getyVel()*-0.5);
 			}
 			_particle->setY(_platform->getY() - _particle->getHeight());
@@ -354,7 +338,6 @@ bool CollisionDetection::checkLineIntersect(Point _p1, Point _p2, Point _p3, Poi
 }
 Point CollisionDetection::getLineIntersect(Point _p1, Point _p2, Point _p3, Point _p4)
 {
-
 	float tempx = ((_p1.x*_p2.y - _p1.y*_p2.x)*(_p3.x - _p4.x) - (_p1.x - _p2.x)*(_p3.x*_p4.y - _p3.y*_p4.x)) / ((_p1.x - _p2.x)*(_p3.y - _p4.y) - (_p1.y - _p2.y)*(_p3.x - _p4.x));
 	float tempy = ((_p1.x*_p2.y - _p1.y*_p2.x)*(_p3.y - _p4.y) - (_p1.y - _p2.y)*(_p3.x*_p4.y - _p3.y*_p4.x)) / ((_p1.x - _p2.x)*(_p3.y - _p4.y) - (_p1.y - _p2.y)*(_p3.x - _p4.x));
 	if (_p1.y == _p2.y)
@@ -374,7 +357,7 @@ Point CollisionDetection::getLineIntersect(Point _p1, Point _p2, Point _p3, Poin
 		tempx = _p3.x;
 	}
 
-	Point tempPoint = { tempx, tempy};
+	Point tempPoint = { tempx, tempy };
 	return tempPoint;
 }
 
@@ -385,51 +368,49 @@ bool CollisionDetection::checkRectLineIntersect(Point _rp, float _width, float _
 	Point p3 = { _rp.x + _width, _rp.y + _height };
 	Point p4 = { _rp.x , _rp.y + _height };
 	if (checkLineIntersect(p1, p2, _p1, _p2))
-		{
-			return true;
-		}
+	{
+		return true;
+	}
 	if (checkLineIntersect(p2, p3, _p1, _p2))
-		{
-			return true;
-		}
+	{
+		return true;
+	}
 	if (checkLineIntersect(p3, p4, _p1, _p2))
-		{
-			return true;
-		}
+	{
+		return true;
+	}
 	if (checkLineIntersect(p4, p1, _p1, _p2))
-		{
-			return true;
-		}
+	{
+		return true;
+	}
 	return false;
 }
 Point CollisionDetection::getClosestPoint(Point _p, vector<Point> _Points)
 {
-
 	vector< vector<int> > array(2, vector<int>(_Points.size()));
 	float test = 0;
 	for (int i = 0; i < _Points.size(); i++)
 	{
-		array[0][i] = finddistance(_p.x,_p.y,_Points[i].x,_Points[i].y);
+		array[0][i] = finddistance(_p.x, _p.y, _Points[i].x, _Points[i].y);
 		test = array[0][i];
 		array[1][i] = i;
 		test = array[1][i];
 	}
 
-		int currentmin = 1000000000;
-		int currentmini = -1;
-		//finding the index of the minimum
-		for (int j = 0; j < _Points.size(); j++) {
-			test = array[0][j];
-			test = array[1][j];
-			if (array[0][j] < currentmin) {
-				currentmin = array[0][j];
-				currentmini = j;
-			}
+	int currentmin = 1000000000;
+	int currentmini = -1;
+	//finding the index of the minimum
+	for (int j = 0; j < _Points.size(); j++) {
+		test = array[0][j];
+		test = array[1][j];
+		if (array[0][j] < currentmin) {
+			currentmin = array[0][j];
+			currentmini = j;
 		}
+	}
 	int temp1 = _Points[array[1][currentmini]].x;
 	temp1 = _Points[array[1][currentmini]].y;
 	return _Points[array[1][currentmini]];
-
 }
 
 Point CollisionDetection::getClosestRectLineIntersect(Point _rp, float _width, float _height, Point _p1, Point _p2)
@@ -444,11 +425,11 @@ Point CollisionDetection::getClosestRectLineIntersect(Point _rp, float _width, f
 	Point pp4;
 	int array[2][4];
 
-		for (int i = 0; i < 4; i++)
-		{
-			array[1][i] = i;
-			array[0][i] = 100000;
-		}
+	for (int i = 0; i < 4; i++)
+	{
+		array[1][i] = i;
+		array[0][i] = 100000;
+	}
 	if (checkLineIntersect(p1, p2, _p1, _p2))
 	{
 		pp1 = getLineIntersect(p1, p2, _p1, _p2);
@@ -473,7 +454,6 @@ Point CollisionDetection::getClosestRectLineIntersect(Point _rp, float _width, f
 	int currentmin;
 	int currentmini;
 	for (int i = 0; i < 4; i++) {
-
 		currentmin = 1000000000;
 		currentmini = -1;
 
@@ -481,29 +461,26 @@ Point CollisionDetection::getClosestRectLineIntersect(Point _rp, float _width, f
 			if (array[0][j] < currentmin) {
 				currentmin = array[0][j];
 				currentmini = j;
-
 			}
-
-
 		}
 	}
-		switch (currentmini)
-		{
-		case 0:
-			return pp1;
-			break;
-		case 1:
-			return pp2;
-			break;
-		case 2:
-			return pp3;
-			break;
-		case 3:
-			return pp4;
-			break;
-		}
+	switch (currentmini)
+	{
+	case 0:
+		return pp1;
+		break;
+	case 1:
+		return pp2;
+		break;
+	case 2:
+		return pp3;
+		break;
+	case 3:
+		return pp4;
+		break;
+	}
 }
-Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
+Point CollisionDetection::getClosestTarget(Point _p1, Point _p2)
 {
 	_p2.x = floor(_p2.x);
 	_p2.y = floor(_p2.y);
@@ -538,7 +515,6 @@ Point CollisionDetection::getClosestTarget( Point _p1, Point _p2)
 				}
 				else
 				{
-
 					return projectLineToEdge(Point{ cameraPos.x - 10, cameraPos.y - 10 }, _p1, _p2);
 				}
 			}
@@ -607,7 +583,7 @@ bool CollisionDetection::checkPointRectIntersect(Point _p1, Point _r, float _wid
 	{
 		return true;
 	}
-	else{return false;}
+	else { return false; }
 }
 Point CollisionDetection::convertPointFromPointer(Point* _p)
 {

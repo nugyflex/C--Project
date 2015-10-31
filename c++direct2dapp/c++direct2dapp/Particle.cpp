@@ -5,9 +5,9 @@ Particle::Particle(Point _position)
 	xVel = 0;
 	yVel = 0;
 }
-Particle::~Particle(){}
+Particle::~Particle() {}
 
-Particle::Particle(){}
+Particle::Particle() {}
 
 void Particle::calcNewPos()
 {
@@ -23,7 +23,7 @@ void Particle::calcNewPos()
 	position.y += yVel;
 	despawnTimer--;
 
-	if (floor(xVel*10) > 0)
+	if (floor(xVel * 10) > 0)
 	{
 		xVel -= 0.05;
 	}
@@ -35,7 +35,6 @@ void Particle::calcNewPos()
 	{
 		xVel = 0;
 	}
-
 }
 
 void Particle::draw()
@@ -43,7 +42,7 @@ void Particle::draw()
 	image->Draw(0, position.x, position.y);
 }
 
-void Particle::load(){}
+void Particle::load() {}
 
 int Particle::getDespawnTimer()
 {

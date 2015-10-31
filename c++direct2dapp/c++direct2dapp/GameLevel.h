@@ -1,7 +1,5 @@
 #pragma once
 
-
-#include "Player.h"
 #include "Platform.h"
 #include "fireball.h"
 #include "spy.h"
@@ -10,6 +8,7 @@
 #include "MenuButton.h"
 #include "Level1Button.h"
 #include "ExitButton.h"
+#include "exitPoint.h"
 #include <vector>
 
 using namespace std;

@@ -3,7 +3,6 @@
 #include "gameLevel.h"
 #include <vector>
 
-
 using namespace std;
 
 class gameController
@@ -24,7 +23,7 @@ public:
 	static float zoomLevel;
 	static bool mouseMoved;
 	static bool mouseLeft;
-		 
+
 	static void Init();
 
 	static void LoadInitialLevel(gameLevel* lev);

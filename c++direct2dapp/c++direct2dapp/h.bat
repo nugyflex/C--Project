@@ -1,0 +1,1 @@
+copy /a *.h h.txt

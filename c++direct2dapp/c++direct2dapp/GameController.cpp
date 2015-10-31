@@ -1,7 +1,6 @@
 #include "gameController.h"
 #include <vector>
 
-
 gameLevel* gameController::currentlevel; //the gameController class, this runs the game
 bool gameController::Loading;
 bool gameController::space;
@@ -14,7 +13,6 @@ int gameController::fps;
 Point gameController::mouse;
 bool gameController::mouseMoved;
 bool gameController::mouseLeft;
-
 
 void gameController::Init()
 {

@@ -1,0 +1,1 @@
+copy /a *.cpp cpp.txt

@@ -63,7 +63,7 @@ void Spy::draw()
 	*/
 	//gfx->DrawRect(destinations[0], 2, 2, 1, 0, 0, 1);
 	firing = false;
-	firecooldown--;
+	shootCooldown--;
 }
 
 void Spy::calcNewPos(Point _position)
@@ -86,7 +86,6 @@ void Spy::calcNewPos(Point _position)
 			}
 			break;
 		}
-
 	}
 	mode = result;
 
@@ -134,8 +133,6 @@ void Spy::calcNewPos(Point _position)
 		}
 		else
 		{
-
-
 			theta = atan(-1 * (patrolDestinations[nextPatrolIndex].y - position.y) / (patrolDestinations[nextPatrolIndex].x - position.x));
 			if (patrolDestinations[nextPatrolIndex].x > position.x) {
 				yVel = sin(theta) * -1 * speed;
@@ -162,16 +159,16 @@ void Spy::calcNewPos(Point _position)
 		destinations.clear();
 		destinations.push_back(_position);
 		lastBehavior = follow;
-		if (firecooldown < 0)
+		if (shootCooldown < 0)
 		{
-			firecooldown = 120;
+			shootCooldown = maxShootCooldown;
 			firing = true;
 		}
 		break;
 	case hover:
 		int testx = destinations[0].x;
 		int testy = destinations[0].y;
-		if (destinations.size() > 0 && CollisionDetection::checkPointRectIntersect(destinations[0], Point{ position.x - (width / 2) - 0.5f, position.y - (height / 2) - 0.5f } , width+1, height+1))
+		if (destinations.size() > 0 && CollisionDetection::checkPointRectIntersect(destinations[0], Point{ position.x - (width / 2) - 0.5f, position.y - (height / 2) - 0.5f }, width + 1, height + 1))
 		{
 			destinations.erase(destinations.begin());
 		}
@@ -215,8 +212,6 @@ void Spy::calcNewPos(Point _position)
 			}
 			else
 			{
-
-
 				theta = atan(-1 * (destinations[0].y - position.y) / (destinations[0].x - position.x));
 				if (destinations[0].x > position.x) {
 					yVel = sin(theta) * -1 * speed;
@@ -231,11 +226,11 @@ void Spy::calcNewPos(Point _position)
 		}
 		else
 		{
-			destinations.push_back(Point{ position.x, position.y-50 });
+			destinations.push_back(Point{ position.x, position.y - 50 });
 			destinations.push_back(Point{ position.x, position.y });
-			destinations.push_back(Point{ position.x, position.y+50 });
+			destinations.push_back(Point{ position.x, position.y + 50 });
 			destinations.push_back(Point{ position.x, position.y });
-			destinations.push_back(Point{ position.x+50, position.y });
+			destinations.push_back(Point{ position.x + 50, position.y });
 			destinations.push_back(Point{ position.x, position.y });
 			destinations.push_back(Point{ position.x, position.y - 50 });
 			destinations.push_back(Point{ position.x, position.y });
@@ -250,7 +245,7 @@ void Spy::calcNewPos(Point _position)
 		}
 		if (hovermode == rise)
 		{
-			hoverVel-=0.05;
+			hoverVel -= 0.05;
 		}
 		else if (hovermode == fall)
 		{
@@ -300,8 +295,9 @@ void Spy::load()
 	hovermode = rise;
 
 	roamTimer = 0;
-	destinations.push_back(Point{ position.x, position.y});
+	destinations.push_back(Point{ position.x, position.y });
 	nextPatrolIndex = 0;
+	maxShootCooldown = 15;
 }
 void Spy::subtractHealth(int _amount)
 {

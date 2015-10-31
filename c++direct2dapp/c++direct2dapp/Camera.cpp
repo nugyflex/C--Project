@@ -11,39 +11,34 @@ Camera::Camera(Point _position)
 Camera::~Camera()
 {
 }
-float Camera::getyVel(){
-
+float Camera::getyVel() {
 	return yVel;
 }
-Point Camera::getPosition(){
-
+Point Camera::getPosition() {
 	return position;
 }
-float Camera::getY(){
-
+float Camera::getY() {
 	return position.y;
 }
-void Camera::setyVel(float yv){
+void Camera::setyVel(float yv) {
 	yVel = yv;
 }
-void Camera::setY(float ys){
+void Camera::setY(float ys) {
 	position.y = ys;
 }
-float Camera::getxVel(){
-
+float Camera::getxVel() {
 	return xVel;
 }
-float Camera::getX(){
-
+float Camera::getX() {
 	return position.x;
 }
-void Camera::setxVel(float _xVel){
+void Camera::setxVel(float _xVel) {
 	xVel = _xVel;
 }
-void Camera::setX(float _x){
+void Camera::setX(float _x) {
 	position.x = _x;
 }
-void Camera::calcNewPos(Point _position){
+void Camera::calcNewPos(Point _position, Point _bI, Point _bO) {
 	/*xVel = position.x - _position.x;
 	yVel = position.y - _position.y;*/
 	if (position.x < _position.x) {
@@ -60,5 +55,22 @@ void Camera::calcNewPos(Point _position){
 	}
 	setX(getX() + getxVel());
 	setY(getY() + getyVel());
+	if (position.x - screenWidth / 2 < _bI.x) {
+		setX(_bI.x + screenWidth / 2);
+		setxVel(0);
+	}
+	if (position.x + screenWidth / 2 > _bO.x) {
+		setX(_bO.x - screenWidth / 2);
+		setxVel(0);
+	}
+	if (position.y + screenHeight / 2 > _bO.y) {
+		setY(_bO.y - screenHeight / 2);
+		setyVel(0);
+	}
+	if (position.y - screenHeight / 2 < _bI.y) {
+		setY(_bI.y + screenHeight / 2);
+		setyVel(0);
+	}
+
 	//position = _position;
 }

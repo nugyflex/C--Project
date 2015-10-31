@@ -4,14 +4,12 @@
 
 Level1Button::Level1Button()
 {
-
 }
 Level1Button::~Level1Button() {}
 
 Level1Button::Level1Button(int _x, int _y, Graphics * _gfx) :
 	Button(_x, _y, _gfx)
 {
-
 }
 void Level1Button::action()
 {

@@ -16,33 +16,27 @@ Rect::Rect(Point _position, float _width, float _height, float _yVel, float _xVe
 	type = _type;
 	gravity = _gravity;
 }
-Rect::Rect(){}
-
+Rect::Rect() {}
 
 Rect::~Rect()
 {
 }
 
-float Rect::getWidth(){
-
+float Rect::getWidth() {
 	return width;
 }
 
-float Rect::getHeight(){
-
+float Rect::getHeight() {
 	return height;
 }
 
-float Rect::getyVel(){
-
+float Rect::getyVel() {
 	return yVel;
 }
-Point Rect::getPosition(){
-
+Point Rect::getPosition() {
 	return position;
 }
-float Rect::getY(){
-
+float Rect::getY() {
 	return position.y;
 }
 
@@ -51,28 +45,26 @@ void Rect::changeY(float _yChange)
 	position.y += _yChange;
 }
 
-void Rect::setWidth(float _width){
+void Rect::setWidth(float _width) {
 	width = _width;
 }
 
-void Rect::setHeight(float _height){
+void Rect::setHeight(float _height) {
 	height = _height;
 }
 
-void Rect::setyVel(float yv){
+void Rect::setyVel(float yv) {
 	yVel = yv;
 }
 
-void Rect::setY(float ys){
+void Rect::setY(float ys) {
 	position.y = ys;
 }
 
-float Rect::getxVel(){
-
+float Rect::getxVel() {
 	return xVel;
 }
-float Rect::getX(){
-
+float Rect::getX() {
 	return position.x;
 }
 
@@ -81,22 +73,21 @@ void Rect::changeX(float _xChange)
 	position.x += _xChange;
 }
 
-void Rect::setxVel(float _xVel){
+void Rect::setxVel(float _xVel) {
 	xVel = _xVel;
 }
 
-void Rect::setX(float _x){
+void Rect::setX(float _x) {
 	position.x = _x;
 }
-void Rect::calcNewPos(){
+void Rect::calcNewPos() {
 	if (!fixed)
 	{
-	setX(getX() + getxVel());
-	setY(getY() + getyVel());
+		setX(getX() + getxVel());
+		setY(getY() + getyVel());
 	}
 }
 void Rect::calcNewPos(Point _p) {
-
 }
 bool Rect::getFixed()
 {
@@ -110,14 +101,12 @@ void Rect::setPosition(Point _p)
 
 void Rect::draw()
 {
-
 	gfx->FillRect(position, width, height, 0.5f, 0.5f, 0.5f, 1.0f);
 	//gfx->DrawRect(position, width, height, 1.0f, 1.0f, 1.0f, 0.5f);
 }
 
 void Rect::load()
 {
-
 }
 int Rect::getWeaponOffsetX() { return 0; }
 int Rect::getWeaponOffsetY() { return 0; }

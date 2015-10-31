@@ -10,7 +10,6 @@ enum particleType { spark, fire, smoke, shell };
 
 class particleCollection
 {
-
 public:
 	vector<Particle*> particles;
 	particleCollection(Graphics* _gfx);

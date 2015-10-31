@@ -7,7 +7,6 @@ using std::vector;
 
 class projectileCollection
 {
-
 public:
 	vector<projectile*> projectiles;
 	projectileCollection(Graphics* _gfx);
@@ -16,6 +15,7 @@ public:
 	void add(Point _position, Point _position2, float _speed);
 	void draw();
 	void manage();
+	void manageTracking(Point _p);
 protected:
 	Graphics* gfx;
 };

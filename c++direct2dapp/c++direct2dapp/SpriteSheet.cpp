@@ -9,7 +9,7 @@ SpriteSheet::SpriteSheet(wchar_t* filename, int _frameWidth, int _frameHeight, i
 	frames = _frames;
 	speed = 0;
 	this->gfx = gfx;
-	
+
 	bmp = NULL;
 	HRESULT hr;
 
@@ -21,7 +21,6 @@ SpriteSheet::SpriteSheet(wchar_t* filename, int _frameWidth, int _frameHeight, i
 		IID_IWICImagingFactory,
 		(LPVOID*)&wicFactory);
 
-
 	IWICBitmapDecoder *wicDecoder = NULL;
 	hr = wicFactory->CreateDecoderFromFilename(
 		filename,
@@ -30,33 +29,32 @@ SpriteSheet::SpriteSheet(wchar_t* filename, int _frameWidth, int _frameHeight, i
 		WICDecodeMetadataCacheOnLoad,
 		&wicDecoder);
 
+	IWICBitmapFrameDecode* wicFrame = NULL;
+	hr = wicDecoder->GetFrame(0, &wicFrame);
 
-IWICBitmapFrameDecode* wicFrame = NULL;
-hr = wicDecoder->GetFrame(0, &wicFrame);
+	IWICFormatConverter *wicConverter = NULL;
+	hr = wicFactory->CreateFormatConverter(&wicConverter);
 
-IWICFormatConverter *wicConverter = NULL;
-hr = wicFactory->CreateFormatConverter(&wicConverter);
+	hr = wicConverter->Initialize(
+		wicFrame,
+		GUID_WICPixelFormat32bppPBGRA,
+		WICBitmapDitherTypeNone,
+		NULL,
+		0.0,
+		WICBitmapPaletteTypeCustom
+		);
 
-hr = wicConverter->Initialize(
-	wicFrame,
-	GUID_WICPixelFormat32bppPBGRA,
-	WICBitmapDitherTypeNone,
-	NULL,
-	0.0,
-	WICBitmapPaletteTypeCustom
-	);
-
-hr = gfx->GetRenderTarget()->CreateBitmapFromWicBitmap(
-	wicConverter,
-	NULL,
-	&bmp
-	);
-if (wicFactory) wicFactory->Release();
-if (wicDecoder) wicDecoder->Release();
-if (wicConverter) wicConverter->Release();
-if (wicFrame) wicFrame->Release();
+	hr = gfx->GetRenderTarget()->CreateBitmapFromWicBitmap(
+		wicConverter,
+		NULL,
+		&bmp
+		);
+	if (wicFactory) wicFactory->Release();
+	if (wicDecoder) wicDecoder->Release();
+	if (wicConverter) wicConverter->Release();
+	if (wicFrame) wicFrame->Release();
 }
-SpriteSheet::SpriteSheet(){}
+SpriteSheet::SpriteSheet() {}
 SpriteSheet::~SpriteSheet()
 {
 	if (bmp) bmp->Release();

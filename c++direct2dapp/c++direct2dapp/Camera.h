@@ -22,5 +22,5 @@ public:
 	void setPosition(Point _position);
 	void setX(float _x);
 	void setY(float _y);
-	void calcNewPos(Point _position);
+	void calcNewPos(Point _position, Point _bI, Point _bO);
 };

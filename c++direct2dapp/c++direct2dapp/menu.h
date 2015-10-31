@@ -6,13 +6,8 @@
 #include "gameController.h"
 #include "Graphics.h"
 
-
-
-
-
 class Menu : public gameLevel
 {
-
 public:
 
 	void Load() override;
