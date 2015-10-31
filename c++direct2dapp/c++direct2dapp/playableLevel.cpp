@@ -235,7 +235,8 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 			//adding xvel x to x and yvel to y
 			if (Rects[i]->getType() == spy && playerIndex != -1)
 			{
-				Rects[i]->calcNewPos(Rects[playerIndex]->getPosition());
+				Rects[i]->calcNewPos(Point{ Rects[playerIndex]->getPosition().x + Rects[playerIndex]->getWeaponOffsetX(), Rects[playerIndex]->getPosition().y + Rects[playerIndex]->getWeaponOffsetY()
+			});
 			}
 			Rects[i]->calcNewPos();
 			if (!Rects[i]->getFixed() && Rects[i]->getType() != fireball)

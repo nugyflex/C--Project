@@ -297,7 +297,7 @@ void Spy::load()
 	roamTimer = 0;
 	destinations.push_back(Point{ position.x, position.y });
 	nextPatrolIndex = 0;
-	maxShootCooldown = 15;
+	maxShootCooldown = 20;
 }
 void Spy::subtractHealth(int _amount)
 {

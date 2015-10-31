@@ -1,14 +1,54 @@
-﻿Build started 31/10/2015 7:12:13 PM.
+﻿Build started 31/10/2015 8:13:11 PM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Level1.cpp main.cpp
-         Level1.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Spy.cpp playableLevel.cpp
+         Spy.cpp
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         main.cpp
+     1>Spy.cpp(35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>Spy.cpp(39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>Spy.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>Spy.cpp(47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>Spy.cpp(74): warning C4018: '<': signed/unsigned mismatch
+     1>Spy.cpp(169): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+     1>Spy.cpp(170): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+     1>Spy.cpp(177): warning C4018: '<': signed/unsigned mismatch
+     1>Spy.cpp(248): warning C4305: '-=': truncation from 'double' to 'float'
+     1>Spy.cpp(252): warning C4305: '+=': truncation from 'double' to 'float'
+         playableLevel.cpp
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>main.cpp(228): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(231): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>main.cpp(255): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>playableLevel.cpp(22): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(26): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(31): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(47): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(62): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(73): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(105): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(106): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(110): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(111): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(117): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(120): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(126): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(138): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(141): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(162): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(185): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(220): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(222): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>playableLevel.cpp(228): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(244): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(254): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(267): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(279): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>playableLevel.cpp(295): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(305): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(313): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>playableLevel.cpp(315): warning C4018: '<': signed/unsigned mismatch
+     1>playableLevel.cpp(332): warning C4018: '<': signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe" /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.lib" /MACHINE:X86 /SAFESEH Release\Ball.obj
          Release\button.obj
@@ -50,4 +90,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.99
+Time Elapsed 00:00:01.91
