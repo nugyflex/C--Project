@@ -157,7 +157,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	// (horizontal, vertical)
 	RECT rect;
 	screenWidth = desktop.right;
-	screenHeight = desktop.bottom;
+	screenHeight = desktop.bottom - 70;
 	rect = { 0, 0, screenWidth, screenHeight };
 
 	AdjustWindowRectEx(&rect, WS_OVERLAPPEDWINDOW, false, WS_EX_OVERLAPPEDWINDOW);

@@ -6,6 +6,7 @@
 #include <d2d1effecthelpers.h>
 #include "Common.h"
 #include <math.h>
+enum colour { red, blue, green, orange, purple, yellow };
 
 class Graphics //the graphics class, used to draw everything, handles the rendertarget as well
 {

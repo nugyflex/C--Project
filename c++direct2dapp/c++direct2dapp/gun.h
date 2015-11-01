@@ -14,10 +14,12 @@ class Gun
 	bool firing;
 	int maxCooldown;
 	int coolDown;
+	float damage;
 public:
 	Gun(float _x, float _y, Graphics * gfx);
 	~Gun();
 	bool getFiring();
+	float getDamage();
 	void load();
 	void draw();
 	bool fire();

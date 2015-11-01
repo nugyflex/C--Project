@@ -21,6 +21,17 @@ void projectileCollection::add(Point _position, Point _p2, float _speed)
 		projectiles.push_back(new projectile(_position, cos(theta) * -1 * speed, sin(theta) * speed, gfx));
 	}
 }
+void projectileCollection::add(Point _position, Point _p2, float _speed, colour _c)
+{
+	float speed = _speed;
+	float theta = atan(-1 * (_p2.y - _position.y) / (_p2.x - _position.x));
+	if (_p2.x > _position.x) {
+		projectiles.push_back(new projectile(_position, cos(theta) * speed, sin(theta) * -1 * speed, _c, gfx));
+	}
+	else {
+		projectiles.push_back(new projectile(_position, cos(theta) * -1 * speed, sin(theta) * speed, _c, gfx));
+	}
+}
 void projectileCollection::draw()
 {
 	for (int i = 0; i < projectiles.size(); i++)

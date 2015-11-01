@@ -3,6 +3,7 @@
 #include "Platform.h"
 #include "fireball.h"
 #include "spy.h"
+#include "hunter.h"
 #include "gun.h"
 #include "Camera.h"
 #include "MenuButton.h"

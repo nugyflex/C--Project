@@ -140,11 +140,11 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 						}
 						for (int j = 0; j < Rects.size(); j++)
 						{
-							if (Rects[j]->getType() == spy)
+							if (Rects[j]->getType() == drone)
 							{
 								if (CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), ((Player*)Rects[playerIndex])->getWeaponPos(), temppoint))
 								{
-									((Spy*)Rects[j])->subtractHealth(1);
+									((Spy*)Rects[j])->subtractHealth(((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getDamage());
 									if (((Spy*)Rects[j])->getHealth() < 1)
 									{
 										temppoint = Rects[j]->getPosition();
@@ -187,6 +187,7 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 						if (Rects[j]->getFixed() && CollisionDetection::getSide(Rects[playerIndex], Rects[j]) == 4)
 						{
 							Rects[playerIndex]->setyVel(-8);
+							Rects[playerIndex]->setxVel(Rects[playerIndex]->getyVel() + Rects[playerIndex]->getyVel() / 5);
 						}
 					}
 				}
@@ -233,10 +234,10 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 				Rects[i]->setyVel(Rects[i]->getyVel() + 0.51f);
 			}
 			//adding xvel x to x and yvel to y
-			if (Rects[i]->getType() == spy && playerIndex != -1)
+			if (Rects[i]->getType() == drone && playerIndex != -1)
 			{
 				Rects[i]->calcNewPos(Point{ Rects[playerIndex]->getPosition().x + Rects[playerIndex]->getWeaponOffsetX(), Rects[playerIndex]->getPosition().y + Rects[playerIndex]->getWeaponOffsetY()
-			});
+				});
 			}
 			Rects[i]->calcNewPos();
 			if (!Rects[i]->getFixed() && Rects[i]->getType() != fireball)
@@ -249,11 +250,11 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 					}
 				}
 			}
-			if (Rects[i]->getType() == spy)
+			if (Rects[i]->getType() == drone)
 			{
 				for (int j = 0; j < Rects.size(); j++)
 				{
-					if (Rects[j]->getType() == spy && j != i)
+					if (Rects[j]->getType() == drone && j != i)
 					{
 						CollisionDetection::correctPosition(Rects[i], Rects[j]);
 					}
@@ -294,11 +295,11 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 		}
 		for (int i = 0; i < Rects.size(); i++)
 		{
-			if (Rects[i]->getType() == spy)
+			if (Rects[i]->getType() == drone)
 			{
-				if (((Spy*)Rects[i])->getFiring() && playerIndex != -1)
+				if (((Drone*)Rects[i])->getFiring() && playerIndex != -1)
 				{
-					projectiles->add(Point{ Rects[i]->getPosition().x + Rects[i]->getWidth() / 2, Rects[i]->getPosition().y + Rects[i]->getHeight() / 2 }, Point{ Rects[playerIndex]->getPosition().x + Rects[playerIndex]->getWidth() / 2, Rects[playerIndex]->getPosition().y + Rects[playerIndex]->getHeight() / 2 }, 12);
+					projectiles->add(Point{ Rects[i]->getPosition().x + Rects[i]->getWidth() / 2, Rects[i]->getPosition().y + Rects[i]->getHeight() / 2 }, Point{ Rects[playerIndex]->getPosition().x + Rects[playerIndex]->getWidth() / 2, Rects[playerIndex]->getPosition().y + Rects[playerIndex]->getHeight() / 2 }, 18, ((Drone*)Rects[i])->getLaserColour());
 				}
 			}
 		}

@@ -69,6 +69,7 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 		{
 			int y = 0;
 		}
+		hitMarker->Draw(0, CollisionDetection::getClosestTarget(_position, CollisionDetection::projectLineToEdge(cameraPos, _position, mousePos)).x - 5.5, CollisionDetection::getClosestTarget(_position, CollisionDetection::projectLineToEdge(cameraPos, _position, mousePos)).y - 5.5);
 	}
 	firing = false;
 	coolDown--;
@@ -99,9 +100,10 @@ void Gun::draw()
 void Gun::load()
 {
 	image = new SpriteSheet(L"scar-h.png", 25, 8, 0, 1, gfx);
-	hitMarker = new SpriteSheet(L"hitmarker.png", 9, 9, 0, 1, gfx);
+	hitMarker = new SpriteSheet(L"hitmarker.png", 11, 11, 0, 1, gfx);
 	maxCooldown = 5;
 	coolDown = 0;
+	damage = 2;
 }
 
 bool Gun::getFiring()
@@ -112,4 +114,8 @@ bool Gun::getFiring()
 int Gun::getCooldown()
 {
 	return coolDown;
+}
+float Gun::getDamage()
+{
+	return damage;
 }

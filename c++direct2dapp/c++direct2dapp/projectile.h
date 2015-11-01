@@ -5,6 +5,7 @@ class projectile
 public:
 	projectile();
 	projectile(Point _position, float _xVel, float _yVel, Graphics* _gfx);
+	projectile(Point _position, float _xVel, float _yVel, colour _c, Graphics* _gfx);
 	~projectile();
 	virtual void draw();
 	void calcNewPos();
@@ -26,4 +27,7 @@ protected:
 	float yVel;
 	float speed;
 	float angle;
+	float cr;
+	float cg;
+	float cb;
 };

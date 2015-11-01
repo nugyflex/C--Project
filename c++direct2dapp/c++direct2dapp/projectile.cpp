@@ -10,6 +10,36 @@ projectile::projectile(Point _position, float _xVel, float _yVel, Graphics* _gfx
 	gfx = _gfx;
 	angle = -1.5;
 }
+projectile::projectile(Point _position, float _xVel, float _yVel, colour _c, Graphics* _gfx)
+{
+	position = _position;
+	lastPosition1 = _position;
+	lastPosition2 = _position;
+	xVel = _xVel;
+	yVel = _yVel;
+	gfx = _gfx;
+	angle = -1.5;
+	cr = 1;
+	cg = 0.1;
+	cb = 0.1;
+	switch (_c)
+	{
+	case red:
+		cr = 1;
+		cg = 0.2;
+		cb = 0.2;
+		break;
+	case orange:
+		cr = 1;
+		cg = 0.5;
+		cb = 0;
+	case blue:
+		cr = 0.25;
+		cg = 0.66;
+		cb = 1;
+		break;
+	}
+}
 projectile::projectile() {}
 projectile::~projectile() {}
 
@@ -27,8 +57,8 @@ void projectile::calcNewPos()
 }
 void projectile::draw()
 {
-	gfx->DrawLine(position, lastPosition1, 0.8, 0.4, 0.2, 1);
-	gfx->DrawLine(lastPosition1, lastPosition2, 0.8, 0.4, 0.2, 1);
+	gfx->DrawLine(position, lastPosition1, cr, cg, cb, 1);
+	gfx->DrawLine(lastPosition1, lastPosition2, cr, cg, cb, 1);
 }
 float projectile::getxVel()
 {

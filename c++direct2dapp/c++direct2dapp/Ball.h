@@ -13,7 +13,6 @@ protected:
 
 public:
 
-
 	Ball(Point _center, int _radius, float _yVel, float _xVel, Graphics *gfx);
 	~Ball();
 	void setRadius(int _radius);
@@ -30,14 +29,7 @@ public:
 	void setX(float _x);
 	void setY(float _y);
 
-
-
-
 	void calcNewPos();
 
 	void draw();
-
-
-
 };
-

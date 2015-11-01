@@ -105,6 +105,12 @@
     <ClCompile Include="level2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="hunter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="drone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics.h">
@@ -195,6 +201,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="level2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hunter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="drone.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
