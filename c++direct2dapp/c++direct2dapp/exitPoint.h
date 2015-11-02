@@ -10,9 +10,10 @@ protected:
 	float forcedxVel;
 	int switchLevelTimer;
 	bool activated;
+	int level;
 public:
 	exitPoint();
-	exitPoint(Point _position, float _width, float _height, int _timer, float _forcedxVel);
+	exitPoint(Point _position, float _width, float _height, int _timer, float _forcedxVel, int _level);
 	~exitPoint();
 	float getWidth();
 	float getHeight();

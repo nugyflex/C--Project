@@ -39,6 +39,8 @@ void playableLevel::Load() //loads the level, called when the level is instantia
 	{
 		camera->calcNewPos(Rects[playerIndex]->getPosition(), boundaryIn, boundaryOut);
 	}
+	cameraPos = camera->getPosition();
+	gfx->centerCamera(cameraPos);
 }
 
 void playableLevel::Unload() { //called when the level is finishded

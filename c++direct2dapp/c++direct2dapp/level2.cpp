@@ -9,7 +9,7 @@ void level2::loadObjects() //loads the level, called when the level is instantia
 	boundaryIn.y = -10000;
 	boundaryOut.x = 10000;
 	boundaryOut.y = 1300;
-	exitPoints.push_back(new exitPoint(Point{ 360, 1250 }, 80, 200, 60, 0));
+	exitPoints.push_back(new exitPoint(Point{ 360, 1250 }, 80, 200, 60, 0, 1));
 	Rects.push_back(new Player(Point{ 60, 60 }, 12, 54, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 0, 0 }, 800, 50, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 0, 0 }, 50, 1400, 0, 0, gfx));
