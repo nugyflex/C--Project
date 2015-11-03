@@ -42,4 +42,5 @@ void Spy::load()
 	destinations.push_back(Point{ position.x, position.y });
 	nextPatrolIndex = 0;
 	maxShootCooldown = 30;
+	shootCooldown = maxShootCooldown;
 }

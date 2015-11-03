@@ -2,6 +2,7 @@
 #include "GameController.h"
 #include "Level1.h"
 #include "level2.h"
+#include "level3.h"
 
 exitPoint::exitPoint(Point _position, float _width, float _height, int _timer, float _forcedxVel, int _level)
 {
@@ -51,6 +52,8 @@ void exitPoint::runTimer()
 			case 2:
 				gameController::SwitchLevel(new level2());
 				break;
+			case 3:
+				gameController::SwitchLevel(new Level3());
 			}
 		}
 	}

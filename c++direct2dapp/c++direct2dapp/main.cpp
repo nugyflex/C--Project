@@ -4,6 +4,7 @@
 
 #include "Level1.h"
 #include "level2.h"
+#include "Level3.h"
 #include "menu.h"
 #include "gameController.h"
 #include "Camera.h"

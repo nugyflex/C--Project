@@ -84,6 +84,7 @@
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="Level1Button.cpp" />
     <ClCompile Include="level2.cpp" />
+    <ClCompile Include="Level3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="MenuButton.cpp" />
@@ -119,6 +120,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="Level1Button.h" />
     <ClInclude Include="level2.h" />
+    <ClInclude Include="Level3.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Particle.h" />

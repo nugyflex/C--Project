@@ -1,43 +1,15 @@
-﻿Build started 2/11/2015 8:42:09 PM.
+﻿Build started 4/11/2015 8:16:12 AM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt playableLevel.cpp
-         playableLevel.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Level3.cpp main.cpp
+         main.cpp
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(22): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(26): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(31): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(49): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(64): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(75): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(110): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(111): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(113): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(119): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(122): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(128): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(140): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(143): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(149): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(164): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(187): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(223): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(225): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(231): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(247): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(257): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(270): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(282): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(298): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(308): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(316): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(318): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\playablelevel.cpp(335): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(229): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(232): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\main.cpp(256): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+         Level3.cpp
+     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.exe" /INCREMENTAL /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Debug\c++direct2dapp.lib" /MACHINE:X86 Debug\Ball.obj
          Debug\button.obj
@@ -55,6 +27,7 @@
          Debug\Level1.obj
          Debug\Level1Button.obj
          Debug\level2.obj
+         Debug\Level3.obj
          Debug\main.obj
          Debug\menu.obj
          Debug\MenuButton.obj
@@ -76,4 +49,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.04
+Time Elapsed 00:00:02.50

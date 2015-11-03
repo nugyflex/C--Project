@@ -130,6 +130,7 @@ void Drone::calcNewPos(Point _position)
 		break;
 	case inactive:
 		lastBehavior = inactive;
+		shootCooldown = maxShootCooldown;
 		break;
 	case follow:
 		if (_position.x > position.x) {
