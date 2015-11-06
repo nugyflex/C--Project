@@ -233,7 +233,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			randompoint = { 30,30 };
 			graphics->FillRect(randompoint, 100, 10, 0.5, 0.5, 0.5, 1);
 			randompoint = { 30,30 };
-			/*
+			
 			if (endminusstart / (1000 / gameController::fps) < 0.5)
 			{
 				graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / gameController::fps)), 10, 0.5, 1, 0.5, 1);
@@ -246,7 +246,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 					graphics->FillRect(randompoint, 100 * (endminusstart / (1000 / gameController::fps)), 10, 1, 0.2, 0.2, 1);
 				}
 			}
-			*/
+			
 			//-------------------------------------
 			graphics->EndDraw();
 			graphics->draw();

@@ -101,7 +101,7 @@ void Rect::setPosition(Point _p)
 
 void Rect::draw()
 {
-	gfx->FillRect(position, width, height, 0.5f, 0.5f, 0.5f, 1.0f);
+	gfx->DrawRect(position, width, height, 0.5f, 0.5f, 0.5f, 1.0f);
 	//gfx->DrawRect(position, width, height, 1.0f, 1.0f, 1.0f, 0.5f);
 }
 
