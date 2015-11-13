@@ -23,12 +23,11 @@ void Level1::loadObjects() //loads the level, called when the level is instantia
 	Rects.push_back(new Platform(Point{ 1450, 300 }, 50, 200, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 1500, 0 }, 1500, 550, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 0, 0 }, 50, 400, 0, 0, gfx));
-	//Rects.push_back(new FireBall(Point{ 200, 200 }, 0, 0, gfx));
 	exitPoints.push_back(new exitPoint(Point{ -20, 400 }, 70, 100, 80, -1, 2));
 	Rects.push_back(new Hunter(Point{ 750, 220 }, 10, 10, 0, 0, Point{ 710, 220 }, Point{ 1000, 220 }, gfx));
 	Rects.push_back(new Spy(Point{ 1050, 220 }, 10, 10, 0, 0, Point{ 1050, 220 }, Point{ 1400, 220 }, gfx));
 	Rects.push_back(new Spy(Point{ 220, 400 }, 10, 10, 0, 0, Point{ 100, 400 }, Point{ 800, 400 }, gfx));
-	Gun* newgun = new Gun(300, 300, gfx);
+	Gun* newgun = new pistol(300, 300, gfx);
 	weapons.push_back(newgun);
 	weapons[0]->load();
 	weapons[0]->setParent(true);

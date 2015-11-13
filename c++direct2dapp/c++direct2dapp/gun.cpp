@@ -40,7 +40,7 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 	if (_position.x <= mousePos.x)
 	{
 		gfx->rotate(_position, (atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))));
-		fireStart = { _position.x + 25 * (cos((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))), _position.y + 25 * (sin((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))) };
+		fireStart = { _position.x + width * (cos((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))), _position.y + width * (sin((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))) };
 	}
 	else
 	{
@@ -52,7 +52,7 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 		{
 			gfx->flip(_position, (atan((mousePos.y - (2 * (mousePos.y - _position.y)) - (_position.y)) / (mousePos.x - _position.x))));
 		}
-		fireStart = { _position.x - 25 * (cos((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))), _position.y - 25 * (sin((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))) };
+		fireStart = { _position.x - width * (cos((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))), _position.y - width * (sin((atan((mousePos.y - (_position.y)) / (mousePos.x - _position.x))))) };
 	}
 	image->Draw(0, 0, -1 * image->getFrameHeight() / 2);
 	gfx->rotateBack(position, 0);
@@ -74,15 +74,24 @@ void Gun::drawOnParent(Point _position, int _offSetX, int  _offSetY)
 	firing = false;
 	coolDown--;
 }
+void Gun::setFireLatch(bool _bool)
+{
+	fireLatch = _bool;
+}
 bool Gun::fire()
 {
-	if (coolDown < 0)
+	if (!hasLatch)
+	{
+		fireLatch = true;
+	}
+	if (coolDown < 0 && fireLatch == true)
 	{
 		firing = true;
 		coolDown = maxCooldown;
 		return true;
 	}
 	return false;
+
 }
 void Gun::setParent(bool _bool)
 {
@@ -104,6 +113,8 @@ void Gun::load()
 	maxCooldown = 5;
 	coolDown = 0;
 	damage = 2;
+	fireLatch = true;
+	hasLatch = false;
 }
 
 bool Gun::getFiring()
@@ -118,4 +129,16 @@ int Gun::getCooldown()
 float Gun::getDamage()
 {
 	return damage;
+}
+bool Gun::getLatch()
+{
+	return hasLatch;
+}
+bool Gun::getCanFire()
+{
+	if (coolDown < 0 && fireLatch == true)
+	{
+		return true;
+	}
+	return false;
 }

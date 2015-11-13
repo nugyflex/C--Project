@@ -1,11 +1,10 @@
 #pragma once
-#pragma once
-#pragma once
 #include "rectangle.h"
 #include "SpriteSheet.h"
 
 enum behaviorType { hover, follow, inactive, patrol };
 enum hoverMode { rise, fall };
+enum droneType {spyDrone, hunterDrone };
 class Drone : public Rect {
 protected:
 	SpriteSheet* left;
@@ -29,6 +28,7 @@ protected:
 	int shootCooldown;
 	int maxShootCooldown;
 	colour laserColour;
+	droneType type;
 public:
 	Drone();
 	Drone(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
@@ -42,4 +42,5 @@ public:
 	void setMode(behaviorType _mode);
 	bool getFiring();
 	colour getLaserColour();
+	droneType getDroneType();
 };

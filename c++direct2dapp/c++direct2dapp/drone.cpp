@@ -276,3 +276,7 @@ colour Drone::getLaserColour()
 {
 	return laserColour;
 }
+droneType Drone::getDroneType()
+{
+	return type;
+}

@@ -68,6 +68,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="assaultRifle.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleCollection.cpp" />
+    <ClCompile Include="pistol.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="playableLevel.cpp" />
     <ClCompile Include="player.cpp" />
@@ -103,6 +105,7 @@
     <ClCompile Include="Spy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="assaultRifle.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="Camera.h" />
@@ -125,6 +128,7 @@
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleCollection.h" />
+    <ClInclude Include="pistol.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="playableLevel.h" />
     <ClInclude Include="Player.h" />

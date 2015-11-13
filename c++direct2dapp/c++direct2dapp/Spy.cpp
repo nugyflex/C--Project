@@ -43,4 +43,5 @@ void Spy::load()
 	nextPatrolIndex = 0;
 	maxShootCooldown = 30;
 	shootCooldown = maxShootCooldown;
+	type = spyDrone;
 }

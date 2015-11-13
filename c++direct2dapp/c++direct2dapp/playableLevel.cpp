@@ -102,7 +102,7 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 				if (((Player*)Rects[playerIndex])->weapons.size() > 0)
 				{
 					Point temppoint = CollisionDetection::getClosestTarget(((Player*)Rects[playerIndex])->getWeaponPos(), CollisionDetection::projectLineToEdge(cameraPos, ((Player*)Rects[playerIndex])->getWeaponPos(), mousePos));
-					if (((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getCooldown() < -2)
+					if (((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getCooldown() < -2 && ((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getCanFire())
 					{
 						particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
 						particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
@@ -113,8 +113,13 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 						particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
 						particles->add(spark, Point{ temppoint.x - 2.5f - 3 + (rand() % 6 + 1), temppoint.y - 2.5f - 3 + (rand() % 6 + 1) - 3 }, -2 + (rand() % 40 + 1) / 10, -4 + (rand() % 80 + 1) / 10);
 					}
+					
 					if (((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->fire())
 					{
+						if (((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getLatch())
+						{
+							((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->setFireLatch(false);
+						}
 						//particles->add(shell, Point { Rects[i]->getPosition().x + Rects[i]->getWeaponOffsetX(), Rects[i]->getPosition().y + Rects[i]->getWeaponOffsetY()}, -1 + (rand() % 2 + 1), -6 + (rand() % 2 + 1));
 						float test = rand() % 10 + 1;
 						if (test > 9)
@@ -144,13 +149,24 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 						{
 							if (Rects[j]->getType() == drone)
 							{
-								if (CollisionDetection::checkRectLineIntersect(Rects[j]->getPosition(), Rects[j]->getWidth(), Rects[j]->getHeight(), ((Player*)Rects[playerIndex])->getWeaponPos(), temppoint))
+								Rect* testRect;
+								testRect = new Rect(Point{ temppoint.x - 2, temppoint.y - 1 }, 3, 3, 0, 0, true, drone, false, gfx);
+								if (CollisionDetection::CheckRectangleIntersect(Rects[j], testRect))
 								{
 									((Spy*)Rects[j])->subtractHealth(((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getDamage());
 									if (((Spy*)Rects[j])->getHealth() < 1)
 									{
 										temppoint = Rects[j]->getPosition();
 										//Rects.push_back(new Spy(Point{ 220, 220 }, 10, 10, 0, 0, Point{ 100, 220 }, Point{ 400, 220 }, gfx));
+										switch (((Drone*)Rects[j])->getDroneType())
+										{
+										case spyDrone:
+											gfx->setScreenShakeIntensity(0.3);
+											break;
+										case hunterDrone:
+											gfx->setScreenShakeIntensity(0.6);
+											break;
+										}
 										Rects.erase(Rects.begin() + j);
 										if (j < playerIndex)
 										{
@@ -158,7 +174,7 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 										}
 
 										//Rects[Rects.size() - 1]->load();
-										gfx->setScreenShakeIntensity(0.25);
+
 										for (int l = 0; l < 20; l++)
 										{
 											particles->add(spark, temppoint, -5 + (rand() % 10 + 1), -10 + (rand() % 20 + 1));
@@ -169,13 +185,33 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 										}
 									}
 								}
+								delete testRect;
 							}
 						}
+					}
+					if (((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getLatch())
+					{
+						((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->setFireLatch(false);
+
 					}
 				}
 			}
 		}
+		else
+		{
+			if (playerIndex != -1)
+			{
+				if (((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->getLatch())
+				{
 
+					if (((Player*)Rects[playerIndex])->weapons.size() > 0)
+					{
+
+						((Player*)Rects[playerIndex])->weapons[((Player*)Rects[playerIndex])->getWeaponInUse()]->setFireLatch(true);
+					}
+				}
+			}
+		}
 		if (playerIndex != -1)
 		{
 			//=================CONTROLS==============//
@@ -276,7 +312,7 @@ void playableLevel::Update() //updates all physics, controls and collision detec
 		{
 			if (((Player*)Rects[playerIndex])->getHealth() == 0)
 			{
-				gfx->setScreenShakeIntensity(1);
+				gfx->setScreenShakeIntensity(1.2);
 				for (int l = 0; l < 40; l++)
 				{
 					particles->add(spark, Rects[playerIndex]->getPosition(), -5 + (rand() % 10 + 1), -10 + (rand() % 20 + 1));

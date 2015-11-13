@@ -114,6 +114,12 @@
     <ClCompile Include="Level3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="assaultRifle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pistol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics.h">
@@ -213,6 +219,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Level3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="assaultRifle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pistol.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
