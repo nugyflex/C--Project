@@ -27,7 +27,7 @@ void Level1::loadObjects() //loads the level, called when the level is instantia
 	Rects.push_back(new Hunter(Point{ 750, 220 }, 10, 10, 0, 0, Point{ 710, 220 }, Point{ 1000, 220 }, gfx));
 	Rects.push_back(new Spy(Point{ 1050, 220 }, 10, 10, 0, 0, Point{ 1050, 220 }, Point{ 1400, 220 }, gfx));
 	Rects.push_back(new Spy(Point{ 220, 400 }, 10, 10, 0, 0, Point{ 100, 400 }, Point{ 800, 400 }, gfx));
-	Gun* newgun = new pistol(300, 300, gfx);
+	Gun* newgun = new assaultRifle(300, 300, gfx);
 	weapons.push_back(newgun);
 	weapons[0]->load();
 	weapons[0]->setParent(true);
