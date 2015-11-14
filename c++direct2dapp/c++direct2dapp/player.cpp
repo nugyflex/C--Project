@@ -14,6 +14,19 @@ Player::~Player()
 
 void Player::draw()
 {
+	if (crouched && !lastCrouched)
+	{
+		height = 52 / 2;
+		position.y += 52 / 2;
+	}
+	else
+	{
+		if (!crouched && lastCrouched)
+		{
+			height = 52;
+			position.y -= 52 / 2;
+		}
+	}
 	if (hasBags)
 	{
 		if (yVel == 0)
@@ -121,6 +134,7 @@ void Player::draw()
 		}
 	}
 	gfx->FillRect(position, health * 5, 5, 1, 1, 1, 1);
+	lastCrouched = crouched;
 }
 
 void Player::load()
@@ -138,6 +152,9 @@ void Player::load()
 	hasBags = false;
 	health = 6;
 	invulnerable = false;
+	crouched = false;
+	width = 12;
+	height = 52;
 }
 int Player::getWeaponOffsetY()
 {
@@ -175,4 +192,12 @@ bool Player::getInvulnerable()
 void Player::setInvulnerable(bool _b)
 {
 	invulnerable = _b;
+}
+bool Player::getCrouched()
+{
+	return crouched;
+}
+void Player::setCrouched(bool _bool)
+{
+	crouched = _bool;
 }

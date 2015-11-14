@@ -65,6 +65,10 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			break;
 		case VK_SPACE:
 			gameController::space = true;
+			break;
+		case VK_SHIFT:
+			gameController::shift = true;
+			break;
 		}
 		break;
 	case WM_KEYUP: //This is used if we release a key
@@ -87,6 +91,9 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			break;
 		case VK_SPACE:
 			gameController::space = false;
+			break;
+		case VK_SHIFT:
+			gameController::shift = false;
 			break;
 		case VK_ESCAPE:
 			if (paused)

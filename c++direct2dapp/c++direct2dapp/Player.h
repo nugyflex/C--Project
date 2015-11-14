@@ -16,6 +16,8 @@ class Player : public Rect {
 	bool hasBags;
 	int health;
 	bool invulnerable;
+	bool crouched;
+	bool lastCrouched;
 public:
 	Player();
 	Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
@@ -34,4 +36,6 @@ public:
 	int getHealth();
 	bool getInvulnerable();
 	void setInvulnerable(bool _b);
+	bool getCrouched();
+	void setCrouched(bool _bool);
 };

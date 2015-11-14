@@ -13,7 +13,7 @@ void Level1::loadObjects() //loads the level, called when the level is instantia
 	Rects.push_back(new Platform(Point{ 50, 300 }, 1200, 50, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 1300, 300 }, 75, 25, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ -100, 500 }, 1600, 50, 0, 0, gfx));
-	Rects.push_back(new Platform(Point{ 550, 200 }, 50, 100, 0, 0, gfx));
+	Rects.push_back(new Platform(Point{ 550, 225 }, 50, 75, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 500, 250 }, 50, 50, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 600, 250 }, 50, 50, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 500, 450 }, 50, 50, 0, 0, gfx));

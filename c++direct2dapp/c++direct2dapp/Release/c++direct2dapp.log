@@ -1,136 +1,9 @@
-﻿Build started 13/11/2015 12:56:26 PM.
+﻿Build started 13/11/2015 12:59:27 PM.
      1>Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt assaultRifle.cpp Camera.cpp drone.cpp ExitButton.cpp exitPoint.cpp GameController.cpp GameLevel.cpp gun.cpp hunter.cpp Level1.cpp Level1Button.cpp level2.cpp Level3.cpp main.cpp menu.cpp MenuButton.cpp pistol.cpp playableLevel.cpp player.cpp projectileCollection.cpp rectangle.cpp Spy.cpp
-         assaultRifle.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         Camera.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         drone.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>drone.cpp(33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>drone.cpp(37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>drone.cpp(41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>drone.cpp(45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>drone.cpp(56): warning C4018: '<': signed/unsigned mismatch
-     1>drone.cpp(155): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-     1>drone.cpp(156): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-     1>drone.cpp(163): warning C4018: '<': signed/unsigned mismatch
-     1>drone.cpp(234): warning C4305: '-=': truncation from 'double' to 'float'
-     1>drone.cpp(238): warning C4305: '+=': truncation from 'double' to 'float'
-     1>drone.cpp(251): warning C4305: '=': truncation from 'double' to 'float'
-         ExitButton.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         exitPoint.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         GameController.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         GameLevel.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         gun.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>gun.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>gun.cpp(72): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>gun.cpp(105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         hunter.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>hunter.cpp(50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>hunter.cpp(53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>hunter.cpp(57): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>hunter.cpp(61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>hunter.cpp(65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Level1.cpp
          Level1.cpp
      1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         Level1Button.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         level2.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         Level3.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         main.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>main.cpp(229): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(232): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>main.cpp(246): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>main.cpp(256): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-         menu.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>menu.cpp(20): warning C4018: '<': signed/unsigned mismatch
-     1>menu.cpp(31): warning C4018: '<': signed/unsigned mismatch
-         MenuButton.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         pistol.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         playableLevel.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>playableLevel.cpp(22): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(26): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(31): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(49): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(64): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(75): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(110): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(111): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(113): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(124): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(127): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(133): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(145): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(148): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(156): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>playableLevel.cpp(164): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>playableLevel.cpp(167): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>playableLevel.cpp(180): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(223): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(259): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(261): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>playableLevel.cpp(267): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(283): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(293): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(306): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(315): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>playableLevel.cpp(318): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>playableLevel.cpp(334): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(344): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(352): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>playableLevel.cpp(354): warning C4018: '<': signed/unsigned mismatch
-     1>playableLevel.cpp(371): warning C4018: '<': signed/unsigned mismatch
-         player.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>player.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(49): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(77): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(83): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(90): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(102): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(107): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(114): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(118): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-     1>player.cpp(123): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-         projectileCollection.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>projectileCollection.cpp(37): warning C4018: '<': signed/unsigned mismatch
-     1>projectileCollection.cpp(44): warning C4018: '<': signed/unsigned mismatch
-     1>projectileCollection.cpp(48): warning C4018: '<': signed/unsigned mismatch
-     1>projectileCollection.cpp(75): warning C4018: '<': signed/unsigned mismatch
-         Compiling...
-         rectangle.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-         Spy.cpp
-     1>c:\users\jack\documents\github\c--project\c++direct2dapp\c++direct2dapp\Common.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>Spy.cpp(38): warning C4305: '=': truncation from 'double' to 'float'
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe" /NOLOGO windowscodecs.lib d2d1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.lib" /MACHINE:X86 /SAFESEH Release\assaultRifle.obj
          Release\Ball.obj
@@ -168,13 +41,13 @@
          Release\SpriteSheet.obj
          Release\Spy.obj
          Generating code
-         38 of 937 functions ( 4.1%) were compiled, the rest were copied from previous compilation.
-           8 functions were new in current compilation
-           30 functions had inline decision re-evaluated but remain unchanged
+         1 of 937 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           0 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
          c++direct2dapp.vcxproj -> C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\Release\c++direct2dapp.exe
      1>Done Building Project "C:\Users\jack\Documents\GitHub\C--Project\c++direct2dapp\c++direct2dapp\c++direct2dapp.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:15.02
+Time Elapsed 00:00:01.41

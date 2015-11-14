@@ -19,6 +19,7 @@ public:
 	static bool keyA;
 	static bool keyS;
 	static bool keyD;
+	static bool shift;
 	static int fps;
 	static float zoomLevel;
 	static bool mouseMoved;

@@ -8,6 +8,7 @@ bool gameController::keyW;
 bool gameController::keyA;
 bool gameController::keyS;
 bool gameController::keyD;
+bool gameController::shift;
 float gameController::zoomLevel;
 int gameController::fps;
 Point gameController::mouse;
