@@ -9,10 +9,9 @@
 class Menu : public gameLevel
 {
 public:
-
+	void HandleInput() override;
 	void Load() override;
 	void Unload() override;
-	void Render();
-	void Update();
-	vector<Button*> buttons;
+	void Render() override;
+	void Update() override;
 };

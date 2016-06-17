@@ -5,6 +5,7 @@
 enum behaviorType { hover, follow, inactive, patrol };
 enum hoverMode { rise, fall };
 enum droneType {spyDrone, hunterDrone };
+enum side {eleft, eright};
 class Drone : public Rect {
 protected:
 	SpriteSheet* left;
@@ -29,6 +30,8 @@ protected:
 	int maxShootCooldown;
 	colour laserColour;
 	droneType type;
+	side fireSide;
+
 public:
 	Drone();
 	Drone(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
@@ -43,4 +46,7 @@ public:
 	bool getFiring();
 	colour getLaserColour();
 	droneType getDroneType();
+	side getFireSide();
+	behaviorType getBehaviorType();
+	Point getPatrolDestination(int _i);
 };

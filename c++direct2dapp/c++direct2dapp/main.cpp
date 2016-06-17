@@ -5,6 +5,7 @@
 #include "Level1.h"
 #include "level2.h"
 #include "Level3.h"
+#include "editorLevel.h"
 #include "menu.h"
 #include "gameController.h"
 #include "Camera.h"
@@ -19,10 +20,18 @@
 #include "psapi.h"
 #include <fstream>
 #include <string>
+#include "Dsound.h"
+#include "tinyxml2.h"
+using namespace tinyxml2;
 using namespace std;
 
 #define DIV 1048576
-
+#define DBOUT( s )            \
+{                             \
+   std::wostringstream os_;    \
+   os_ << s;                   \
+   OutputDebugStringW( os_.str().c_str() );  \
+}
 Graphics* graphics;
 Camera* camera;
 RECT rect;
@@ -51,23 +60,29 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case 0x57:
 			gameController::keyW = true;
 			break;
-
 		case 0x41:
 			gameController::keyA = true;
 			break;
-
 		case 0x53:
 			gameController::keyS = true;
 			break;
-
 		case 0x44:
 			gameController::keyD = true;
+			break;
+		case 0x51:
+			gameController::keyQ = true;
+			break;
+		case 0x5A:
+			gameController::keyZ = true;
 			break;
 		case VK_SPACE:
 			gameController::space = true;
 			break;
 		case VK_SHIFT:
 			gameController::shift = true;
+			break;
+		case VK_CONTROL:
+			gameController::control = true;
 			break;
 		}
 		break;
@@ -77,23 +92,29 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case 0x57:
 			gameController::keyW = false;
 			break;
-
 		case 0x41:
 			gameController::keyA = false;
 			break;
-
 		case 0x53:
 			gameController::keyS = false;
 			break;
-
 		case 0x44:
 			gameController::keyD = false;
+			break;
+		case 0x51:
+			gameController::keyQ = false;
+			break;
+		case 0x5A:
+			gameController::keyZ = false;
 			break;
 		case VK_SPACE:
 			gameController::space = false;
 			break;
 		case VK_SHIFT:
 			gameController::shift = false;
+			break;
+		case VK_CONTROL:
+			gameController::control = false;
 			break;
 		case VK_ESCAPE:
 			if (paused)
@@ -142,9 +163,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow) //same as int main in normal c++, the first code run in the program
 {
 	vector<Point> temppoints;
-
 	graphics = new Graphics();
-
 	WNDCLASSEX windowclass;
 	ZeroMemory(&windowclass, sizeof(WNDCLASSEX));
 	windowclass.cbSize = sizeof(WNDCLASSEX);
@@ -153,7 +172,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	windowclass.lpfnWndProc = WindowProc;
 	windowclass.lpszClassName = "MainWindow";
 	windowclass.style = CS_HREDRAW | CS_VREDRAW;
-
 	RegisterClassEx(&windowclass);
 	RECT desktop;
 	// Get a handle to the desktop window
@@ -188,25 +206,22 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	int starttime = 0;
 	int endtime = 0;
 	float endminusstart = 0;
+	
 
 	Point randompoint = { 0,0 };
 	gameController::mouse = randompoint;
-	//===========||TODO||===============//
-	//1. Particle effects, the object   ||
-	//   itself with a wrapper object   ||
-	//   and vector, and function like  ||
-	//   add(how many, for how long)    ||
-	//   etc.                           ||
-	//   and the art for it             ||
-	//   time: 2 hours                  ||
-	//==================================//
-	//2. menu, a main menu as well as   ||
-	//   pause screen with [back to mm] ||
-	//   and [quit] and maybe a save    ||
-	//   feature?                       ||
-	//	 time: 2 hours                  ||
-	//==================================//
-	//3.
+	//===========||TODO||=============///
+	// 1. XML                         |x|
+	//================================///
+	// 2. Level editor                | |
+	//================================///
+	// 3. Audio                       | |
+	//================================///
+	// 4. Networking                  | |
+	//================================///
+	// 5. Direct 3D                   | |
+	//================================///
+
 
 	while (message.message != WM_QUIT)
 	{
@@ -220,14 +235,17 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			mouseLeft = gameController::mouseLeft;
 
 			graphics->setCamera(cameraPos);
+			//handling input
+			gameController::HandleInput();
 			//updating everything
 			gameController::Update();
 			lastMouseLeft = mouseLeft;
 			graphics->BeginDraw();
 			graphics->centerCamera(cameraPos);
-
+			
 			//drawing everything
 			gameController::Render();
+			//theLevelEditor.draw();
 			graphics->settleScreenShake();
 			graphics->screenShake();
 
@@ -235,6 +253,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 			endtime = clock();
 			endminusstart = endtime - starttime;
 			// resource/time use display ----------
+			
 			randompoint = { 26,26 };
 			graphics->FillRect(randompoint, 108, 18, 0.2, 0.2, 0.2, 1);
 			randompoint = { 30,30 };

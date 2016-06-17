@@ -4,7 +4,7 @@ using namespace std;
 int screenWidth;
 int screenHeight;
 
-Rect::Rect(Point _position, float _width, float _height, float _yVel, float _xVel, bool _fixed, rectType _type, bool _gravity, Graphics * gfxi)
+Rect::Rect(Point _position, float _width, float _height, float _xVel, float _yVel, bool _fixed, rectType _type, bool _gravity, Graphics * gfxi)
 {
 	position = _position;
 	width = _width;
@@ -101,7 +101,7 @@ void Rect::setPosition(Point _p)
 
 void Rect::draw()
 {
-	gfx->DrawRect(position, width, height, 0.5f, 0.5f, 0.5f, 1.0f);
+	gfx->FillRect(position, width, height, 0.5f, 0.5f, 0.5f, 1.0f);
 	//gfx->DrawRect(position, width, height, 1.0f, 1.0f, 1.0f, 0.5f);
 }
 

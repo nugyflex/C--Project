@@ -9,6 +9,8 @@ class Player : public Rect {
 	SpriteSheet* spritewalkingright;
 	SpriteSheet* spritestandingleft;
 	SpriteSheet* spritestandingright;
+	SpriteSheet* spritecrouchingleft;
+	SpriteSheet* spritecrouchingright;
 	SpriteSheet* spritewalkingleftwithbags;
 	SpriteSheet* spritewalkingrightwithbags;
 	SpriteSheet* spritestandingleftwithbags;
@@ -18,6 +20,8 @@ class Player : public Rect {
 	bool invulnerable;
 	bool crouched;
 	bool lastCrouched;
+	int vel;
+	bool sprinting;
 public:
 	Player();
 	Player(Point _position, float _width, float _height, float _yVel, float _xVel, Graphics * gfxi);
@@ -38,4 +42,7 @@ public:
 	void setInvulnerable(bool _b);
 	bool getCrouched();
 	void setCrouched(bool _bool);
+	int getVel();
+	void setVel(int _vel);
+	bool getSprinting();
 };

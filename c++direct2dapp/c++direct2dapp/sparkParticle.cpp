@@ -8,7 +8,7 @@ sparkParticle::sparkParticle(Point _position, Graphics* _gfx, float _xvel, float
 	yVel = _yvel;
 }
 
-sparkParticle::~sparkParticle() {}
+sparkParticle::~sparkParticle() {delete image;}
 
 void sparkParticle::load()
 {

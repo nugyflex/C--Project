@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<P1>
+	<x>-800</x>
+	<y>-250</y>
+	<width>650</width>
+	<height>50</height>
+</P1>
+<P2>
+	<x>-200</x>
+	<y>-200</y>
+	<width>50</width>
+	<height>400</height>
+</P2>
+<P3>
+	<x>-800</x>
+	<y>-200</y>
+	<width>50</width>
+	<height>400</height>
+</P3>
+<P4>
+	<x>-750</x>
+	<y>150</y>
+	<width>350</width>
+	<height>50</height>
+</P4>
+<P5>
+	<x>-350</x>
+	<y>150</y>
+	<width>150</width>
+	<height>50</height>
+</P5>
+<P6>
+	<x>-200</x>
+	<y>200</y>
+	<width>50</width>
+	<height>150</height>
+</P6>
+<P7>
+	<x>-700</x>
+	<y>300</y>
+	<width>500</width>
+	<height>50</height>
+</P7>
+<P8>
+	<x>-800</x>
+	<y>200</y>
+	<width>50</width>
+	<height>150</height>
+</P8>
+<P9>
+	<x>-1100</x>
+	<y>300</y>
+	<width>300</width>
+	<height>50</height>
+</P9>
+<P10>
+	<x>-850</x>
+	<y>350</y>
+	<width>50</width>
+	<height>150</height>
+</P10>
+<P11>
+	<x>-650</x>
+	<y>350</y>
+	<width>50</width>
+	<height>150</height>
+</P11>
+<P12>
+	<x>-1100</x>
+	<y>550</y>
+	<width>950</width>
+	<height>50</height>
+</P12>
+<P13>
+	<x>-150</x>
+	<y>300</y>
+	<width>150</width>
+	<height>50</height>
+</P13>
+<P14>
+	<x>-50</x>
+	<y>300</y>
+	<width>50</width>
+	<height>600</height>
+</P14>
+<P15>
+	<x>-600</x>
+	<y>850</y>
+	<width>550</width>
+	<height>50</height>
+</P15>
+<P16>
+	<x>-1250</x>
+	<y>850</y>
+	<width>500</width>
+	<height>50</height>
+</P16>
+<P17>
+	<x>-1250</x>
+	<y>300</y>
+	<width>150</width>
+	<height>50</height>
+</P17>
+<P18>
+	<x>-1250</x>
+	<y>350</y>
+	<width>50</width>
+	<height>500</height>
+</P18>
+<P19>
+	<x>-700</x>
+	<y>600</y>
+	<width>50</width>
+	<height>300</height>
+</P19>
+<D1>
+	<x>-900</x>
+	<y>450</y>
+	<type>spy</type>
+	<willPatrol>true</willPatrol>
+	<P1x>-900</P1x>
+	<P1y>450</P1y>
+	<P2x>-1050</P2x>
+	<P2y>450</P2y>
+</D1>
+<D2>
+	<x>-1050</x>
+	<y>400</y>
+	<type>spy</type>
+	<willPatrol>true</willPatrol>
+	<P1x>-1050</P1x>
+	<P1y>400</P1y>
+	<P2x>-900</P2x>
+	<P2y>400</P2y>
+</D2>
+<D3>
+	<x>-550</x>
+	<y>700</y>
+	<type>spy</type>
+	<willPatrol>true</willPatrol>
+	<P1x>-550</P1x>
+	<P1y>700</P1y>
+	<P2x>-200</P2x>
+	<P2y>700</P2y>
+</D3>
+<D4>
+	<x>-200</x>
+	<y>650</y>
+	<type>spy</type>
+	<willPatrol>true</willPatrol>
+	<P1x>-200</P1x>
+	<P1y>650</P1y>
+	<P2x>-550</P2x>
+	<P2y>650</P2y>
+</D4>
+<D5>
+	<x>-500</x>
+	<y>400</y>
+	<type>hunter</type>
+	<willPatrol>true</willPatrol>
+	<P1x>-500</P1x>
+	<P1y>400</P1y>
+	<P2x>-150</P2x>
+	<P2y>400</P2y>
+</D5>
+<D6>
+	<x>-750</x>
+	<y>400</y>
+	<type>hunter</type>
+	<willPatrol>true</willPatrol>
+	<P1x>-750</P1x>
+	<P1y>400</P1y>
+	<P2x>-700</P2x>
+	<P2y>500</P2y>
+</D6>
+<D7>
+	<x>-800</x>
+	<y>700</y>
+	<type>hunter</type>
+	<willPatrol>true</willPatrol>
+	<P1x>-800</P1x>
+	<P1y>700</P1y>
+	<P2x>-1050</P2x>
+	<P2y>700</P2y>
+</D7>
+<PLAYERPOS>
+	<x>-650</x>
+	<y>-100</y>
+</PLAYERPOS>
+<EXITPOINT>
+	<x>-750</x>
+	<y>850</y>
+	<width>150</width>
+	<height>50</height>
+	<timer>60</timer>
+	<forcedxvel>0.000000</forcedxvel>
+	<level>1</level>
+</EXITPOINT>
+<NUMBEROFPLATFORMS>19</NUMBEROFPLATFORMS>
+<NUMBEROFDRONES>7</NUMBEROFDRONES>

@@ -20,4 +20,8 @@ public:
 	Point getPosition();
 	void runTimer();
 	void activate(Player* _pl);
+	float getForcedxVel();
+	int getLevel();
+	int getTimer();
 };
+extern vector<exitPoint*> exitPoints;

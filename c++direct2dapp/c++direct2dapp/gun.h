@@ -4,6 +4,7 @@
 #include "Graphics.h"
 #include "SpriteSheet.h"
 #include "rectangle.h"
+#include "drone.h"
 
 class Gun
 {

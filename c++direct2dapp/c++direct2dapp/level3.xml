@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<NUMBEROFPLATFORMS>18</NUMBEROFPLATFORMS>
+
+<NUMBEROFDRONES>5</NUMBEROFDRONES>
+
+<P1>
+    <x>-100</x>
+    <y>0</y>
+    <width>360</width>
+    <height>50</height>
+</P1>
+
+<P2>
+    <x>340</x>
+    <y>0</y>
+    <width>460</width>
+    <height>50</height>
+</P2>
+
+<P3>
+    <x>0</x>
+    <y>0</y>
+    <width>50</width>
+    <height>500</height>
+</P3>
+
+<P4>
+    <x>800</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>500</height>
+</P4>
+
+<P5>
+    <x>0</x>
+    <y>450</y>
+    <width>360</width>
+    <height>50</height>
+</P5>
+
+<P6>
+    <x>430</x>
+    <y>450</y>
+    <width>1500</width>
+    <height>150</height>
+</P6>
+
+<P7>
+    <x>-110</x>
+    <y>600</y>
+    <width>590</width>
+    <height>50</height>
+</P7>
+
+<P8>
+    <x>-50</x>
+    <y>550</y>
+    <width>10</width>
+    <height>50</height>
+</P8>
+
+<P9>
+    <x>-60</x>
+    <y>500</y>
+    <width>10</width>
+    <height>100</height>
+</P9>
+
+<P10>
+    <x>-70</x>
+    <y>450</y>
+    <width>10</width>
+    <height>150</height>
+</P10>
+
+<P11>
+    <x>-110</x>
+    <y>450</y>
+    <width>50</width>
+    <height>150</height>
+</P11>
+
+<P12>
+    <x>-200</x>
+    <y>200</y>
+    <width>200</width>
+    <height>50</height>
+</P12>
+
+<P13>
+    <x>-400</x>
+    <y>200</y>
+    <width>150</width>
+    <height>50</height>
+</P13>
+
+<P14>
+    <x>-300</x>
+    <y>100</y>
+    <width>50</width>
+    <height>100</height>
+</P14>
+
+<P15>
+    <x>-300</x>
+    <y>0</y>
+    <width>150</width>
+    <height>150</height>
+</P15>
+
+<P16>
+    <x>-400</x>
+    <y>0</y>
+    <width>100</width>
+    <height>250</height>
+</P16>
+
+<P17>
+    <x>-200</x>
+    <y>0</y>
+    <width>200</width>
+    <height>200</height>
+</P17>
+
+<P18>
+    <x>-400</x>
+    <y>450</y>
+    <width>340</width>
+    <height>50</height>
+</P18>
+<D1><x>-240</x><y>160</y><type>spy</type><willPatrol>false</willPatrol></D1><D2><x>-230</x><y>160</y><type>spy</type><willPatrol>false</willPatrol></D2><D3><x>-240</x><y>170</y><type>spy</type><willPatrol>false</willPatrol></D3><D4><x>-230</x><y>170</y><type>spy</type><willPatrol>false</willPatrol></D4><D5><x>-50</x><y>560</y><type>hunter</type><willPatrol>true</willPatrol><P1x>-50</P1x><P1y>560</P1y><P2x>400</P2x><P2y>560</P2y></D5><EXITPOINT><x>-400</x><y>200</y><width>50</width><height>200</height><timer>60</timer><forcedxvel>-1.000000</forcedxvel><level>1</level></EXITPOINT><PLAYERPOS><x>280</x><y>0</y></PLAYERPOS>

@@ -16,15 +16,15 @@ void Player::draw()
 {
 	if (crouched && !lastCrouched)
 	{
-		height = 52 / 2;
-		position.y += 52 / 2;
+		height = 33;
+		position.y += 19;
 	}
 	else
 	{
 		if (!crouched && lastCrouched)
 		{
-			height = 52;
-			position.y -= 52 / 2;
+			height = 54;
+			position.y -= 19;
 		}
 	}
 	if (hasBags)
@@ -98,43 +98,79 @@ void Player::draw()
 			}
 			if (xVel == 0)
 			{
-				if (lastdirection == 0)
+				if (!crouched)
 				{
-					spritestandingleft->Draw(0, position.x - 9, position.y);
+					if (lastdirection == 0)
+					{
+						spritestandingleft->Draw(0, position.x - 9, position.y);
+					}
+					if (lastdirection == 1)
+					{
+						spritestandingright->Draw(0, position.x - 9, position.y);
+					}
 				}
-				if (lastdirection == 1)
+				else
 				{
-					spritestandingright->Draw(0, position.x - 9, position.y);
+					if (lastdirection == 0)
+					{
+						spritecrouchingleft->Draw(0, position.x - 9, position.y);
+					}
+					if (lastdirection == 1)
+					{
+						spritecrouchingright->Draw(0, position.x - 9, position.y);
+					}
 				}
 			}
 		}
 		else
 		{
-			if (xVel > 0)
+			if (!crouched)
 			{
-				spritewalkingright->Draw(3, position.x - 9, position.y);
-				lastdirection = 1;
+				if (xVel > 0)
+				{
+					spritewalkingright->Draw(3, position.x - 9, position.y);
+					lastdirection = 1;
+				}
+				if (xVel < 0)
+				{
+					spritewalkingleft->Draw(3, position.x - 9, position.y);
+					lastdirection = 0;
+				}
+				if (xVel == 0)
+				{
+					if (lastdirection == 0)
+					{
+						spritewalkingleft->Draw(3, position.x - 9, position.y);
+					}
+					if (lastdirection == 1)
+					{
+						spritewalkingright->Draw(3, position.x - 9, position.y);
+					}
+				}
 			}
-			if (xVel < 0)
-			{
-				spritewalkingleft->Draw(3, position.x - 9, position.y);
-				lastdirection = 0;
-			}
-			if (xVel == 0)
+			else
 			{
 				if (lastdirection == 0)
 				{
-					spritewalkingleft->Draw(3, position.x - 9, position.y);
+					spritecrouchingleft->Draw(0, position.x - 9, position.y);
 				}
 				if (lastdirection == 1)
 				{
-					spritewalkingright->Draw(3, position.x - 9, position.y);
+					spritecrouchingright->Draw(0, position.x - 9, position.y);
 				}
 			}
 		}
 	}
-	gfx->FillRect(position, health * 5, 5, 1, 1, 1, 1);
+	gfx->FillRect(Point{ position.x - 5, position.y - 10 }, health * 5, 5, 1, 1, 1, 1);
 	lastCrouched = crouched;
+	if (vel == 5)
+	{
+		sprinting = true;
+	}
+	else
+	{
+		sprinting = false;
+	}
 }
 
 void Player::load()
@@ -144,6 +180,8 @@ void Player::load()
 	spritewalkingright = new SpriteSheet(L"walkingrightnobags.png", 32, 54, 0, 4, gfx);
 	spritestandingleft = new SpriteSheet(L"standingleft.png", 32, 54, 0, 1, gfx);
 	spritestandingright = new SpriteSheet(L"standingright.png", 32, 54, 0, 1, gfx);
+	spritecrouchingleft = new SpriteSheet(L"crouchingleft.png", 32, 54, 0, 1, gfx);
+	spritecrouchingright = new SpriteSheet(L"crouchingright.png", 32, 54, 0, 1, gfx);
 	spritewalkingleftwithbags = new SpriteSheet(L"walkingleftwithbags.png", 32, 54, 0, 4, gfx);
 	spritewalkingrightwithbags = new SpriteSheet(L"walkingrightwithbags.png", 32, 54, 0, 4, gfx);
 	spritestandingleftwithbags = new SpriteSheet(L"standingleftwithbags.png", 32, 54, 0, 1, gfx);
@@ -154,7 +192,8 @@ void Player::load()
 	invulnerable = false;
 	crouched = false;
 	width = 12;
-	height = 52;
+	height = 54;
+	vel = 3;
 }
 int Player::getWeaponOffsetY()
 {
@@ -200,4 +239,16 @@ bool Player::getCrouched()
 void Player::setCrouched(bool _bool)
 {
 	crouched = _bool;
+}
+int Player::getVel()
+{
+	return vel;
+}
+void Player::setVel(int _vel)
+{
+	vel = _vel;
+}
+bool Player::getSprinting()
+{
+	return sprinting;
 }

@@ -19,7 +19,10 @@ public:
 	static bool keyA;
 	static bool keyS;
 	static bool keyD;
+	static bool keyQ;
+	static bool keyZ;
 	static bool shift;
+	static bool control;
 	static int fps;
 	static float zoomLevel;
 	static bool mouseMoved;
@@ -30,6 +33,7 @@ public:
 	static void LoadInitialLevel(gameLevel* lev);
 	static void  SwitchLevel(gameLevel* lev);
 
+	static void HandleInput();
 	static void Render();
 	static void Update();
 	static void setMouseX(float _x);

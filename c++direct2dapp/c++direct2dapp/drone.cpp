@@ -148,6 +148,7 @@ void Drone::calcNewPos(Point _position)
 		{
 			shootCooldown = maxShootCooldown;
 			firing = true;
+			if (fireSide == eleft) { fireSide = eright; } else { fireSide = eleft; }
 		}
 		break;
 	case hover:
@@ -279,4 +280,16 @@ colour Drone::getLaserColour()
 droneType Drone::getDroneType()
 {
 	return type;
+}
+side Drone::getFireSide()
+{
+	return fireSide;
+}
+behaviorType Drone::getBehaviorType()
+{
+	return mode;
+}
+Point Drone::getPatrolDestination(int _i)
+{
+	return patrolDestinations[_i];
 }

@@ -7,7 +7,17 @@ bool mouseLeft;
 bool lastMouseLeft;
 bool paused;
 bool lastPaused;
-
+bool espace;
+bool ekeyW;
+bool ekeyA;
+bool ekeyS;
+bool ekeyD;
+bool ekeyQ;
+bool ekeyZ;
+bool eshift;
+bool econtrol;
+Gun::Gun()
+{}
 Gun::Gun(float _x, float _y, Graphics * _gfx)
 {
 	position.x = _x;

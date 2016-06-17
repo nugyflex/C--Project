@@ -5,31 +5,45 @@
 void Menu::Load()
 {
 	Button* temp = new Level1Button(0, 0, gfx);
-	buttons.push_back(temp);
+	Buttons.push_back(temp);
 	temp = new ExitButton(0, 100, gfx);
-	buttons.push_back(temp);
+	Buttons.push_back(temp);
+	Buttons.push_back(new LevelEditorButton(0, 200, gfx));
 }
 
 void Menu::Unload()
 {
+	for (int i = 0; i < Buttons.size(); i++)
+	{
+		delete Buttons[i];
+	}
+	Buttons.clear();
 }
 
 void Menu::Update()
 {
 	cameraPos = Point{ 0,0 };
-	for (int i = 0; i < buttons.size(); i++)
-	{
-		if (!lastMouseLeft && mouseLeft && CollisionDetection::checkPointRectIntersect(mousePos, buttons[i]->getPosition(), 100, 50))
-		{
-			buttons[i]->action();
-		}
-	}
 }
 void Menu::Render()
 {
 	gfx->ClearScreen(0, 0, 0.02f);
-	for (int i = 0; i < buttons.size(); i++)
+	for (int i = 0; i < Buttons.size(); i++)
 	{
-		buttons[i]->draw();
+		Buttons[i]->draw();
+	}
+}
+void Menu::HandleInput()
+{
+	for (int i = 0; i < Buttons.size(); i++)
+	{
+		if (!lastMouseLeft && mouseLeft)
+		{
+			Point test = Buttons[i]->getPosition();
+			if (CollisionDetection::checkPointRectIntersect(mousePos, Buttons[i]->getPosition(), 100, 50))
+			{
+				Buttons[i]->action();
+				break;
+			}
+		}
 	}
 }

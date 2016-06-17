@@ -11,6 +11,9 @@
 #include "Level1Button.h"
 #include "ExitButton.h"
 #include "exitPoint.h"
+#include "LevelEditorButton.h"
+#include "explosion.h"
+#include "grenade.h"
 #include <vector>
 
 using namespace std;
@@ -25,6 +28,7 @@ public:
 	{
 		gfx = graphics;
 	}
+	virtual void HandleInput() = 0;
 	virtual void Load() = 0;
 	virtual void Unload() = 0;
 	virtual void Render() = 0;

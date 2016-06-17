@@ -5,7 +5,7 @@ Particle::Particle(Point _position)
 	xVel = 0;
 	yVel = 0;
 }
-Particle::~Particle() {}
+Particle::~Particle() { delete image; }
 
 Particle::Particle() {}
 

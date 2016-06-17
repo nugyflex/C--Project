@@ -58,3 +58,16 @@ void exitPoint::runTimer()
 		}
 	}
 }
+float exitPoint::getForcedxVel()
+{
+	return forcedxVel;
+}
+int exitPoint::getLevel()
+{
+	return level;
+}
+int exitPoint::getTimer()
+{
+	return switchLevelTimer;
+}
+vector<exitPoint*> exitPoints;

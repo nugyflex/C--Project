@@ -5,7 +5,12 @@ particleCollection::particleCollection(Graphics* _gfx)
 {
 	gfx = _gfx;
 }
-particleCollection::~particleCollection() {}
+particleCollection::~particleCollection() {
+	for (int i = 0; i < particles.size(); i++)
+	{
+		delete particles[i];
+	}
+}
 void particleCollection::add(particleType _type, Point _position, float _xvel, float _yvel)
 {
 	switch (_type)

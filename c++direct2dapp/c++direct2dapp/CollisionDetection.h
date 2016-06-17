@@ -30,5 +30,6 @@ public:
 	static Point projectLineToEdge(Point _c, Point _p1, Point _p2);
 	static bool checkPointRectIntersect(Point _p1, Point _r, float width, float height);
 	static void correctPositionParticle(Particle* _particle, Rect* _platform);
+	static void correctPositionBounce(Rect* _player, Rect* _platform, float _bounceAmount, float _friction);
 	static Point convertPointFromPointer(Point* _p);
 };

@@ -10,6 +10,7 @@ ExitButton::~ExitButton() {}
 ExitButton::ExitButton(int _x, int _y, Graphics * _gfx) :
 	Button(_x, _y, _gfx)
 {
+	type = nothing;
 }
 void ExitButton::action()
 {

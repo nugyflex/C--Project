@@ -6,6 +6,8 @@
 #include <d2d1effecthelpers.h>
 #include "Common.h"
 #include <math.h>
+#include <stdio.h>
+#include <fstream>
 enum colour { red, blue, green, orange, purple, yellow };
 
 class Graphics //the graphics class, used to draw everything, handles the rendertarget as well
@@ -45,6 +47,7 @@ public:
 	void DrawRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a);
 	void FillRect(Point _position, float _width, float _height, float _r, float _g, float _b, float _a);
 	void DrawLine(Point _position1, Point _position2, float _r, float _g, float _b, float _a);
+	void DrawLine(Point _position1, Point _position2, float _r, float _g, float _b, float _a, float _thickness);
 	void centerCamera(Point _position);
 	void setZoomLevel(float _zoom);
 	float getZoomLevel();

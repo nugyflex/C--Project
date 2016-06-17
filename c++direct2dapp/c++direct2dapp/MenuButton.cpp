@@ -10,6 +10,7 @@ MenuButton::~MenuButton() {}
 MenuButton::MenuButton(int _x, int _y, Graphics * _gfx) :
 	Button(_x, _y, _gfx)
 {
+	type = nothing;
 }
 void MenuButton::action()
 {

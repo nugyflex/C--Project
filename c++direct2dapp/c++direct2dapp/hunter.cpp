@@ -42,11 +42,13 @@ void Hunter::load()
 	roamTimer = 0;
 	destinations.push_back(Point{ position.x, position.y });
 	nextPatrolIndex = 0;
-	maxShootCooldown = 10;
+	maxShootCooldown = 20;
 	type = hunterDrone;
+	fireSide = eleft;
 }
 void Hunter::draw()
 {
+	type = hunterDrone;
 	default->Draw(0, position.x - 8, position.y - 6);
 	if (yVel < 0)
 	{

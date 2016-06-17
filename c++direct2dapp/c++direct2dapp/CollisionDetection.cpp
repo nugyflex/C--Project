@@ -589,3 +589,62 @@ Point CollisionDetection::convertPointFromPointer(Point* _p)
 {
 	return Point{ _p->x, _p->y };
 }
+void CollisionDetection::correctPositionBounce(Rect* _player, Rect* _platform, float _bounceAmount, float _friction)
+{
+
+	//left = 1, bottom = 2, right = 3, top = 4
+	if (!_player->getFixed() && CheckRectangleIntersect(_player, _platform))
+	{
+		switch (getSide(_player, _platform))
+		{
+		case 1:
+			if (_player->getyVel() < 0) {
+				_player->setyVel(_player->getyVel()*_friction);
+			}
+			if (_player->getyVel() > 0) {
+				_player->setyVel(_player->getyVel()*_friction);
+			}
+			if (_player->getxVel() > 0) {
+				_player->setxVel(_player->getxVel()*_bounceAmount);
+			}
+			_player->setX(_platform->getX() - _player->getWidth());
+			break;
+		case 3:
+			if (_player->getyVel() < 0) {
+				_player->setyVel(_player->getyVel()*_friction);
+			}
+			if (_player->getyVel() > 0) {
+				_player->setyVel(_player->getyVel()*_friction);
+			}
+			if (_player->getxVel() < 0) {
+				_player->setxVel(_player->getxVel()*-_bounceAmount);
+			}
+			_player->setX(_platform->getX() + _platform->getWidth());
+			break;
+		case 2:
+			if (_player->getxVel() < 0) {
+				_player->setxVel(_player->getxVel()*_friction);
+			}
+			if (_player->getxVel() > 0) {
+				_player->setxVel(_player->getxVel()*_friction);
+			}
+			if (_player->getyVel() < 0) {
+				_player->setyVel(_player->getyVel()*-_bounceAmount);
+			}
+			_player->setY(_platform->getY() + _platform->getHeight());
+			break;
+		case 4:
+			if (_player->getxVel() < 0) {
+				_player->setxVel(_player->getxVel()*_friction);
+			}
+			if (_player->getxVel() > 0) {
+				_player->setxVel(_player->getxVel()*_friction);
+			}
+			if (_player->getyVel() > 0) {
+				_player->setyVel(_player->getyVel()*-_bounceAmount);
+			}
+			_player->setY(_platform->getY() - _player->getHeight());
+			break;
+		}
+	}
+}

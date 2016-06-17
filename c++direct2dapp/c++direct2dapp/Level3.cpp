@@ -8,9 +8,9 @@ void Level3::loadObjects() //loads the level, called when the level is instantia
 	boundaryIn.x = -10000;
 	boundaryIn.y = 0;
 	boundaryOut.x = 1800;
-	boundaryOut.y = 1300;
-	exitPoints.push_back(new exitPoint(Point{ -400, 200 }, 50, 200, 60, -1, 1));
-	Rects.push_back(new Player(Point{ 280, 0 }, 12, 54, 0, 0, gfx));
+	boundaryOut.y = 1300;/*
+	//exitPoints.push_back(new exitPoint(Point{ -400, 200 }, 50, 200, 60, -1, 1));
+	Rects.push_back(new Player(Point{ 280, 0 }, 12, 54, 0, 0, gfx));/*
 	Rects.push_back(new Platform(Point{ -100, 0 }, 360, 50, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 340, 0 }, 460, 50, 0, 0, gfx));
 	Rects.push_back(new Platform(Point{ 0, 0 }, 50, 500, 0, 0, gfx));
@@ -38,10 +38,6 @@ void Level3::loadObjects() //loads the level, called when the level is instantia
 	Rects.push_back(new Spy(Point{ -230, 160 }, 10, 10, 0, 0, gfx));
 	Rects.push_back(new Spy(Point{ -240, 170 }, 10, 10, 0, 0, gfx));
 	Rects.push_back(new Spy(Point{ -230, 170 }, 10, 10, 0, 0, gfx));
-	Rects.push_back(new Hunter(Point{ -50, 560 }, 10, 10, 0, 0, Point{ -50, 560 }, Point{ 400, 560 }, gfx));
-	Gun* newgun = new assaultRifle(300, 300, gfx);
-	weapons.push_back(newgun);
-	weapons[0]->load();
-	weapons[0]->setParent(true);
-	((Player*)Rects[0])->addWeapon(weapons[0]);
+	Rects.push_back(new Hunter(Point{ -50, 560 }, 10, 10, 0, 0, Point{ -50, 560 }, Point{ 400, 560 }, gfx));*/
+	xmlPath = "level3.xml";
 }

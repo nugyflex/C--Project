@@ -8,12 +8,15 @@ bool gameController::keyW;
 bool gameController::keyA;
 bool gameController::keyS;
 bool gameController::keyD;
+bool gameController::keyQ;
+bool gameController::keyZ;
 bool gameController::shift;
 float gameController::zoomLevel;
 int gameController::fps;
 Point gameController::mouse;
 bool gameController::mouseMoved;
 bool gameController::mouseLeft;
+bool gameController::control;
 
 void gameController::Init()
 {
@@ -45,9 +48,22 @@ void gameController::Render()
 	if (Loading) return;
 	currentlevel->Render();
 }
-
+void gameController::HandleInput()
+{
+	if (Loading) return;
+	currentlevel->HandleInput();
+}
 void gameController::Update()
 {
+	espace = space;
+	ekeyW = keyW;
+	ekeyA = keyA;
+	ekeyS = keyS;
+	ekeyD = keyD;
+	ekeyQ = keyQ;
+	ekeyZ = keyZ;
+	eshift = shift;
+	econtrol = control;
 	if (Loading) return;
 	currentlevel->Update();
 }

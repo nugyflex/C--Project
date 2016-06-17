@@ -49,7 +49,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>windowscodecs.lib;d2d1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>windowscodecs.lib;d2d1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Dsound.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -74,18 +74,23 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
     <ClCompile Include="drone.cpp" />
+    <ClCompile Include="editorLevel.cpp" />
     <ClCompile Include="ExitButton.cpp" />
     <ClCompile Include="exitPoint.cpp" />
+    <ClCompile Include="explosion.cpp" />
     <ClCompile Include="fireball.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameLevel.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="grenade.cpp" />
     <ClCompile Include="gun.cpp" />
     <ClCompile Include="hunter.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="Level1Button.cpp" />
     <ClCompile Include="level2.cpp" />
     <ClCompile Include="Level3.cpp" />
+    <ClCompile Include="levelEditor.cpp" />
+    <ClCompile Include="LevelEditorButton.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="MenuButton.cpp" />
@@ -103,6 +108,7 @@
     <ClCompile Include="sparkParticle.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
     <ClCompile Include="Spy.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="assaultRifle.h" />
@@ -111,12 +117,15 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CollisionDetection.h" />
     <ClInclude Include="drone.h" />
+    <ClInclude Include="editorLevel.h" />
     <ClInclude Include="ExitButton.h" />
     <ClInclude Include="exitPoint.h" />
+    <ClInclude Include="explosion.h" />
     <ClInclude Include="fireball.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameLevel.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="grenade.h" />
     <ClInclude Include="gun.h" />
     <ClInclude Include="hunter.h" />
     <ClInclude Include="Level1.h" />
@@ -124,6 +133,8 @@
     <ClInclude Include="Level1Button.h" />
     <ClInclude Include="level2.h" />
     <ClInclude Include="Level3.h" />
+    <ClInclude Include="levelEditor.h" />
+    <ClInclude Include="LevelEditorButton.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Particle.h" />
@@ -140,6 +151,7 @@
     <ClInclude Include="sparkParticle.h" />
     <ClInclude Include="SpriteSheet.h" />
     <ClInclude Include="spy.h" />
+    <ClInclude Include="tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="gradient_sprite.png" />
@@ -147,8 +159,11 @@
     <Image Include="sandfloor1.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
+    <Image Include="soloud\soloud.png" />
+    <Image Include="soloud\soloud_inv.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="Randomize12.bfxrsound" />
   </ItemGroup>
   <ItemGroup>
